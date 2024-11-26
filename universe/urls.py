@@ -5,4 +5,7 @@ urlpatterns = [
     path('', views.landing_page, name='landing'), # Base URL for the landing page
     path('home/', views.home_page, name='home'), # Home URL
     path('register/', views.register_page, name='register'), # Register URL
+    path('profile/', views.profile_page, name='profile'), # Profile URL
+    path('character/', views.make_character_page, name='make_character'), # Make A Character URL
+    path('logout/', views.logout_view_page, name='logout'), # Logout URL
 ]

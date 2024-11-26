@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -12,3 +13,13 @@ def home_page(request):
 
 def register_page(request):
     return render(request, 'universe/register.html') # Render the Register/Log In page template
+
+def profile_page(request):
+    return render(request, 'universe/profile.html')
+
+def make_character_page(request):
+    return render(request, 'universe/character.html')
+
+def logout_view_page(request):
+    logout(request)
+    return redirect('home')

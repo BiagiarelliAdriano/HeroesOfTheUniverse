@@ -50,9 +50,6 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     padding: 10px 20px;
@@ -60,16 +57,33 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#header .header-right {
-    font-size: 1.5em;
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+    padding-left: 20px;
+    margin: 0;
 }
 
-#header .header-left {
+.nav-title:hover {
+    color: #ffcc00;
+}
+
+.nav-left {
     display: flex;
-    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-#site-title, .nav-button {
+.nav-right {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.nav-button {
     color: black;
     text-decoration: none;
     font-weight: bold;
@@ -78,7 +92,7 @@ body {
     padding-left: 20px;
 }
 
-#site-title:hover, .nav-button:hover {
+.nav-button:hover {
     color: #ffcc00;
 }
 
@@ -95,6 +109,10 @@ body {
     padding: 10px 20px;
     z-index: 1000;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-left {
+    padding-left: 30px;
 }
 
 #footer .footer-center {
