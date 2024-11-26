@@ -13,6 +13,7 @@ body {
     box-sizing: border-box;
 }
 
+/* Landing Page Styling */
 /* Title Button Styling */
 #title-button {
     font-size: 3em;
@@ -94,6 +95,60 @@ body {
 
 .nav-button:hover {
     color: #ffcc00;
+}
+
+/* Register Page Styling */
+/* Main Container Styling */
+#main-container {
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Title Styling */
+#title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Description Styling */
+#description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+#form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.registration-button {
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-button:hover {
+    background-color: #0056b3;
 }
 
 /* Footer Styling */

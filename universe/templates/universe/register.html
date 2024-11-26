@@ -3,18 +3,34 @@
 {% block title %}Register - Heroes Of The Universe{% endblock %}
 
 {% block content %}
-    <h1>Register / Log In</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <label for="favorite">Favorite TTRPG:</label>
-        <input type="text" id="favorite" name="favorite">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
+<div id="main-container">
+    <h1 id="title">Register / Log In</h1>
+    <p id="description">
+        Fill out the following form to register your account and start sharing your best characters with other
+        adventurers.
+        Or, if you already have an account, just log in using your credentials!
+    </p>
+
+    <div id="form-container">
+        <!-- Registration Form -->
+        <div id="register-section">
+            <h2>Register</h2>
+            <form class="registration-form" method="POST" action="">
+                {% csrf_token %}
+                {{ register_form.as_p }}
+                <button type="submit" class="registration-button" name="register">Register</button>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-section">
+            <h2>Log In</h2>
+            <form class="registration-form" method="POST" action="">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit" class="registration-button" name="login">Log In</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
