@@ -46,11 +46,6 @@ def register_or_login(request):
             password = request.POST.get('password')
             favorite_ttrpg = request.POST.get('favorite_ttrpg')
 
-            # Validate inputs
-            if not username or not password:
-                messages.error(request, "All fields are required.")
-                return render(request, 'universe/register.html')
-
             # Check if the username already exists
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Username already exists.")
@@ -67,7 +62,6 @@ def register_or_login(request):
 
             # Log the user in
             login(request, user)
-            messages.success(request, "Registration successful! Welcome.")
             return redirect('home')
 
         # Login logic (if 'login' key is present in POST)
@@ -78,7 +72,6 @@ def register_or_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, "Login successful! Welcome back.")
                 return redirect('home')
             else:
                 messages.error(request, "Invalid username or password.")

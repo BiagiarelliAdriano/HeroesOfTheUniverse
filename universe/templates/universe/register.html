@@ -4,6 +4,16 @@
 {% block title %}Register - Heroes Of The Universe{% endblock %}
 
 {% block content %}
+{% if messages %}
+    <div class="alert-messages">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 <div id="main-container">
     <h1 id="title">Register / Log In</h1>
     <p id="description">
