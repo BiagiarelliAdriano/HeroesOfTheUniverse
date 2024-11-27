@@ -43,6 +43,20 @@
             </div>
             <button type="submit" class="registration-button">Submit</button>
         </form>
+
+        <!-- Login Form -->
+         <form id="login-form" class="registration-form" method="POST" action="{% url 'register_or_login' %}" style="display: none;">
+            {% csrf_token %}
+            <div>
+                <label for="id_username_login">Username:</label>
+                <input type="text" id="id_username_login" name="username" required>
+            </div>
+            <div>
+                <label for="id_password_login">Password:</label>
+                <input type="password" id="id_password_login" name="password" required>
+            </div>
+            <button type="submit" name="login" class="registration-button">Log In</button>
+         </form>
     </div>
 </div>
 

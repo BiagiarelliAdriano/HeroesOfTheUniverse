@@ -40,24 +40,48 @@ class RegisterForm(forms.ModelForm):
 
 def register_or_login(request):
     if request.method == 'POST':
-        # Process Registration Form
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        favorite_ttrpg = request.POST.get('favorite_ttrpg')
+        # Registration logic (if no 'login' key is present in POST)
+        if 'login' not in request.POST:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            favorite_ttrpg = request.POST.get('favorite_ttrpg')
 
-        # Check if the user exists
-        if User.objects.filter(username=username).exists():
-            messages.error(request, "Username already exists. Please choose another.")
-            return redirect('/register') # Redirect back to registration page
+            # Validate inputs
+            if not username or not password:
+                messages.error(request, "All fields are required.")
+                return render(request, 'universe/register.html')
 
-        # Create user
-        user = User.objects.create_user(username=username, password=password)
+            # Check if the username already exists
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username already exists.")
+                return render(request, 'universe/register.html')
 
-        # Log in user
-        login(request, user)
+            # Create the user
+            try:
+                user = User.objects.create_user(username=username, password=password)
+                user.profile.favorite_ttrpg = favorite_ttrpg
+                user.profile.save()
+            except Exception as e:
+                messages.error(request, f"Error creating user: {str(e)}")
+                return render(request, 'universe/register.html')
 
-        # Redirect to home page
-        return redirect('/home')
-    
-    # Default behavior: render the page
+            # Log the user in
+            login(request, user)
+            messages.success(request, "Registration successful! Welcome.")
+            return redirect('home')
+
+        # Login logic (if 'login' key is present in POST)
+        else:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Login successful! Welcome back.")
+                return redirect('home')
+            else:
+                messages.error(request, "Invalid username or password.")
+                return render(request, 'universe/register.html')
+
     return render(request, 'universe/register.html')
