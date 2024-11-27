@@ -1,4 +1,5 @@
 {% extends 'universe/base.html' %}
+{% load static %}
 
 {% block title %}Register - Heroes Of The Universe{% endblock %}
 
@@ -7,30 +8,43 @@
     <h1 id="title">Register / Log In</h1>
     <p id="description">
         Fill out the following form to register your account and start sharing your best characters with other
-        adventurers.
+        adventurers. <br>
         Or, if you already have an account, just log in using your credentials!
     </p>
 
-    <div id="form-container">
-        <!-- Registration Form -->
-        <div id="register-section">
-            <h2>Register</h2>
-            <form class="registration-form" method="POST" action="">
-                {% csrf_token %}
-                {{ register_form.as_p }}
-                <button type="submit" class="registration-button" name="register">Register</button>
-            </form>
+    <div class="form-container">
+        <!-- Initial Buttons -->
+        <div id="buttons-container">
+            <div id="register-section">
+                <h2 id="register-title">Register</h2>
+                <button id="show-register-form" class="registration-button">Register</button>
+            </div>
+
+            <div id="login-section">
+                <h2 id="login-title">Log In</h2>
+                <button class="show-form registration-button">Log In</button>
+            </div>
         </div>
 
-        <!-- Login Form -->
-        <div id="login-section">
-            <h2>Log In</h2>
-            <form class="registration-form" method="POST" action="">
-                {% csrf_token %}
-                {{ login_form.as_p }}
-                <button type="submit" class="registration-button" name="login">Log In</button>
-            </form>
-        </div>
+        <!-- Registration Form -->
+        <form id="register-form" class="registration-form" method="POST" action="{% url 'register_or_login' %}" style="display: none;">
+            {% csrf_token %}
+            <div>
+                <label for="id_username">Username:</label>
+                <input type="text" id="id_username" name="username" required>
+            </div>
+            <div>
+                <label for="id_password">Password:</label>
+                <input type="password" id="id_password" name="password" required>
+            </div>
+            <div>
+                <label for="id_favorite_ttrpg">Favorite TTRPG:</label>
+                <input type="text" id="id_favorite_ttrpg" name="favorite_ttrpg">
+            </div>
+            <button type="submit" class="registration-button">Submit</button>
+        </form>
     </div>
 </div>
+
+<script src="{% static 'js/scripts.js' %}" defer></script>
 {% endblock %}

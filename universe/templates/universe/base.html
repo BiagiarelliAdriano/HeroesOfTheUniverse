@@ -23,7 +23,7 @@
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="nav-button">Log Out</a>
                 {% else %}
-                <a href="{% url 'register' %}" class="nav-button">Register / Log In</a>
+                <a href="{% url 'register_or_login' %}" class="nav-button">Register / Log In</a>
                 {% endif %}
             </div>
         </nav>

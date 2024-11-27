@@ -4,6 +4,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django import forms
+from .models import Profile
 
 # Create your views here.
 def landing_page(request):
@@ -31,41 +32,32 @@ def logout_view_page(request):
 # Custom Registration Form
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-    favorite_ttrpg = forms.CharField(max_length=100)
+    favorite_ttrpg = forms.CharField(max_length=100, required=False)
 
     class Meta:
         model = User
-        fields = [('username', 'password')]
+        fields = ['username', 'password']
 
 def register_or_login(request):
-    if request.user.is_authenticated: # User is already logged in
-        return redirect('home')
-
     if request.method == 'POST':
-        if 'register' in request.POST: # User submitted the registration form
-            register_form = RegisterForm(request.POST)
-            if register_form.is_valid():
-                user = register_form.save(commit=False)
-                user.set_password(register_form.cleaned_data['password']) # Hash password
-                user.save()
-                messages.success(request, "Account created successfully! You can now log in.")
-                return redirect('/register') # Redirect to login form
-        elif 'login' in request.POST: # User submitted the login form
-            login_form = AuthenticationForm(data=request.POST)
-            if login_form.is_valid():
-                username = login_form.cleaned_data['username']
-                password = login_form.cleaned_data['password']
-                user = authenticate(request, username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return redirect('/home')
-                else:
-                    messages.error(request, "Invalid credentials, please try again.")
-    else: # If no form was submitted
-        register_form = RegisterForm()
-        login_form = AuthenticationForm()
+        # Process Registration Form
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        favorite_ttrpg = request.POST.get('favorite_ttrpg')
 
-    return render(request, 'register.html', {
-        'register_form': register_form,
-        'login_form': login_form,
-    })
+        # Check if the user exists
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists. Please choose another.")
+            return redirect('/register') # Redirect back to registration page
+
+        # Create user
+        user = User.objects.create_user(username=username, password=password)
+
+        # Log in user
+        login(request, user)
+
+        # Redirect to home page
+        return redirect('/home')
+    
+    # Default behavior: render the page
+    return render(request, 'universe/register.html')
