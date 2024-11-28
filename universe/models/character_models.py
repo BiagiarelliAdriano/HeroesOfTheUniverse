@@ -22,7 +22,7 @@ class Character(models.Model):
     max_hit_dice = models.PositiveIntegerField(default=0)
 
     # Death Saves
-    death_save_success = models.PositiveIntegerField(default=0)
+    death_save_successes = models.PositiveIntegerField(default=0)
     death_save_failures = models.PositiveIntegerField(default=0)
 
     # Other Combat Stats
