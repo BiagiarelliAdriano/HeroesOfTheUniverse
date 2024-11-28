@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.modedls import User
+from django.contrib.auth.models import User
 
 class Character(models.Model):
     # Basic Character Info
@@ -30,7 +30,7 @@ class Character(models.Model):
     speed = models.PositiveIntegerField(default=30)
     size = models.CharField(max_length=100, blank=True, null=True)
     passive_perception = models.PositiveIntegerField(default=10)
-    proficiency_bonus = models.IntegerField(deefault=2)
+    proficiency_bonus = models.IntegerField(default=2)
 
     # Ability Scores And Modifiers
     strength_score = models.PositiveIntegerField(default=10)
