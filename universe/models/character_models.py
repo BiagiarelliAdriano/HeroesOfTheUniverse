@@ -75,7 +75,8 @@ class Character(models.Model):
     persuasion_skill = models.BooleanField(default=False)
 
     # Features And Proficiencies
-    class_features = models.TextField(blank=True, null=True)
+    class_features_1 = models.TextField(blank=True, null=True)
+    class_features_2 = models.TextField(blank=True, null=True)
     heroic_inspiration = models.BooleanField(default=False)
     light_armor_training = models.BooleanField(default=False)
     medium_armor_training = models.BooleanField(default=False)

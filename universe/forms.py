@@ -1,5 +1,6 @@
 from django import forms
-from .models import Character
+from django.forms import modelformset_factory
+from .models import Character, Weapon
 
 class CharacterForm(forms.ModelForm):
     class Meta:
@@ -18,7 +19,14 @@ class CharacterForm(forms.ModelForm):
             'arcana_skill', 'history_skill', 'investigation_skill', 'nature_skill', 'religion_skill',
             'animal_handling_skill', 'insight_skill', 'medicine_skill', 'perception_skill', 'survival_skill',
             'deception_skill', 'intimidation_skill', 'performance_skill', 'persuasion_skill',
-            'class_features', 'heroic_inspiration', 'light_armor_training', 'medium_armor_training',
+            'class_features_1', 'class_features_2', 'heroic_inspiration', 'light_armor_training', 'medium_armor_training',
             'heavy_armor_training', 'shield_armor_training', 'weapons_proficiencies', 'tools_proficiencies',
             'species_traits', 'feats',
         ]
+
+class WeaponForm(forms.ModelForm):
+    class Meta:
+        model = Weapon
+        fields = ['name', 'attack_bonus_save_dc', 'damage_type', 'weapon_notes']
+
+WeaponFormSet = modelformset_factory(Weapon, form=WeaponForm, extra=3)

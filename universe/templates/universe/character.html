@@ -10,10 +10,10 @@
             <div class="character-header-info">
                 <label for="id_name">Name:</label>
                 {{ form.name }}
-                <label for="id_species">Species:</label>
-                {{ form.species }}
                 <label for="id_background">Background:</label>
                 {{ form.background }}
+                <label for="id_species">Species:</label>
+                {{ form.species }}
                 <label for="id_character_class">Class:</label>
                 {{ form.character_class }}
                 <label for="id_subclass">Subclass:</label>
@@ -27,50 +27,31 @@
 
         <!-- Combat Stats -->
         <section class="combat-section">
-            <h2 class="character-info-title">Combat Information</h2>
             <div class="combat-stats">
                 <label for="id_armor_class">Armor Class:</label>
                 {{ form.armor_class }}
                 <label for="id_shield">Shield:</label>
                 {{ form.shield }}
-                <label for="id_initiative">Initiative:</label>
-                {{ form.initiative }}
-                <label for="id_speed">Speed:</label>
-                {{ form.speed }}
-                <label for="id_size">Size:</label>
-                {{ form.size }}
-                <label for="id_passive_perception">Passive Perception:</label>
-                {{ form.passive_perception }}
-                <label for="id_proficiency_bonus">Proficiency Bonus:</label>
-                {{ form.proficiency_bonus }}
-            </div>
-        </section>
-
-        <!-- Hit Points -->
-        <section class="hit-points-section">
-            <h2 class="character-info-title">Hit Points</h2>
-            <div class="hit-points">
-                <label for="id_current_hit_points">Current HP:</label>
-                {{ form.current_hit_points }}
-                <label for="id_temp_hit_points">Temp HP:</label>
-                {{ form.temp_hit_points }}
-                <label for="id_max_hit_points">Max HP:</label>
-                {{ form.max_hit_points }}
-                <label for="id_spent_hit_dice">Spent Hit Dice:</label>
-                {{ form.spent_hit_dice }}
-                <label for="id_max_hit_dice">Max Hit Dice:</label>
-                {{ form.max_hit_dice }}
-            </div>
-        </section>
-
-        <!-- Death Saves -->
-        <section class="death-saves-section">
-            <h2 class="character-info-title">Death Saves</h2>
-            <div class="death-saves">
-                <label for="id_death_save_successes">Successes:</label>
-                {{ form.death_save_success }}
-                <label for="id_death_save_failures">Failures:</label>
-                {{ form.death_save_failures }}
+                <h2 class="character-info-title">Hit Points</h2>
+                <div class="hit-points">
+                    <label for="id_current_hit_points">Current HP:</label>
+                    {{ form.current_hit_points }}
+                    <label for="id_temp_hit_points">Temp HP:</label>
+                    {{ form.temp_hit_points }}
+                    <label for="id_max_hit_points">Max HP:</label>
+                    {{ form.max_hit_points }}
+                    <label for="id_spent_hit_dice">Spent Hit Dice:</label>
+                    {{ form.spent_hit_dice }}
+                    <label for="id_max_hit_dice">Max Hit Dice:</label>
+                    {{ form.max_hit_dice }}
+                </div>
+                <h2 class="character-info-title">Death Saves</h2>
+                <div class="death-saves">
+                    <label for="id_death_save_successes">Successes:</label>
+                    {{ form.death_save_success }}
+                    <label for="id_death_save_failures">Failures:</label>
+                    {{ form.death_save_failures }}
+                </div>
             </div>
         </section>
 
@@ -78,6 +59,8 @@
         <section class="abilities-section">
             <h2 class="character-info-title">Ability Scores</h2>
             <div class="abilities">
+                <label for="id_proficiency_bonus">Proficiency Bonus:</label>
+                {{ form.proficiency_bonus }}
                 <div class="ability">
                     <label>Strength</label>
                     {{ form.strength_score }}
@@ -132,21 +115,44 @@
                     <label>Performance</label>{{ form.performance_skill }}
                     <label>Persuasion</label>{{ form.persuasion_skill }}
                 </div>
+                <label for="id_heroic_inspiration">Heroic Inspiration:</label>
+                {{ form.heroic_inspiration }}
+                <h2 class="character-info-title">Equipment Training & Proficiencies</h2>
+                <label>Armor Training</label>
+                <label>Light</label>{{ form.light_armor_training }}
+                <label>Medium</label>{{ form.medium_armor_training }}
+                <label>Heavy</label>{{ form.heavy_armor_training }}
+                <label>Shield</label>{{ form.shield_armor_training }}
+                <label for="id_weapons_proficiencies">Weapons Proficiencies:</label>
+                {{ form.weapons_proficiencies }}
+                <label for="id_tools_proficiencies">Tools Proficiencies:</label>
+                {{ form.tools_proficiencies }}
             </div>
         </section>
 
         <!-- Features & Proficiencies -->
         <section class="features-section">
-            <h2 class="character-info-title">Features & Proficiencies</h2>
+            <h2 class="character-info-title">Features</h2>
             <div class="features">
+                <label for="id_initiative">Initiative:</label>
+                {{ form.initiative }}
+                <label for="id_speed">Speed:</label>
+                {{ form.speed }}
+                <label for="id_size">Size:</label>
+                {{ form.size }}
+                <label for="id_passive_perception">Passive Perception:</label>
+                {{ form.passive_perception }}
+                <h3>Weapons & Damage Cantrips</h3>
+                <div class="weapon-formset">
+                    {% for weapon_form in weapon_formset %}
+                    <div class="weapon">
+                        {{ weapon_form.as_p }}
+                    </div>
+                    {% endfor %}
+                </div>
                 <label for="id_class_features">Class Features:</label>
-                {{ form.class_features }}
-                <label for="id_heroic_inspiration">Heroic Inspiration:</label>
-                {{ form.heroic_inspiration }}
-                <label for="id_weapons_proficiencies">Weapons Proficiencies:</label>
-                {{ form.weapons_proficiencies }}
-                <label for="id_tools_proficiencies">Tools Proficiencies:</label>
-                {{ form.tools_proficiencies }}
+                {{ form.class_features_1 }}
+                {{ form.class_features_2 }}
                 <label for="id_species_traits">Species Traits:</label>
                 {{ form.species_traits }}
                 <label for="id_feats">Feats:</label>
