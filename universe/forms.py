@@ -8,7 +8,7 @@ class CharacterForm(forms.ModelForm):
             'name', 'background', 'species', 'character_class', 'subclass',
             'level', 'xp', 'armor_class', 'shield', 'current_hit_points',
             'temp_hit_points', 'max_hit_points', 'spent_hit_dice', 'max_hit_dice',
-            'death_save_successes', 'death_save_failures', 'initiative', 'speed', 'size',
+            'death_save_success', 'death_save_failures', 'initiative', 'speed', 'size',
             'passive_perception', 'proficiency_bonus', 'strength_score', 'strength_modifier',
             'dexterity_score', 'dexterity_modifier', 'constitution_score', 'constitution_modifier',
             'intelligence_score', 'intelligence_modifier', 'wisdom_score', 'wisdom_modifier',

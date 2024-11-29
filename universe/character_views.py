@@ -7,6 +7,7 @@ def create_or_edit_character(request, character_id=None):
         character = get_object_or_404(Character, id=character_id)
         form = CharacterForm(request.POST or None, instance=character)
     else:
+        character = Character()
         form = CharacterForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 
-<body>
+<body class="{% if request.path == '/character/' %}character-page{% endif %}">
     <!-- Navigation Header -->
     <header id="header">
         <nav>
