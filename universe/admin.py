@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
+from .models.character_models import Character
 from .models import Profile
 
 # Register your models here.
@@ -23,3 +24,9 @@ class ProfileAdmin(admin.ModelAdmin):
     list_filter = ('favorite_ttrpg',)
 
 admin.site.register(Profile, ProfileAdmin)
+
+# Characters
+@admin.register(Character)
+class CharacterAdmin(admin.ModelAdmin):
+    list_display = ('name', 'level', 'character_class')
+    search_fields = ('name', 'character_class')
