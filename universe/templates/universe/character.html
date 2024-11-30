@@ -1,6 +1,17 @@
 {% extends 'universe/base.html' %}
 
 {% block content %}
+
+{% if messages %}
+<div class="alert-messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="character-sheet-container">
     <form method="POST" id="character-form">
         {% csrf_token %}
@@ -144,10 +155,11 @@
                 {{ form.passive_perception }}
                 <h3>Weapons & Damage Cantrips</h3>
                 <div class="weapon-formset">
+                    {{ weapon_formset.management_form }}
                     {% for weapon_form in weapon_formset %}
-                    <div class="weapon">
+                    <fieldset>
                         {{ weapon_form.as_p }}
-                    </div>
+                    </fieldset>
                     {% endfor %}
                 </div>
                 <label for="id_class_features">Class Features:</label>

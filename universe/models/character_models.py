@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Character(models.Model):
     # Basic Character Info
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     background = models.CharField(max_length=100, blank=True, null=True)
     species = models.CharField(max_length=100, blank=True, null=True)
     character_class = models.CharField(max_length=100, blank=True, null=True)
@@ -89,3 +89,7 @@ class Character(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.user.username})"
+
+    def save(self, *args, **kwargs):
+        if not Character.objects.filter(name=self.name).exists():
+            super().save(*args, **kwargs)

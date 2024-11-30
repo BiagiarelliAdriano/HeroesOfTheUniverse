@@ -26,7 +26,9 @@ class ProfileAdmin(admin.ModelAdmin):
 admin.site.register(Profile, ProfileAdmin)
 
 # Characters
-@admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
-    list_display = ('name', 'level', 'character_class')
-    search_fields = ('name', 'character_class')
+    list_display = ('name', 'user', 'level', 'character_class')
+    search_fields = ('name', 'user__username', 'character_class')
+    list_filter = ('level', 'character_class')
+
+admin.site.register(Character, CharacterAdmin)
