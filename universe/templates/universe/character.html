@@ -19,160 +19,191 @@
         <!-- Header Section -->
         <section class="character-header">
             <div class="character-header-info">
-                <label for="id_name">Name:</label>
-                {{ form.name }}
-                <label for="id_background">Background:</label>
-                {{ form.background }}
-                <label for="id_species">Species:</label>
-                {{ form.species }}
-                <label for="id_character_class">Class:</label>
-                {{ form.character_class }}
-                <label for="id_subclass">Subclass:</label>
-                {{ form.subclass }}
-                <label for="id_level">Level:</label>
-                {{ form.level }}
-                <label for="id_xp">XP:</label>
-                {{ form.xp }}
-            </div>
-        </section>
-
-        <!-- Combat Stats -->
-        <section class="combat-section">
-            <div class="combat-stats">
-                <label for="id_armor_class">Armor Class:</label>
-                {{ form.armor_class }}
-                <label for="id_shield">Shield:</label>
-                {{ form.shield }}
-                <h2 class="character-info-title">Hit Points</h2>
-                <div class="hit-points">
-                    <label for="id_current_hit_points">Current HP:</label>
-                    {{ form.current_hit_points }}
+                <div class="columns">
+                    <label for="id_name">Name:</label>
+                    {{ form.name }}
+                    <label for="id_background">Background:</label>
+                    {{ form.background }}
+                    <label for="id_species">Species:</label>
+                    {{ form.species }}
+                </div>
+                <div class="columns">
+                    <label for="id_character_class">Class:</label>
+                    {{ form.character_class }}
+                    <label for="id_subclass">Subclass:</label>
+                    {{ form.subclass }}
+                </div>
+                <div class="columns">
+                    <label for="id_level">Level:</label>
+                    {{ form.level }}
+                    <label for="id_xp">XP:</label>
+                    {{ form.xp }}
+                </div>
+                <div class="columns">
+                    <label for="id_armor_class">Armor Class:</label>
+                    {{ form.armor_class }}
+                    <label for="id_shield">Shield:</label>
+                    {{ form.shield }}
+                </div>
+                <div class="columns">
+                    <h2 class="character-info-title">Hit Points</h2>
+                    <div class="hit-points">
+                        <div>
+                            <label for="id_current_hit_points">Current HP:</label>
+                            {{ form.current_hit_points }}
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
                     <label for="id_max_hit_points">Max HP:</label>
                     {{ form.max_hit_points }}
                     <label for="id_temp_hit_points">Temp HP:</label>
                     {{ form.temp_hit_points }}
+                </div>
+                <div class="columns">
                     <label for="id_spent_hit_dice">Spent Hit Dice:</label>
                     {{ form.spent_hit_dice }}
                     <label for="id_max_hit_dice">Max Hit Dice:</label>
                     {{ form.max_hit_dice }}
                 </div>
-                <h2 class="character-info-title">Death Saves</h2>
-                <div class="death-saves">
-                    <label for="id_death_save_successes">Successes:</label>
-                    {{ form.death_save_success }}
-                    <label for="id_death_save_failures">Failures:</label>
-                    {{ form.death_save_failures }}
+                <div class="columns">
+                    <h2 class="character-info-title">Death Saves</h2>
+                    <div class="death-saves">
+                        <label for="id_death_save_successes">Successes:</label>
+                        {{ form.death_save_success }}
+                        <label for="id_death_save_failures">Failures:</label>
+                        {{ form.death_save_failures }}
+                    </div>
                 </div>
-            </div>
         </section>
 
         <!-- Abilities -->
         <section class="abilities-section">
-            <h2 class="character-info-title">Ability Scores</h2>
             <div class="abilities">
-                <label for="id_proficiency_bonus">Proficiency Bonus:</label>
-                {{ form.proficiency_bonus }}
-                <div class="ability">
-                    <label>Strength</label>
-                    {{ form.strength_score }}
-                    {{ form.strength_modifier }}
-                    <label>Saving Throw</label>{{ form.strength_saving_throw }}
-                    <label>Athletic</label>{{ form.athletic_skill }}
+                <div class="columns-abilities">
+                    <h2 class="character-info-title">Ability Scores</h2>
+                    <div class="proficiency-bonus-container">
+                        <label class="proficiency-bonus-label" for="id_proficiency_bonus">Proficiency Bonus:</label>
+                        {{ form.proficiency_bonus }}
+                    </div>
+                    <div class="ability">
+                        <label>Strength</label>
+                        {{ form.strength_score }}
+                        {{ form.strength_modifier }}
+                        <label>Saving Throw</label>{{ form.strength_saving_throw }}
+                        <label>Athletic</label>{{ form.athletic_skill }}
+                    </div>
+                    <div class="ability">
+                        <label>Dexterity</label>
+                        {{ form.dexterity_score }}
+                        {{ form.dexterity_modifier }}
+                        <label>Saving Throw</label>{{ form.dexterity_saving_throw }}
+                        <label>Acrobatics</label>{{ form.acrobatics_skill }}
+                        <label>Sleight Of Hand</label>{{ form.sleight_of_hand_skill }}
+                        <label>Stealth</label>{{ form.stealth_skill }}
+                    </div>
+                    <div class="ability">
+                        <label>Constitution</label>
+                        {{ form.constitution_score }}
+                        {{ form.constitution_modifier }}
+                        <label>Saving Throw</label>{{ form.constitution_saving_throw }}
+                    </div>
                 </div>
-                <div class="ability">
-                    <label>Dexterity</label>
-                    {{ form.dexterity_score }}
-                    {{ form.dexterity_modifier }}
-                    <label>Saving Throw</label>{{ form.dexterity_saving_throw }}
-                    <label>Acrobatics</label>{{ form.acrobatics_skill }}
-                    <label>Sleight Of Hand</label>{{ form.sleight_of_hand_skill }}
-                    <label>Stealth</label>{{ form.stealth_skill }}
-                </div>
-                <div class="ability">
-                    <label>Constitution</label>
-                    {{ form.constitution_score }}
-                    {{ form.constitution_modifier }}
-                    <label>Saving Throw</label>{{ form.constitution_saving_throw }}
-                </div>
-                <div class="ability">
-                    <label>Intelligence</label>
-                    {{ form.intelligence_score }}
-                    {{ form.intelligence_modifier }}
-                    <label>Saving Throw</label>{{ form.intelligence_saving_throw }}
-                    <label>Arcana</label>{{ form.arcana_skill }}
-                    <label>History</label>{{ form.history_skill }}
-                    <label>Investigation</label>{{ form.investigation_skill }}
-                    <label>Nature</label>{{ form.nature_skill }}
-                    <label>Religion</label>{{ form.religion_skill }}
-                </div>
-                <div class="ability">
-                    <label>Wisdom</label>
-                    {{ form.wisdom_score }}
-                    {{ form.wisdom_modifier }}
-                    <label>Saving Throw</label>{{ form.wisdom_saving_throw }}
-                    <label>Animal Handling</label>{{ form.animal_handling_skill }}
-                    <label>Insight</label>{{ form.insight_skill }}
-                    <label>Medicine</label>{{ form.medicine_skill }}
-                    <label>Perception</label>{{ form.perception_skill }}
-                    <label>Survival</label>{{ form.survival_skill }}
-                </div>
-                <div class="ability">
-                    <label>Charisma</label>
-                    {{ form.charisma_score }}
-                    {{ form.charisma_modifier }}
-                    <label>Saving Throw</label>{{ form.charisma_saving_throw }}
-                    <label>Deception</label>{{ form.deception_skill }}
-                    <label>Intimidation</label>{{ form.intimidation_skill }}
-                    <label>Performance</label>{{ form.performance_skill }}
-                    <label>Persuasion</label>{{ form.persuasion_skill }}
+                <div class="columns-abilities">
+                    <div class="ability">
+                        <label>Intelligence</label>
+                        {{ form.intelligence_score }}
+                        {{ form.intelligence_modifier }}
+                        <label>Saving Throw</label>{{ form.intelligence_saving_throw }}
+                        <label>Arcana</label>{{ form.arcana_skill }}
+                        <label>History</label>{{ form.history_skill }}
+                        <label>Investigation</label>{{ form.investigation_skill }}
+                        <label>Nature</label>{{ form.nature_skill }}
+                        <label>Religion</label>{{ form.religion_skill }}
+                    </div>
+                    <div class="ability">
+                        <label>Wisdom</label>
+                        {{ form.wisdom_score }}
+                        {{ form.wisdom_modifier }}
+                        <label>Saving Throw</label>{{ form.wisdom_saving_throw }}
+                        <label>Animal Handling</label>{{ form.animal_handling_skill }}
+                        <label>Insight</label>{{ form.insight_skill }}
+                        <label>Medicine</label>{{ form.medicine_skill }}
+                        <label>Perception</label>{{ form.perception_skill }}
+                        <label>Survival</label>{{ form.survival_skill }}
+                    </div>
+                    <div class="ability">
+                        <label>Charisma</label>
+                        {{ form.charisma_score }}
+                        {{ form.charisma_modifier }}
+                        <label>Saving Throw</label>{{ form.charisma_saving_throw }}
+                        <label>Deception</label>{{ form.deception_skill }}
+                        <label>Intimidation</label>{{ form.intimidation_skill }}
+                        <label>Performance</label>{{ form.performance_skill }}
+                        <label>Persuasion</label>{{ form.persuasion_skill }}
+                    </div>
                 </div>
                 <label for="id_heroic_inspiration">Heroic Inspiration:</label>
                 {{ form.heroic_inspiration }}
+                <div class="columns-abilities">
+                    <h2 class="character-info-title">Features</h2>
+                    <div class="features">
+                        <label for="id_initiative">Initiative:</label>
+                        {{ form.initiative }}
+                        <label for="id_speed">Speed:</label>
+                        {{ form.speed }}
+                        <label for="id_size">Size:</label>
+                        {{ form.size }}
+                        <label for="id_passive_perception">Passive Perception:</label>
+                        {{ form.passive_perception }}
+                    </div>
+                </div>
+        </section>
+
+        <!-- Proficiencies -->
+        <section class="proficiencies-section">
+            <div class="proficiencies-container">
                 <h2 class="character-info-title">Equipment Training & Proficiencies</h2>
-                <label>Armor Training</label>
-                <label>Light</label>{{ form.light_armor_training }}
-                <label>Medium</label>{{ form.medium_armor_training }}
-                <label>Heavy</label>{{ form.heavy_armor_training }}
-                <label>Shield</label>{{ form.shield_armor_training }}
-                <label for="id_weapons_proficiencies">Weapons Proficiencies:</label>
+                <div class="armor-training">
+                    <h3 class="character-info-title">Armor Training</h3>
+                    <label for="light_armor_training" class="armor-traning-label">
+                        Light</label>{{ form.light_armor_training }}
+                    <label for="medium_armor_training" class="armor-traning-label">
+                        Medium</label>{{ form.medium_armor_training }}
+                    <label for="heavy_armor_training" class="armor-traning-label">
+                        Heavy</label>{{ form.heavy_armor_training }}
+                    <label for="shield_armor_training" class="armor-traning-label">
+                        Shield</label>{{ form.shield_armor_training }}
+                </div>
+                <label for="id_weapons_proficiencies" class="proficiencies-label">Weapons Proficiencies:</label>
                 {{ form.weapons_proficiencies }}
-                <label for="id_tools_proficiencies">Tools Proficiencies:</label>
+                <label for="id_tools_proficiencies" class="proficiencies-label">Tools Proficiencies:</label>
                 {{ form.tools_proficiencies }}
             </div>
         </section>
 
-        <!-- Features & Proficiencies -->
+        <!-- Features-->
         <section class="features-section">
-            <h2 class="character-info-title">Features</h2>
-            <div class="features">
-                <label for="id_initiative">Initiative:</label>
-                {{ form.initiative }}
-                <label for="id_speed">Speed:</label>
-                {{ form.speed }}
-                <label for="id_size">Size:</label>
-                {{ form.size }}
-                <label for="id_passive_perception">Passive Perception:</label>
-                {{ form.passive_perception }}
-                <h3>Weapons & Damage Cantrips</h3>
-                <div class="weapon-formset">
-                    {{ weapon_formset.management_form }}
-                    {% for weapon_form in weapon_formset %}
-                    <fieldset>
-                        {{ weapon_form.as_p }}
-                    </fieldset>
-                    {% endfor %}
-                </div>
-                <label for="id_class_features">Class Features:</label>
-                {{ form.class_features_1 }}
-                {{ form.class_features_2 }}
-                <label for="id_species_traits">Species Traits:</label>
-                {{ form.species_traits }}
-                <label for="id_feats">Feats:</label>
-                {{ form.feats }}
+            <h3>Weapons & Damage Cantrips</h3>
+            <div class="weapon-formset">
+                {{ weapon_formset.management_form }}
+                {% for weapon_form in weapon_formset %}
+                <fieldset>
+                    {{ weapon_form.as_p }}
+                </fieldset>
+                {% endfor %}
             </div>
-        </section>
+            <label for="id_class_features">Class Features:</label>
+            {{ form.class_features_1 }}
+            {{ form.class_features_2 }}
+            <label for="id_species_traits">Species Traits:</label>
+            {{ form.species_traits }}
+            <label for="id_feats">Feats:</label>
+            {{ form.feats }}
+</div>
+</section>
 
-        <button type="submit" class="save-character">Save Character</button>
-    </form>
+<button type="submit" class="save-character">Save Character</button>
+</form>
 </div>
 {% endblock %}

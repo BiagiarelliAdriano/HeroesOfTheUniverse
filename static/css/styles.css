@@ -1,4 +1,10 @@
 /* General Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -394,7 +400,6 @@ button.save-character {
 }
 
 @media screen and (min-width: 768px) {
-
     /* Title Button Styling */
     #title-button {
         font-size: 3em;
@@ -446,45 +451,61 @@ button.save-character {
         cursor: pointer;
     }
 
+    /* Adjust Character Sheet Container */
     .character-sheet-container {
-        width: 95%;
-        padding: 10px;
-        font-size: 0.9em;
+        width: 80%;
+        max-width: 900px;
+        padding: 20px;
     }
 
-    main {
-        padding-top: 80px;
-        padding-bottom: 80px;
+    /* Character Header Section */
+    .character-header {
+        margin-bottom: 25px;
     }
 
-    .combat-stats div,
-    .hit-points div,
-    .death-saves div {
-        gap: 30px;
+    .character-info-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
     }
 
+    .character-header-info label {
+        font-size: 1.1em;
+    }
+
+    input, select {
+        font-size: 1.1em;
+    }
+
+    /* Abilities Grid */
     .abilities {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .saving-throws {
         grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+        text-align: left;
     }
 
-    .skills {
-        grid-template-columns: repeat(3, 1fr);
+    .ability {
+        padding: 15px;
+        background-color: #f7f7f7;
     }
 
-    .features {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .ability label {
+        font-size: 1.1em;
     }
 
-    .combat-stats label,
-    .hit-points label,
-    .death-saves label {
-        width: 45%;
+    /* Features & Proficiencies */
+    .features label,
+    .proficiencies-label {
+        font-size: 1.1em;
+    }
+
+    .features textarea,
+    .proficiencies-container textarea {
+        font-size: 14px;
+    }
+
+    button.save-character {
+        font-size: 1.4em;
+        padding: 12px 25px;
     }
 
     /* Footer Styling */
@@ -509,28 +530,61 @@ button.save-character {
     }
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+    /* Adjust Character Sheet Container */
     .character-sheet-container {
-        width: 60%;
+        width: 70%;
+        max-width: 1000px;
+        padding: 30px;
     }
 
+    /* Character Header Section */
+    .character-header {
+        margin-bottom: 30px;
+    }
+
+    .character-info-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .character-header-info label {
+        font-size: 1.2em;
+    }
+
+    input, select {
+        font-size: 1.2em;
+    }
+
+    /* Abilities Grid */
     .abilities {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        text-align: left;
     }
 
-    .skills {
-        grid-template-columns: repeat(4, 1fr);
+    .ability {
+        padding: 20px;
+        background-color: #f7f7f7;
     }
 
-    .features {
-        grid-template-columns: repeat(3, 1fr);
+    .ability label {
+        font-size: 1.2em;
+    }
+
+    /* Features & Proficiencies */
+    .features label,
+    .proficiencies-label {
+        font-size: 1.2em;
+    }
+
+    .features textarea,
+    .proficiencies-container textarea {
+        font-size: 16px;
     }
 
     button.save-character {
-        cursor: pointer;
-    }
-
-    button.save-character:hover {
-        background-color: #0056b3;
+        font-size: 1.5em;
+        padding: 15px 30px;
     }
 }
