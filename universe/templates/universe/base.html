@@ -52,7 +52,9 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="{% static 'js/scripts.js' %}"></script>
+    {% block scripts %}
+    <!-- Child templates will override this block -->
+    {% endblock %}
 </body>
 
 </html>

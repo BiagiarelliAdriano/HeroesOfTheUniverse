@@ -566,6 +566,7 @@ button.save-character {
     .ability {
         padding: 20px;
         background-color: #f7f7f7;
+        text-align: center;
     }
 
     .ability label {
@@ -576,6 +577,7 @@ button.save-character {
     .features label,
     .proficiencies-label {
         font-size: 1.2em;
+        text-align: center;
     }
 
     .features textarea,

@@ -7,7 +7,7 @@ class CharacterForm(forms.ModelForm):
         model = Character
         fields = [
             'name', 'background', 'species', 'character_class', 'subclass',
-            'level', 'xp', 'armor_class', 'shield', 'current_hit_points',
+            'level', 'xp', 'class_image', 'armor_class', 'shield', 'current_hit_points',
             'temp_hit_points', 'max_hit_points', 'spent_hit_dice', 'max_hit_dice',
             'death_save_success', 'death_save_failures', 'initiative', 'speed', 'size',
             'passive_perception', 'proficiency_bonus', 'strength_score', 'strength_modifier',
@@ -23,6 +23,8 @@ class CharacterForm(forms.ModelForm):
             'heavy_armor_training', 'shield_armor_training', 'weapons_proficiencies', 'tools_proficiencies',
             'species_traits', 'feats',
         ]
+    
+    class_image = forms.ChoiceField(choices=Character.CLASS_IMAGE_CHOICES, widget=forms.RadioSelect)
 
 class WeaponForm(forms.ModelForm):
     class Meta:

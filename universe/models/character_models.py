@@ -12,6 +12,28 @@ class Character(models.Model):
     level = models.PositiveIntegerField(default=1)
     xp = models.PositiveIntegerField(default=1)
 
+    # Class Image
+    CLASS_IMAGE_CHOICES = [
+        ('barbarian', 'Barbarian'),
+        ('bard', 'Bard'),
+        ('cleric', 'Cleric'),
+        ('druid', 'Druid'),
+        ('fighter', 'Fighter'),
+        ('monk', 'Monk'),
+        ('paladin', 'Paladin'),
+        ('ranger', 'Ranger'),
+        ('rogue', 'Rogue'),
+        ('sorcerer', 'Sorcerer'),
+        ('warlock', 'Warlock'),
+        ('wizard', 'Wizard'),
+    ]
+
+    class_image = models.CharField(
+        max_length=50,
+        choices=CLASS_IMAGE_CHOICES,
+        default='barbarian',
+    )
+
     # Combat Stats
     armor_class = models.PositiveIntegerField(default=10)
     shield = models.BooleanField(default=False)

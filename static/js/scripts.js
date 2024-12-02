@@ -13,15 +13,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const showRegisterFormButton = document.getElementById("show-register-form");
     const showLoginFormButton = document.getElementById("show-login-form");
 
+    const imagePreview = document.getElementById('class-image-preview');
+    const radioButtons = document.querySelectorAll('#class-image-selector input[type="radio"]');
+
     // Show register form and hide buttons
-    showRegisterFormButton.addEventListener("click", function () {
-        buttonsContainer.style.display = "none";
-        registerForm.style.display = "block";
-    });
+    if (showRegisterFormButton) {
+        showRegisterFormButton.addEventListener("click", function () {
+            buttonsContainer.style.display = "none";
+            registerForm.style.display = "block";
+        });
+    }
 
     // Show login form and hide buttons
-    showLoginFormButton.addEventListener("click", function () {
-        buttonsContainer.style.display = "none";
-        loginForm.style.display = "block";
-    });
+    if (showLoginFormButton) {
+        showLoginFormButton.addEventListener("click", function () {
+            buttonsContainer.style.display = "none";
+            loginForm.style.display = "block";
+        })
+    }
+
+    // Dynamically Change Class Image
+    if (radioButtons.length > 0) {
+        radioButtons.forEach(function (radioButtons) {
+            radioButtons.addEventListener('change', function () {
+                console.log('Radio button changed:', this.value);
+                imagePreview.src = `/static/images/${this.value}.png`;
+                imagePreview.alt = this.value;
+            });
+        });
+    }
 });
