@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (radioButtons.length > 0) {
         radioButtons.forEach(function (radioButtons) {
             radioButtons.addEventListener('change', function () {
-                console.log('Radio button changed:', this.value);
                 imagePreview.src = `/static/images/${this.value}.png`;
                 imagePreview.alt = this.value;
             });

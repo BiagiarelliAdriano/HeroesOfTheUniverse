@@ -246,6 +246,37 @@ input:focus, select:focus {
     background-color: #fff;
 }
 
+/* Character Image Placeholder Selection Section */
+#toggle-class-image-btn {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.class-image-section {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.class-image-section:not(.hidden) {
+    display: flex;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#class-image-preview {
+    max-width: 150px;
+    margin-top: 10px;
+    align-self: center;
+}
+
 /* Combat Stats */
 .combat-stats label {
     font-weight: bold;
@@ -480,6 +511,32 @@ button.save-character {
         font-size: 1.1em;
     }
 
+    #toggle-class-image-btn {
+        width: auto;
+        font-size: 1.5em;
+        padding: 15px 30px;
+    }
+
+    #toggle-class-image-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .class-image-section {
+        display: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .class-image-section .class-image-selector {
+        flex-direction: column;
+        width: auto;
+    }
+
+    #class-image-preview {
+        max-width: 200px;
+        margin-left: 20px;
+    }
+
     /* Abilities Grid */
     .abilities {
         grid-template-columns: 1fr 1fr 1fr;
@@ -558,6 +615,23 @@ button.save-character {
 
     input, select {
         font-size: 1.2em;
+    }
+
+    #toggle-class-image-btn {
+        font-size: 1.8em;
+        padding: 18px 35px;
+    }
+
+    .class-image-section {
+        justify-content: space-between;
+    }
+
+    .class-image-section .class-image-selector {
+        flex-direction: column;
+    }
+
+    #class-image-preview {
+        max-width: 250px;
     }
 
     /* Abilities Grid */
