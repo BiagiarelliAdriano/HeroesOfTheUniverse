@@ -32,6 +32,8 @@ class Character(models.Model):
         max_length=50,
         choices=CLASS_IMAGE_CHOICES,
         default='barbarian',
+        blank=True,
+        null=True
     )
 
     # Combat Stats

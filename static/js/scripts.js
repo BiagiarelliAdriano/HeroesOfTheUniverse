@@ -1,3 +1,13 @@
+const toggleButton = document.getElementById("toggle-class-image-btn");
+const classImageDiv = document.querySelector(".class-image-section");
+
+// Toggle Visibility For Class Image Div
+if (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+        classImageDiv.classList.toggle("hidden");
+    });
+}
+
 // Function to show hidden buttons when the title button is clicked
 function showButtons() {
     const hiddenButtons = document.getElementById('hidden-buttons');

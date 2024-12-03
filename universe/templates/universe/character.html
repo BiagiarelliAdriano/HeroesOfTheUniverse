@@ -18,11 +18,13 @@
         {% csrf_token %}
 
         <!-- Character Image -->
-        <label for="id_class_image">Select Character Image:</label>
-        <div id="class-image-selector">
-            {{ form.class_image }}
+        <button type="button" id="toggle-class-image-btn">Select Character Image</button>
+        <div class="class-image-section hidden">
+            <div id="class-image-selector">
+                {{ form.class_image }}
+            </div>
+            <img id="class-image-preview" src="{% static 'images/barbarian.png' %}" alt="Class Image">
         </div>
-        <img id="class-image-preview" src="{% static 'images/barbarian.png' %}" alt="Class Image">
 
         <!-- Header Section -->
         <section class="character-header">
@@ -212,6 +214,6 @@
 </div>
 
 {% block scripts %}
-    <script src="{% static 'js/scripts.js' %}" defer></script>
+<script src="{% static 'js/scripts.js' %}" defer></script>
 {% endblock %}
 {% endblock %}

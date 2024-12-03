@@ -24,7 +24,7 @@ class CharacterForm(forms.ModelForm):
             'species_traits', 'feats',
         ]
     
-    class_image = forms.ChoiceField(choices=Character.CLASS_IMAGE_CHOICES, widget=forms.RadioSelect)
+    class_image = forms.ChoiceField(choices=Character.CLASS_IMAGE_CHOICES, widget=forms.RadioSelect, required=False)
 
 class WeaponForm(forms.ModelForm):
     class Meta:
