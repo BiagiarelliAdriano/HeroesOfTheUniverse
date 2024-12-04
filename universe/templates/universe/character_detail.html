@@ -1,5 +1,13 @@
-{% extends 'universe/base.html' %}
+{% extends 'universe/character.html' %}
 
 {% block content %}
-    <h2>{{ character.name}}'s Character Sheet</h2>
+<form method="POST">
+    {% csrf_token %}
+    <div class="character-sheet-container">
+        {{ form.as_p }}
+    </div>
+    {% if user.username == character.user.username %}
+    <button type="submit">Save Changes</button>
+    {% endif %}
+</form>
 {% endblock %}

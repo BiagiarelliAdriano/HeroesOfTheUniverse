@@ -24,6 +24,17 @@ def create_or_edit_character(request, character_id=None):
                 weapon.save()
 
             messages.success(request, 'Character successfully created! Good job!')
-            return redirect('character_detail', character_id=character.id)
+            return redirect('character_detail', pk=character.id)
 
     return render(request, 'universe/character.html', {'form': form, 'weapon_formset': weapon_formset})
+
+def character_detail(request, pk):
+    character = get_object_or_404(Character, pk=pk)
+    form = CharacterForm(instance=character)
+    weapon_formset = WeaponFormSet(request.POST or None, queryset=Weapon.objects.filter(character=character))
+
+    if request.user.username != character.user.username:
+        for field in form.fields.values():
+            field.widget.attrs['readonly'] = True
+
+    return render(request, 'universe/character_detail.html', {'form': form, 'character': character, 'weapon_formset': weapon_formset})
