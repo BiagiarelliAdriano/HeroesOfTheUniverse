@@ -14,7 +14,7 @@ def landing_page(request):
     return render(request, 'universe/landing.html') # Render the landing page template
 
 def home_page(request):
-    return render(request, 'universe/home.html') # Render the Home page template
+    return render(request, 'homepage/home.html') # Render the Home page template
 
 def register_page(request):
     return render(request, 'universe/register.html') # Render the Register/Log In page template
