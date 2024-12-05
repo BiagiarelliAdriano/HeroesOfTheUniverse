@@ -20,10 +20,10 @@ def register_page(request):
     return render(request, 'universe/register.html') # Render the Register/Log In page template
 
 def profile_page(request):
-    return render(request, 'universe/profile.html') # Render the Profile page template
+    if not request.user.is_authenticated:
+        return redirect('register_or_login')
 
-def make_character_page(request):
-    return render(request, 'universe/character.html') # Render the Make A Character template
+    return render(request, 'universe/profile.html') # Render the Profile page template
 
 def logout_view_page(request):
     logout(request)
