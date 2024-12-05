@@ -1,3 +1,13 @@
+const toggleButton = document.getElementById("toggle-class-image-btn");
+const classImageDiv = document.querySelector(".class-image-section");
+
+// Toggle Visibility For Class Image Div
+if (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+        classImageDiv.classList.toggle("hidden");
+    });
+}
+
 // Function to show hidden buttons when the title button is clicked
 function showButtons() {
     const hiddenButtons = document.getElementById('hidden-buttons');
@@ -13,15 +23,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const showRegisterFormButton = document.getElementById("show-register-form");
     const showLoginFormButton = document.getElementById("show-login-form");
 
+    const imagePreview = document.getElementById('class-image-preview');
+    const radioButtons = document.querySelectorAll('#class-image-selector input[type="radio"]');
+
     // Show register form and hide buttons
-    showRegisterFormButton.addEventListener("click", function () {
-        buttonsContainer.style.display = "none";
-        registerForm.style.display = "block";
-    });
+    if (showRegisterFormButton) {
+        showRegisterFormButton.addEventListener("click", function () {
+            buttonsContainer.style.display = "none";
+            registerForm.style.display = "block";
+        });
+    }
 
     // Show login form and hide buttons
-    showLoginFormButton.addEventListener("click", function () {
-        buttonsContainer.style.display = "none";
-        loginForm.style.display = "block";
-    });
+    if (showLoginFormButton) {
+        showLoginFormButton.addEventListener("click", function () {
+            buttonsContainer.style.display = "none";
+            loginForm.style.display = "block";
+        })
+    }
+
+    // Dynamically Change Class Image
+    if (radioButtons.length > 0) {
+        radioButtons.forEach(function (radioButtons) {
+            radioButtons.addEventListener('change', function () {
+                imagePreview.src = `/static/images/${this.value}.png`;
+                imagePreview.alt = this.value;
+            });
+        });
+    }
 });

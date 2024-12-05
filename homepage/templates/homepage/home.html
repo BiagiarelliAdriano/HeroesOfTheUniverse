@@ -11,7 +11,7 @@
             <p>{{ character.user.username }}</p>
         </div>
         <div class="character-image">
-            <img src="{% static 'images/{{ character.class_image }}.png' %}" alt="{{ character.name }} image">
+            <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
         </div>
         <div class="character-name">
             <h3>{{ character.name }}</h3>
@@ -21,10 +21,6 @@
             <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
         </div>
     </div>
-    {% empty %}
-    <p>No characters available to display.</p>
     {% endfor %}
 </div>
-
-
 {% endblock %}

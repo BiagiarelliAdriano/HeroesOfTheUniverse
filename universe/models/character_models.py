@@ -115,5 +115,4 @@ class Character(models.Model):
         return f"{self.name} ({self.user.username})"
 
     def save(self, *args, **kwargs):
-        if not Character.objects.filter(name=self.name).exists():
-            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)

@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/static/images/heroesbackground.jpg');
+    background-image: url('/static/images/woodbackground.jpg');
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
@@ -179,6 +179,75 @@ main {
     padding-bottom: 70px;
     margin-top: 25px;
     margin-bottom: 20px;
+}
+
+/* Home Page Styling */
+.characters-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    margin: 0;
+    padding-bottom: 70px;
+}
+
+/* Character Box */
+.character-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-name p {
+    font-weight: bold;
+    margin: 0;
+    color: #555;
+}
+
+/* Character Image */
+.character-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Character Name */
+.character-name h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.actions .like-button,
+.actions .comment-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.actions .like-button i,
+.actions .comment-button i {
+    margin-right: 5px;
 }
 
 /* Character Page Styling */
@@ -486,6 +555,11 @@ button.save-character {
         cursor: pointer;
     }
 
+    /* Adjust Home Page Styling */
+    .character-box {
+        margin: 15px;
+    }
+
     /* Adjust Character Sheet Container */
     .character-sheet-container {
         width: 80%;
@@ -592,6 +666,36 @@ button.save-character {
 }
 
 @media screen and (min-width: 1024px) {
+    /* Adjust Home Page Styling */
+    .characters-container {
+        max-width: 80%;
+        align-items: baseline;
+    }
+
+    .character-box {
+        width: 450px;
+        margin: 20px;
+    }
+
+    .character-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .character-name h3 {
+        font-size: 1.5rem;
+    }
+
+    .actions button {
+        font-size: 1rem;
+        padding: 8 12px;
+    }
+
+    .actions .like-button:hover,
+    .actions .comment-button:hover {
+        background-color: #0056b3;
+    }
+
     /* Adjust Character Sheet Container */
     .character-sheet-container {
         width: 70%;
