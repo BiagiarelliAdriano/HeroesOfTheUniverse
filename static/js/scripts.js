@@ -51,4 +51,24 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    const isAuthenticated = document.querySelector('.characters-container').dataset.authenticated === 'true';
+    const likeButtons = document.querySelectorAll('.like-button');
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Check if the user is authenticated before allowing the like action
+            if (!isAuthenticated) {
+                alert("You must be logged in to like a character.");
+                return;  // Prevent the action if not authenticated
+            }
+    
+            // Toggle button text and icon between Like and Liked
+            if (this.textContent.trim() === "Like") {
+                this.innerHTML = '<i class="fa-solid fa-thumbs-up"></i> Liked';  // Change to Liked
+            } else {
+                this.innerHTML = '<i class="fa-regular fa-thumbs-up"></i> Like';  // Change back to Like
+            }
+        });
+    });
 });

@@ -51,4 +51,32 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    const likeButtons = document.querySelectorAll('.like-button');
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const characterId = this.getAttribute('data-character-id');
+
+            // Make sure the character ID is available
+            if (!characterId) return;
+
+            fetch(`/like/${characterId}/`, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the button content based on whether the character is liked
+                if (data.liked) {
+                    this.innerHTML = '<i class="fa-solid fa-thumbs-up"></i> Liked';
+                } else {
+                    this.innerHTML = '<i class="fa-regular fa-thumbs-up"></i> Like';
+                }
+            })
+            .catch(error => console.error('Error liking character:', error));
+        });
+    });
 });

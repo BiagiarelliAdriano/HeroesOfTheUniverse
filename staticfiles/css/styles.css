@@ -241,7 +241,7 @@ main {
     border: none;
     border-radius: 5px;
     padding: 8px 15px;
-    font-size: 0.9em;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
@@ -512,7 +512,7 @@ button.save-character {
     }
 
     #title-button:hover {
-        transform: scale(1.05);
+        transform: scale(1.10);
     }
 
     .hidden-button {
@@ -524,6 +524,10 @@ button.save-character {
         font-size: 24px;
     }
 
+    .nav-title:hover {
+        color: #FF8F00;
+    }
+
     .nav-button {
         font-size: 1.3em;
         padding-right: 20px;
@@ -531,7 +535,7 @@ button.save-character {
     }
 
     .nav-button:hover {
-        color: #ffcc00;
+        color: #FF8F00;
     }
 
     /* Register Page Styling */
@@ -553,6 +557,10 @@ button.save-character {
         font-size: 1em;
         padding: 10px;
         cursor: pointer;
+    }
+
+    .registration-button:hover {
+        background-color: #0056b3;
     }
 
     /* Adjust Home Page Styling */
@@ -611,6 +619,10 @@ button.save-character {
         margin-left: 20px;
     }
 
+    .save-character:hover {
+        background-color: #0056b3;
+    }
+
     /* Abilities Grid */
     .abilities {
         grid-template-columns: 1fr 1fr 1fr;
@@ -661,7 +673,7 @@ button.save-character {
     }
 
     #feedback-button:hover, #to-top-button:hover {
-        background-color: #ffd633;
+        background-color: #FFFF00;
     }
 }
 

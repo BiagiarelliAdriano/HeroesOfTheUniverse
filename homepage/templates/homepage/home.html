@@ -4,7 +4,7 @@
 {% block title %}Home - Heroes Of The Universe{% endblock %}
 
 {% block content %}
-<div class="characters-container">
+<div class="characters-container" data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
     {% for character in characters %}
     <div class="character-box">
         <div class="user-name">
@@ -17,7 +17,10 @@
             <h3>{{ character.name }}</h3>
         </div>
         <div class="actions">
-            <button class="like-button"><i class="fa-regular fa-thumbs-up"></i></button>
+            <!-- Like Button -->
+            <button class="like-button">
+                <i class="fa-regular fa-thumbs-up"></i> Like
+            </button>
             <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
         </div>
     </div>
