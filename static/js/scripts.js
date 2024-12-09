@@ -56,19 +56,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const likeButtons = document.querySelectorAll('.like-button');
 
     likeButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             // Check if the user is authenticated before allowing the like action
             if (!isAuthenticated) {
                 alert("You must be logged in to like a character.");
-                return;  // Prevent the action if not authenticated
+                return; // Prevent the action if not authenticated
             }
-    
+
             // Toggle button text and icon between Like and Liked
             if (this.textContent.trim() === "Like") {
-                this.innerHTML = '<i class="fa-solid fa-thumbs-up"></i> Liked';  // Change to Liked
+                this.innerHTML = '<i class="fa-solid fa-thumbs-up"></i> Liked'; // Change to Liked
             } else {
-                this.innerHTML = '<i class="fa-regular fa-thumbs-up"></i> Like';  // Change back to Like
+                this.innerHTML = '<i class="fa-regular fa-thumbs-up"></i> Like'; // Change back to Like
             }
+        });
+    });
+
+    // Comment section toggle functionality
+    const commentButton = document.querySelectorAll('.comment-button');
+
+    commentButton.forEach(button => {
+        button.addEventListener('click', function () {
+            // Find the closest character box and select the next sibling (comment section)
+            const commentSection = this.closest('.character-box').nextElementSibling;
+
+            // Toggle visibility by adding/removing the 'hidden' class
+            commentSection.classList.toggle('hidden');
         });
     });
 });

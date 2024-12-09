@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from universe import views as universe_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('universe.urls')), # Include the universe app's URLs
+    path('', universe_views.landing_page, name='landing'),
+    path('home/', include('homepage.urls', namespace='main_home')),
+    path('universe/', include('universe.urls')), # Include the universe app's URLs
 ]

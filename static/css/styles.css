@@ -7,7 +7,6 @@
 
 body {
     margin: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,6 +187,7 @@ main {
     height: 70vh;
     margin: 0;
     padding-bottom: 70px;
+    gap: 20px;
 }
 
 /* Character Box */
@@ -247,6 +247,21 @@ main {
 .actions .like-button i,
 .actions .comment-button i {
     margin-right: 5px;
+}
+
+.messages {
+    padding: 15px;
+    background-color: #f0f8ff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.message.success {
+    color: green;
+}
+
+.message.error {
+    color: red;
 }
 
 /* Character Page Styling */
@@ -680,12 +695,15 @@ button.save-character {
     /* Adjust Home Page Styling */
     .characters-container {
         max-width: 80%;
-        align-items: baseline;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
     }
 
     .character-box {
         width: 450px;
-        margin: 20px;
+        margin: 20px 0;
     }
 
     .character-image img {

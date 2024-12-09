@@ -9,7 +9,7 @@ from .models import Profile
 # Create your views here.
 def landing_page(request):
     if request.user.is_authenticated: # If user is logged in
-        return redirect('home') # Redirect to the Home page
+        return redirect('main_home:home') # Redirect to the Home page
     
     return render(request, 'universe/landing.html') # Render the landing page template
 
@@ -21,13 +21,13 @@ def register_page(request):
 
 def profile_page(request):
     if not request.user.is_authenticated:
-        return redirect('register_or_login')
+        return redirect('universe:register_or_login')
 
     return render(request, 'universe/profile.html') # Render the Profile page template
 
 def logout_view_page(request):
     logout(request)
-    return redirect('home') # Render the logout function and returns to home template
+    return redirect('main_home:home') # Render the logout function and returns to home template
 
 # Custom Registration Form
 class RegisterForm(forms.ModelForm):
@@ -62,7 +62,7 @@ def register_or_login(request):
 
             # Log the user in
             login(request, user)
-            return redirect('home')
+            return redirect('main_home:home')
 
         # Login logic (if 'login' key is present in POST)
         else:
@@ -72,7 +72,7 @@ def register_or_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('main_home:home')
             else:
                 messages.error(request, "Invalid username or password.")
                 return render(request, 'universe/register.html')

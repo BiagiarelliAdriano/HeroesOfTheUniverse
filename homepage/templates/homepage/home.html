@@ -4,8 +4,17 @@
 {% block title %}Home - Heroes Of The Universe{% endblock %}
 
 {% block content %}
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="characters-container" data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
     {% for character in characters %}
+    <!-- Character Box -->
     <div class="character-box">
         <div class="user-name">
             <p>{{ character.user.username }}</p>
@@ -22,6 +31,32 @@
                 <i class="fa-regular fa-thumbs-up"></i> Like
             </button>
             <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
+        </div>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section hidden" data-character-id="{{ character.id }}">
+        {% if user.is_authenticated %}
+        <h4>Leave a comment:</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="character_id" value="{{ character.id }}">
+            <textarea name="body" rows="4" placeholder="Write your comment..."></textarea>
+            <button type="submit">Comment</button>
+        </form>
+        {% else %}
+        <p>Please <a href="{% url 'universe:register_or_login' %}">log in</a> to leave a comment.</p>
+        {% endif %}
+        <h3>Comments:</h3>
+        <div class="comments-list">
+            {% for comment in character.approved_comments %}
+            <div class="comment">
+                <p><strong>{{ comment.author.username }}</strong>: {{ comment.body }}</p>
+                <p><em>Posted on: {{ comment.created_on }}</em></p>
+            </div>
+            {% empty %}
+            <p>No comments yet.</p>
+            {% endfor %}
         </div>
     </div>
     {% endfor %}

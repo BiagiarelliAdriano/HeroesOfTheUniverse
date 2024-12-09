@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from .models.character_models import Character
 from .models import Profile
+from homepage.models import Comment
 
 # Register your models here.
 
@@ -32,3 +33,18 @@ class CharacterAdmin(admin.ModelAdmin):
     list_filter = ('level', 'character_class')
 
 admin.site.register(Character, CharacterAdmin)
+
+# Comments
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('author', 'character', 'created_on', 'approved')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('author__username', 'character__name', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+        self.message_user(request, f"{queryset.count()} comments were successfully approved.")
+
+    approve_comments.short_description = "Approve selected comments"
+
+admin.site.register(Comment, CommentAdmin)

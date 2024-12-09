@@ -5,7 +5,7 @@ from .models import Character, Weapon
 
 def create_or_edit_character(request, character_id=None):
     if not request.user.is_authenticated:
-        return redirect('register_or_login')
+        return redirect('universe:register_or_login')
 
     if character_id:
         character = get_object_or_404(Character, id=character_id)

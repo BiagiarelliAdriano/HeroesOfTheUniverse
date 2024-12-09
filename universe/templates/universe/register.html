@@ -37,7 +37,7 @@
         </div>
 
         <!-- Registration Form -->
-        <form id="register-form" class="registration-form" method="POST" action="{% url 'register_or_login' %}" style="display: none;">
+        <form id="register-form" class="registration-form" method="POST" action="{% url 'universe:register_or_login' %}" style="display: none;">
             {% csrf_token %}
             <div>
                 <label for="id_username">Username:</label>
@@ -55,7 +55,7 @@
         </form>
 
         <!-- Login Form -->
-         <form id="login-form" class="registration-form" method="POST" action="{% url 'register_or_login' %}" style="display: none;">
+         <form id="login-form" class="registration-form" method="POST" action="{% url 'universe:register_or_login' %}" style="display: none;">
             {% csrf_token %}
             <div>
                 <label for="id_username_login">Username:</label>
