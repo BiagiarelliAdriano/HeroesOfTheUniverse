@@ -18,7 +18,9 @@
         <!-- Character Box -->
         <div class="character-box">
             <div class="user-name">
-                <p>{{ character.user.username }}</p>
+                <a href="{% url 'universe:profile' character.user.username %}" target="_blank">
+                    <p>{{ character.user.username }}</p>
+                </a>
             </div>
             <div class="character-image">
                 <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
