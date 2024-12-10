@@ -91,11 +91,14 @@ def profile_view(request, username):
 
     if request.method == "POST" and is_owner:
         # Update profile logic if the user is the owner
-        favorite_ttrpg = request.POST.get("favorite_ttrpg")
-        about_me = request.POST.get("about_me")
+        if "favorite_ttrpg" in request.POST:
+            favorite_ttrpg = request.POST.get("favorite_ttrpg")
+            user_profile.favorite_ttrpg = favorite_ttrpg
 
-        user_profile.favorite_ttrpg = favorite_ttrpg
-        user_profile.about_me = about_me
+        if "about_me" in request.POST:
+            about_me = request.POST.get("about_me")
+            user_profile.about_me = about_me
+
         user_profile.save()
 
     context = {

@@ -14,8 +14,8 @@
         <!-- Editable Favorite TTRPG -->
         <form method="POST" class="favorite-ttrpg-form">
             {% csrf_token %}
-            <label for="favorite-ttrpg">Favorite TTRPG:</label>
-            <input type="text" name="favorite-ttrpg" id="favorite-ttrpg" value="{{ user_profile.favorite_ttrpg }}"
+            <label for="favorite_ttrpg">Favorite TTRPG:</label>
+            <input type="text" name="favorite_ttrpg" id="favorite_ttrpg" value="{{ user_profile.favorite_ttrpg }}"
                 placeholder="Enter your favorite TTRPG">
             <button type="submit">Save</button>
         </form>

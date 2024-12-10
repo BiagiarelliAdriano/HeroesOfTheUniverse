@@ -412,6 +412,10 @@ main {
     padding: 5px 10px;
     margin-top: 10px;
     font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -438,6 +442,10 @@ main {
     padding: 5px 10px;
     font-size: 1rem;
     cursor: pointer;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
 }
 
 .profile-characters {
@@ -857,12 +865,20 @@ button.save-character {
         font-size: 1.5rem;
     }
 
+    .favorite-ttrpg-form button:hover {
+        background-color: #0056b3;
+    }
+
     .profile-about-me h3 {
         font-size: 2rem;
     }
 
     .profile-about-me textarea {
         font-size: 1.2rem;
+    }
+
+    .profile-about-me button:hover {
+        background-color: #0056b3;
     }
 
     .profile-characters h3 {
@@ -1100,10 +1116,6 @@ button.save-character {
 
     .profile-about-me textarea {
         font-size: 1.3rem;
-    }
-
-    .character-list {
-        justify-content: flex-start;
     }
 
     .character-card {
