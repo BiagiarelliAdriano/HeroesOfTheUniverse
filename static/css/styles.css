@@ -264,6 +264,90 @@ main {
     color: red;
 }
 
+/* Comment Section */
+.comment-section {
+    margin: 20px 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.comment-title, .comments-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.comment-login-prompt {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.login-link {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 0.9em;
+}
+
+.comment-submit {
+    align-self: flex-start;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comments-list {
+    margin-top: 15px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comment-author {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.no-comments {
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+}
+
 /* Character Page Styling */
 
 /* Main container */
@@ -582,6 +666,43 @@ button.save-character {
         margin: 15px;
     }
 
+    /* Comment Section */
+    .comment-section {
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+    }
+
+    .comment-title, .comments-title {
+        font-size: 1.4em;
+    }
+
+    .comment-input {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    .comment-submit {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .comment {
+        padding: 15px;
+    }
+
+    .comment-author {
+        font-size: 1em;
+    }
+
+    .comment-date {
+        font-size: 0.9em;
+    }
+
+    .no-comments {
+        font-size: 1em;
+    }
+
     /* Adjust Character Sheet Container */
     .character-sheet-container {
         width: 80%;
@@ -696,14 +817,27 @@ button.save-character {
     .characters-container {
         max-width: 80%;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 0 auto;
+    }
+
+    .character-container {
+        display: flex;
+        flex-direction: row;
         align-items: flex-start;
         gap: 20px;
+        width: 100%;
+        max-width: 80%;
     }
 
     .character-box {
-        width: 450px;
-        margin: 20px 0;
+        flex: 2;
+        max-width: 65%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .character-image img {
@@ -717,12 +851,59 @@ button.save-character {
 
     .actions button {
         font-size: 1rem;
-        padding: 8 12px;
+        padding: 8px 12px;
     }
 
     .actions .like-button:hover,
     .actions .comment-button:hover {
         background-color: #0056b3;
+    }
+
+    /* Comments Section */
+    .comment-section {
+        flex: 1;
+        max-width: 60%;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .comment-title, .comments-title {
+        font-size: 1.6em;
+    }
+
+    .comment-input {
+        font-size: 1.1em;
+    }
+
+    .comment-input:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+    .comment-submit {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+
+    .comment-submit:hover {
+        background-color: #0056b3;
+    }
+
+    .comment {
+        padding: 20px;
+    }
+
+    .comment-author {
+        font-size: 1.1em;
+    }
+
+    .comment-date {
+        font-size: 1em;
+    }
+
+    .no-comments {
+        font-size: 1.1em;
     }
 
     /* Adjust Character Sheet Container */

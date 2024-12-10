@@ -14,49 +14,53 @@
 
 <div class="characters-container" data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
     {% for character in characters %}
-    <!-- Character Box -->
-    <div class="character-box">
-        <div class="user-name">
-            <p>{{ character.user.username }}</p>
-        </div>
-        <div class="character-image">
-            <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
-        </div>
-        <div class="character-name">
-            <h3>{{ character.name }}</h3>
-        </div>
-        <div class="actions">
-            <!-- Like Button -->
-            <button class="like-button">
-                <i class="fa-regular fa-thumbs-up"></i> Like
-            </button>
-            <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
-        </div>
-    </div>
-
-    <!-- Comment Section -->
-    <div class="comment-section hidden" data-character-id="{{ character.id }}">
-        {% if user.is_authenticated %}
-        <h4>Leave a comment:</h4>
-        <form method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="character_id" value="{{ character.id }}">
-            <textarea name="body" rows="4" placeholder="Write your comment..."></textarea>
-            <button type="submit">Comment</button>
-        </form>
-        {% else %}
-        <p>Please <a href="{% url 'universe:register_or_login' %}">log in</a> to leave a comment.</p>
-        {% endif %}
-        <h3>Comments:</h3>
-        <div class="comments-list">
-            {% for comment in character.approved_comments %}
-            <div class="comment">
-                <p><strong>{{ comment.author.username }}</strong>: {{ comment.body }}</p>
-                <p><em>Posted on: {{ comment.created_on }}</em></p>
+    <div class="character-container">
+        <!-- Character Box -->
+        <div class="character-box">
+            <div class="user-name">
+                <p>{{ character.user.username }}</p>
             </div>
-            {% empty %}
-            <p>No comments yet.</p>
-            {% endfor %}
+            <div class="character-image">
+                <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
+            </div>
+            <div class="character-name">
+                <h3>{{ character.name }}</h3>
+            </div>
+            <div class="actions">
+                <!-- Like Button -->
+                <button class="like-button">
+                    <i class="fa-regular fa-thumbs-up"></i> Like
+                </button>
+                <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
+            </div>
+        </div>
+
+        <!-- Comment Section -->
+        <div class="comment-section hidden" data-character-id="{{ character.id }}">
+            {% if user.is_authenticated %}
+            <h4 class="comment-title">Leave a comment:</h4>
+            <form method="POST" class="comment-form">
+                {% csrf_token %}
+                <input type="hidden" name="character_id" value="{{ character.id }}">
+                <textarea name="body" rows="4" placeholder="Write your comment..." class="comment-input"></textarea>
+                <button type="submit" class="comment-submit">Comment</button>
+            </form>
+            {% else %}
+            <p class="comment-login-prompt">Please <a href="{% url 'universe:register_or_login' %}"
+                    class="login-link">log in</a> to leave a
+                comment.</p>
+            {% endif %}
+            <h3 class="comments-title">Comments:</h3>
+            <div class="comments-list">
+                {% for comment in character.approved_comments %}
+                <div class="comment">
+                    <p class="comment-author"><strong>{{ comment.author.username }}</strong>: {{ comment.body }}</p>
+                    <p class="comment-date"><em>Posted on: {{ comment.created_on }}</em></p>
+                </div>
+                {% empty %}
+                <p class="no-comments">No comments yet.</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
     {% endfor %}
