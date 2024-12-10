@@ -18,6 +18,16 @@ body {
     box-sizing: border-box;
 }
 
+.landing-page {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/heroesbackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* Title Button Styling */
 #title-button {
     font-size: 1.6em;
@@ -274,7 +284,8 @@ main {
     font-family: Arial, sans-serif;
 }
 
-.comment-title, .comments-title {
+.comment-title,
+.comments-title {
     font-size: 1.2em;
     margin-bottom: 10px;
     color: #333;
@@ -348,6 +359,119 @@ main {
     text-align: center;
 }
 
+/* Profile Styling */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+}
+
+.profile-name::before,
+.profile-name::after {
+    content: "★";
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+}
+
+.profile-name::before {
+    left: -15px;
+}
+
+.profile-name::after {
+    right: -15px;
+}
+
+.profile-favorite-ttrpg {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.favorite-ttrpg-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.favorite-ttrpg-form input {
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.favorite-ttrpg-form button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.profile-about-me {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.profile-about-me h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.profile-about-me textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.profile-about-me button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.profile-characters {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.profile-characters h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.character-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.character-card {
+    text-align: center;
+    max-width: 150px;
+}
+
+.character-card h4 {
+    font-size: 1rem;
+}
+
+.character-card img {
+    max-width: 100px;
+    height: auto;
+}
+
 /* Character Page Styling */
 
 /* Main container */
@@ -395,7 +519,8 @@ main {
     color: #333;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 8px;
     font-size: 1em;
@@ -407,7 +532,8 @@ input, select {
     text-align: center;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: #ffcc00;
     background-color: #fff;
@@ -589,7 +715,8 @@ button.save-character {
     text-align: center;
 }
 
-#feedback-button, #to-top-button {
+#feedback-button,
+#to-top-button {
     background-color: #ffcc00;
     border: none;
     color: black;
@@ -602,6 +729,7 @@ button.save-character {
 }
 
 @media screen and (min-width: 768px) {
+
     /* Title Button Styling */
     #title-button {
         font-size: 3em;
@@ -673,7 +801,8 @@ button.save-character {
         padding: 20px;
     }
 
-    .comment-title, .comments-title {
+    .comment-title,
+    .comments-title {
         font-size: 1.4em;
     }
 
@@ -703,6 +832,51 @@ button.save-character {
         font-size: 1em;
     }
 
+    /* Profile Page */
+    .profile-name {
+        font-size: 4rem;
+    }
+
+    .profile-name::before,
+    .profile-name::after {
+        content: "★";
+        font-size: 2rem;
+        position: absolute;
+        top: 0;
+    }
+
+    .profile-name::before {
+        left: -30px;
+    }
+
+    .profile-name::after {
+        right: -25px;
+    }
+
+    .profile-favorite-ttrpg {
+        font-size: 1.5rem;
+    }
+
+    .profile-about-me h3 {
+        font-size: 2rem;
+    }
+
+    .profile-about-me textarea {
+        font-size: 1.2rem;
+    }
+
+    .profile-characters h3 {
+        font-size: 1.8rem;
+    }
+
+    .character-card {
+        max-width: 180px;
+    }
+
+    .character-card img {
+        max-width: 120px;
+    }
+
     /* Adjust Character Sheet Container */
     .character-sheet-container {
         width: 80%;
@@ -724,7 +898,8 @@ button.save-character {
         font-size: 1.1em;
     }
 
-    input, select {
+    input,
+    select {
         font-size: 1.1em;
     }
 
@@ -800,19 +975,22 @@ button.save-character {
         padding-left: 30px;
     }
 
-    #feedback-button, #to-top-button {
+    #feedback-button,
+    #to-top-button {
         cursor: pointer;
         padding: 10px 15px;
         font-size: 1em;
         margin-right: 15px;
     }
 
-    #feedback-button:hover, #to-top-button:hover {
+    #feedback-button:hover,
+    #to-top-button:hover {
         background-color: #FFFF00;
     }
 }
 
 @media screen and (min-width: 1024px) {
+
     /* Adjust Home Page Styling */
     .characters-container {
         max-width: 80%;
@@ -868,7 +1046,8 @@ button.save-character {
         background-color: #fff;
     }
 
-    .comment-title, .comments-title {
+    .comment-title,
+    .comments-title {
         font-size: 1.6em;
     }
 
@@ -906,6 +1085,35 @@ button.save-character {
         font-size: 1.1em;
     }
 
+    /* Profile Page */
+    .profile-name {
+        font-size: 5rem;
+    }
+
+    .profile-favorite-ttrpg {
+        font-size: 1.8rem;
+    }
+
+    .profile-about-me h3 {
+        font-size: 2.2rem;
+    }
+
+    .profile-about-me textarea {
+        font-size: 1.3rem;
+    }
+
+    .character-list {
+        justify-content: flex-start;
+    }
+
+    .character-card {
+        max-width: 200px;
+    }
+
+    .character-card img {
+        max-width: 140px;
+    }
+
     /* Adjust Character Sheet Container */
     .character-sheet-container {
         width: 70%;
@@ -927,7 +1135,8 @@ button.save-character {
         font-size: 1.2em;
     }
 
-    input, select {
+    input,
+    select {
         font-size: 1.2em;
     }
 

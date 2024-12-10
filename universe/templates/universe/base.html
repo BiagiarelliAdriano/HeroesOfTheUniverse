@@ -18,7 +18,7 @@
                 <a href="{% url 'main_home:home' %}" class="nav-title">Heroes Of The Universe</a>
             </div>
             <div class="nav-right">
-                <a href="{% url 'universe:profile' %}" class="nav-button">Profile</a>
+                <a href="{% url 'universe:profile' username=user.username|default:'guest' %}" class="nav-button">Profile</a>
                 <a href="{% url 'universe:make_character' %}" class="nav-button">Make A Character</a>
 
                 {% if request.user.is_authenticated %}

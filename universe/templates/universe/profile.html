@@ -1,9 +1,62 @@
 {% extends 'universe/base.html' %}
+{% load static %}
 
 {% block title %}Profile - Heroes Of The Universe{% endblock %}
 
 {% block content %}
-    <h1>My Profile</h1>
-    <p>Welcome, {{ user.username }}</p>
-    <p>Here you can edit your profile or view your created characters.</p>
+<div class="profile-container">
+    <!-- User's Name -->
+    <h1 class="profile-name">{{ user_profile.user.username }}</h1>
+
+    <!-- Favorite TTRPG -->
+    <h2 class="profile-favorite-ttrpg">
+        {% if user == user_profile.user %}
+        <!-- Editable Favorite TTRPG -->
+        <form method="POST" class="favorite-ttrpg-form">
+            {% csrf_token %}
+            <label for="favorite-ttrpg">Favorite TTRPG:</label>
+            <input type="text" name="favorite-ttrpg" id="favorite-ttrpg" value="{{ user_profile.favorite_ttrpg }}"
+                placeholder="Enter your favorite TTRPG">
+            <button type="submit">Save</button>
+        </form>
+        {% else %}
+        <!-- Display Favorite TTRPG -->
+        <span>{{ user_profile.favorite_ttrpg }}</span>
+        {% endif %}
+    </h2>
+
+    <!-- About Me Section -->
+    <div class="profile-about-me">
+        <h3>About Me</h3>
+        {% if user == user_profile.user %}
+        <!-- Editable About Me -->
+        <form method="POST" class="about-me-form">
+            {% csrf_token %}
+            <textarea name="about_me" rows="5"
+                placeholder="Write something about yourself...">{{ user_profile.about_me }}</textarea>
+            <button type="submit">Save</button>
+        </form>
+        {% else %}
+        <!-- Display About Me -->
+        <p>{{ user_profile.about_me|default:"This user hasn't shared anything yet." }}</p>
+        {% endif %}
+    </div>
+
+    <!-- My Characters Section -->
+     <div class="profile-characters">
+        <h3>My Characters</h3>
+        <div class="character-list">
+            {% for character in user_profile.user.character_set.all %}
+            <div class="character-card">
+                <h4>{{ character.name }}</h4>
+                <a href="{% url 'universe:character_detail' character.id %}">
+                    <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
+                </a>
+            </div>
+            {% empty %}
+            <p>No characters created yet.</p>
+            {% endfor %}
+        </div>
+     </div>
+</div>
 {% endblock %}

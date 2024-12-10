@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import logout, login, authenticate
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django import forms
 from .models import Profile
@@ -78,3 +78,28 @@ def register_or_login(request):
                 return render(request, 'universe/register.html')
 
     return render(request, 'universe/register.html')
+
+# Profile Page Functionality
+def profile_view(request, username):
+    # Redirect unauthenticated users to the registration page
+    if not request.user.is_authenticated and username == 'guest':
+        return redirect('universe:register_or_login')
+
+    # Fetch the profile based on the username
+    user_profile = get_object_or_404(Profile, user__username=username)
+    is_owner = request.user == user_profile.user
+
+    if request.method == "POST" and is_owner:
+        # Update profile logic if the user is the owner
+        favorite_ttrpg = request.POST.get("favorite_ttrpg")
+        about_me = request.POST.get("about_me")
+
+        user_profile.favorite_ttrpg = favorite_ttrpg
+        user_profile.about_me = about_me
+        user_profile.save()
+
+    context = {
+        "user_profile": user_profile,
+        "is_owner": is_owner,
+    }
+    return render(request, "universe/profile.html", context)
