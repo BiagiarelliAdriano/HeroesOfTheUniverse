@@ -736,8 +736,83 @@ button.save-character {
     margin-right: 10px;
 }
 
-@media screen and (min-width: 768px) {
+/* Feedback page style */
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 90%;
+}
 
+.feedback-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.feedback-description {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.feedback-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #ffcc00;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+.form-submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
     /* Title Button Styling */
     #title-button {
         font-size: 3em;
@@ -1003,6 +1078,30 @@ button.save-character {
     #to-top-button:hover {
         background-color: #FFFF00;
     }
+
+    /* Feedback Page */
+    .feedback-title {
+        font-size: 2.5rem;
+    }
+
+    .feedback-description {
+        font-size: 1.2rem;
+    }
+
+    .feedback-container {
+        max-width: 70%;
+    }
+
+    .form-input,
+    .form-textarea {
+        font-size: 1rem;
+    }
+
+    .form-submit-button {
+        font-size: 1.2rem;
+        width: auto;
+        align-self: center;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1201,5 +1300,22 @@ button.save-character {
     button.save-character {
         font-size: 1.5em;
         padding: 15px 30px;
+    }
+
+    /* Feedback Page */
+    .feedback-title {
+        font-size: 3rem;
+    }
+
+    .feedback-description {
+        font-size: 1.5rem;
+    }
+
+    .feedback-container {
+        max-width: 50%;
+    }
+
+    .form-submit-button:hover {
+        background-color: #0056b3; /* Darker shade for hover */
     }
 }
