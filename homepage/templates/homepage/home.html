@@ -23,7 +23,9 @@
                 </a>
             </div>
             <div class="character-image">
-                <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
+                <a href="{% url 'universe:character_detail' character.id %}" target="_blank">
+                    <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
+                </a>
             </div>
             <div class="character-name">
                 <h3>{{ character.name }}</h3>

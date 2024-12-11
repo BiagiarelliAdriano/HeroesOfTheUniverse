@@ -366,6 +366,7 @@ main {
     align-items: center;
     padding: 20px;
     font-family: Arial, sans-serif;
+    font-size: 20px;
 }
 
 .profile-name {
