@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from .models.character_models import Character
 from .models import Profile
-from homepage.models import Comment
+from homepage.models import Comment, FeedbackRequest
 
 # Register your models here.
 
@@ -48,3 +48,8 @@ class CommentAdmin(admin.ModelAdmin):
     approve_comments.short_description = "Approve selected comments"
 
 admin.site.register(Comment, CommentAdmin)
+
+# Feedback Request Admin
+@admin.register(FeedbackRequest)
+class FeedbackRequestAdmin(admin.ModelAdmin):
+    list_display = ('message', 'read',)

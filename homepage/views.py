@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Comment
+from .models import Comment, FeedbackRequest
 from .forms import CommentForm
 from universe.models import Character
 
@@ -35,3 +35,17 @@ def home_page(request):
         'homepage/home.html',
         {'characters': characters, 'comment_form': comment_form},
     )
+
+# Feedback Page View
+def feedback_page(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        FeedbackRequest.objects.create(name=name, email=email, message=message)
+
+        messages.success(request, "Thank you for your feedback!")
+        return redirect('main_home:feedback')
+
+    return render(request, 'homepage/feedback.html')

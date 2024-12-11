@@ -13,3 +13,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Commeny by {self.author} on {self.character.name}"
+
+# Feedback Request Model
+class FeedbackRequest(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    message = models.TextField()
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Feedback request from {self.name}"
