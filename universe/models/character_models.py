@@ -3,14 +3,14 @@ from django.contrib.auth.models import User
 
 class Character(models.Model):
     # Basic Character Info
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE) # User's name
+    name = models.CharField(max_length=100, unique=True) # Character's name
     background = models.CharField(max_length=100, blank=True, null=True)
     species = models.CharField(max_length=100, blank=True, null=True)
     character_class = models.CharField(max_length=100, blank=True, null=True)
     subclass = models.CharField(max_length=100, blank=True, null=True)
     level = models.PositiveIntegerField(default=1)
-    xp = models.PositiveIntegerField(default=1)
+    xp = models.PositiveIntegerField(default=1)  # Experience Points
 
     # Class Image
     CLASS_IMAGE_CHOICES = [
@@ -40,10 +40,10 @@ class Character(models.Model):
     armor_class = models.PositiveIntegerField(default=10)
     shield = models.BooleanField(default=False)
     current_hit_points = models.PositiveIntegerField(default=0)
-    temp_hit_points = models.PositiveIntegerField(default=0)
-    max_hit_points = models.PositiveIntegerField(default=0)
+    temp_hit_points = models.PositiveIntegerField(default=0) # Temporary Hit Points
+    max_hit_points = models.PositiveIntegerField(default=0) # Maximum Hit Points
     spent_hit_dice = models.PositiveIntegerField(default=0)
-    max_hit_dice = models.PositiveIntegerField(default=0)
+    max_hit_dice = models.PositiveIntegerField(default=0) # Maximum Hit Dice
 
     # Death Saves
     death_save_success = models.PositiveIntegerField(default=0)
@@ -110,6 +110,77 @@ class Character(models.Model):
     tools_proficiencies = models.TextField(blank=True, null=True)
     species_traits = models.TextField(blank=True, null=True)
     feats = models.TextField(blank=True, null=True)
+
+    # 2nd Page Content - Spellcasting
+    spellcasting_ability = models.CharField(max_length=100, blank=True, null=True)
+    spellcasting_modifier = models.IntegerField(default=0)
+    spell_save_dc = models.IntegerField(default=0) # Spell Saving Throw Difficulty Class
+    spell_attack_bonus = models.IntegerField(default=0)
+
+    # Spell Slots
+    spell_slots_total_level_1 = models.IntegerField(default=0)
+    spell_slots_used_level_1_1 = models.BooleanField(default=False)
+    spell_slots_used_level_1_2 = models.BooleanField(default=False)
+    spell_slots_used_level_1_3 = models.BooleanField(default=False)
+    spell_slots_used_level_1_4 = models.BooleanField(default=False)
+
+    spell_slots_total_level_2 = models.IntegerField(default=0)
+    spell_slots_used_level_2_1 = models.BooleanField(default=False)
+    spell_slots_used_level_2_2 = models.BooleanField(default=False)
+    spell_slots_used_level_2_3 = models.BooleanField(default=False)
+
+    spell_slots_total_level_3 = models.IntegerField(default=0)
+    spell_slots_used_level_3_1 = models.BooleanField(default=False)
+    spell_slots_used_level_3_2 = models.BooleanField(default=False)
+    spell_slots_used_level_3_3 = models.BooleanField(default=False)
+
+    spell_slots_total_level_4 = models.IntegerField(default=0)
+    spell_slots_used_level_4_1 = models.BooleanField(default=False)
+    spell_slots_used_level_4_2 = models.BooleanField(default=False)
+    spell_slots_used_level_4_3 = models.BooleanField(default=False)
+
+    spell_slots_total_level_5 = models.IntegerField(default=0)
+    spell_slots_used_level_5_1 = models.BooleanField(default=False)
+    spell_slots_used_level_5_2 = models.BooleanField(default=False)
+    spell_slots_used_level_5_3 = models.BooleanField(default=False)
+
+    spell_slots_total_level_6 = models.IntegerField(default=0)
+    spell_slots_used_level_6_1 = models.BooleanField(default=False)
+    spell_slots_used_level_6_2 = models.BooleanField(default=False)
+
+    spell_slots_total_level_7 = models.IntegerField(default=0)
+    spell_slots_used_level_7_1 = models.BooleanField(default=False)
+    spell_slots_used_level_7_2 = models.BooleanField(default=False)
+
+    spell_slots_total_level_8 = models.IntegerField(default=0)
+    spell_slots_used_level_8_1 = models.BooleanField(default=False)
+
+    spell_slots_total_level_9 = models.IntegerField(default=0)
+    spell_slots_used_level_9_1 = models.BooleanField(default=False)
+
+    # Additional Fields
+    appearance_area = models.TextField(blank=True, null=True)
+    backstory_personality = models.TextField(blank=True, null=True)
+    alignment = models.CharField(max_length=100, blank=True, null=True)
+    languages = models.TextField(blank=True, null=True)
+    equipment = models.TextField(blank=True, null=True)
+
+    # Magic Attunements
+    magic_attunement_1 = models.BooleanField(default=False)
+    magic_attunement_1_name = models.CharField(max_length=100, blank=True, null=True)
+
+    magic_attunement_2 = models.BooleanField(default=False)
+    magic_attunement_2_name = models.CharField(max_length=100, blank=True, null=True)
+
+    magic_attunement_3 = models.BooleanField(default=False)
+    magic_attunement_3_name = models.CharField(max_length=100, blank=True, null=True)
+
+    # Currency
+    cp = models.PositiveIntegerField(default=0)  # Copper Pieces
+    sp = models.PositiveIntegerField(default=0)  # Silver Pieces
+    ep = models.PositiveIntegerField(default=0)  # Electrum Pieces
+    gp = models.PositiveIntegerField(default=0)  # Gold Pieces
+    pp = models.PositiveIntegerField(default=0)  # Platinum Pieces
 
     def __str__(self):
         return f"{self.name} ({self.user.username})"

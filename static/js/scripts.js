@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const isAuthenticated = document.querySelector('.characters-container').dataset.authenticated === 'true';
+    const charactersContainer = document.querySelector('.characters-container');
+    const isAuthenticated = charactersContainer ? charactersContainer.dataset.authenticated === 'true' : false;
     const likeButtons = document.querySelectorAll('.like-button');
 
     likeButtons.forEach(button => {
@@ -82,6 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Toggle visibility by adding/removing the 'hidden' class
             commentSection.classList.toggle('hidden');
+        });
+    });
+
+    // Character Sheet Pagination functionality
+    const paginationButtons = document.querySelectorAll(".pagination-btn");
+    const pages = document.querySelectorAll(".page-content");
+
+    paginationButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            pages.forEach(page => page.classList.remove("active"));
+
+            const pageId = `page-${button.getAttribute("data-page")}`;
+            document.getElementById(pageId).classList.add("active");
         });
     });
 });
