@@ -8,6 +8,16 @@ if (classtoggleButton) {
     });
 }
 
+// Toggle Visibility For Spell List Div
+const spelltoggleButton = document.getElementById("toggle-spell-list-btn");
+const spellListDiv = document.querySelector(".spell-list-section");
+
+if (spelltoggleButton) {
+    spelltoggleButton.addEventListener("click", function () {
+        spellListDiv.classList.toggle("hidden");
+    });
+}
+
 // Function to show hidden buttons when the title button is clicked
 function showButtons() {
     const hiddenButtons = document.getElementById('hidden-buttons');
@@ -52,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const isAuthenticated = document.querySelector('.characters-container').dataset.authenticated === 'true';
+    const charactersContainer = document.querySelector('.characters-container');
+    const isAuthenticated = charactersContainer ? charactersContainer.dataset.authenticated === 'true' : false;
     const likeButtons = document.querySelectorAll('.like-button');
 
     likeButtons.forEach(button => {
@@ -82,6 +93,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Toggle visibility by adding/removing the 'hidden' class
             commentSection.classList.toggle('hidden');
+        });
+    });
+
+    // Character Sheet Pagination functionality
+    const paginationButtons = document.querySelectorAll(".pagination-btn");
+    const pages = document.querySelectorAll(".page-content");
+
+    paginationButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            pages.forEach(page => page.classList.remove("active"));
+
+            const pageId = `page-${button.getAttribute("data-page")}`;
+            document.getElementById(pageId).classList.add("active");
         });
     });
 });

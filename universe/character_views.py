@@ -48,4 +48,13 @@ def character_detail(request, pk):
         for field in form.fields.values():
             field.widget.attrs['readonly'] = True
 
-    return render(request, 'universe/character_detail.html', {'form': form, 'character': character, 'weapon_formset': weapon_formset, 'spell_formset': spell_formset,})
+    return render(
+        request,
+        'universe/character_detail.html',
+        {
+            'form': form,
+            'character': character,
+            'weapon_formset': weapon_formset,
+            'spell_formset': spell_formset,
+        }
+    )

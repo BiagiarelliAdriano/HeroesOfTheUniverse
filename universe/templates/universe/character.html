@@ -291,7 +291,8 @@
             </section>
 
             <!-- Spell List-->
-            <div class="spell-list-section">
+            <button type="button" id="toggle-spell-list-btn">Spell List</button>
+            <div class="spell-list-section hidden">
                 <div class="spell-formset">
                     {{ spell_formset.management_form }}
                     {% for spell_form in spell_formset %}

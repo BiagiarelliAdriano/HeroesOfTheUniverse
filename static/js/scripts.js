@@ -8,6 +8,16 @@ if (classtoggleButton) {
     });
 }
 
+// Toggle Visibility For Spell List Div
+const spelltoggleButton = document.getElementById("toggle-spell-list-btn");
+const spellListDiv = document.querySelector(".spell-list-section");
+
+if (spelltoggleButton) {
+    spelltoggleButton.addEventListener("click", function () {
+        spellListDiv.classList.toggle("hidden");
+    });
+}
+
 // Function to show hidden buttons when the title button is clicked
 function showButtons() {
     const hiddenButtons = document.getElementById('hidden-buttons');

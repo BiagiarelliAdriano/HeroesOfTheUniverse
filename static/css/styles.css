@@ -722,6 +722,18 @@ button.save-character {
     margin-top: 20px;
 }
 
+/* Character Sheet Second Page Styling */
+#toggle-spell-list-btn {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
 /* Footer Styling */
 #footer {
     position: fixed;
