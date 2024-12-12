@@ -5,15 +5,28 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #8B0000; /* Deep Crimson */
+    --primary-dark: #660000;  /* Dark Crimson */
+    --secondary-color: #228B22; /* Emerald Green */
+    --secondary-dark: #006400;  /* Dark Green */
+    --background-color: #2C2C2C; /* Dark Charcoal Gray */
+    --highlight-color: #D4AF37; /* Antique Gold */
+    --accent-color: #CC5500; /* Burnt Orange */
+    --content-background: #F5F5DC; /* Parchment Beige */
+    --darker-content-background: #DCD7B7; /* Slightly Darker Parchment Beige */
+    --link-color: #0F52BA; /* Sapphire Blue */
+    --text-light: #E0E0E0; /* Light Gray for Text */
+    --text-dark: #2C2C2C; /* Dark Charcoal for Text */
+}
+
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/static/images/woodbackground.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
+    background-color: #4B3C31;
+    font-family: 'Macondo', sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
@@ -33,8 +46,10 @@ body {
     font-size: 1.6em;
     padding: 15px;
     border: none;
-    background: rgba(255, 255, 255, 0.8);
+    background: #228b228f;
+    color: var(--primary-dark);
     border-radius: 10px;
+    font-family: 'Macondo', sans-serif;
 }
 
 /* Hidden Button Styling */
@@ -47,10 +62,12 @@ body {
 .hidden-button {
     margin-top: 10px;
     padding: 10px 20px;
-    font-size: 1.2em;
-    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.75em;
+    background: #228b228f;
+    color: var(--primary-dark);
     border: none;
     border-radius: 5px;
+    font-family: 'Macondo', sans-serif;
 }
 
 .hidden {
@@ -62,8 +79,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
     padding: 10px 20px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -73,10 +90,11 @@ body {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: var(--highlight-color);
     padding-left: 20px;
     padding-bottom: 10px;
     margin: 0;
+    transition: all 0.2s ease-in-out;
 }
 
 .nav-left {
@@ -92,11 +110,12 @@ body {
 }
 
 .nav-button {
-    color: black;
+    color: var(--highlight-color);
     text-decoration: none;
     font-weight: bold;
     padding-right: 20px;
     padding-left: 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Style for alert messages */
@@ -131,7 +150,7 @@ body {
 /* Main Container Styling */
 #main-container {
     text-align: center;
-    background: white;
+    background: var(--content-background);
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -142,14 +161,14 @@ body {
 /* Title Styling */
 #title {
     font-size: 2.2em;
-    color: #333;
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
 /* Description Styling */
 #description {
     font-size: 1em;
-    color: #555;
+    color: var(--text-dark);
     margin-bottom: 30px;
 }
 
@@ -174,11 +193,12 @@ body {
     padding: 10px;
     font-size: 1.1em;
     font-weight: bold;
-    color: white;
-    background-color: #007bff;
+    color: var(--text-light);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     margin-top: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Main Content Area */
@@ -202,8 +222,9 @@ main {
 
 /* Character Box */
 .character-box {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--content-background);
+    color: var(--text-dark);
+    border: 1px solid var(--primary-dark);
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     width: 90%;
@@ -245,13 +266,14 @@ main {
 
 .actions .like-button,
 .actions .comment-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-dark);
     border-radius: 5px;
     padding: 8px 15px;
     font-size: 1.5em;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .actions .like-button i,
@@ -278,7 +300,8 @@ main {
 .comment-section {
     margin: 20px 10px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: var(--content-background);
+    color: var(--text-dark);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
@@ -288,17 +311,17 @@ main {
 .comments-title {
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .comment-login-prompt {
     font-size: 0.9em;
-    color: #555;
+    color: var(--text-dark);
     margin-bottom: 15px;
 }
 
 .login-link {
-    color: #007bff;
+    color: var(--link-color);
     text-decoration: underline;
 }
 
@@ -312,21 +335,29 @@ main {
 .comment-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    background-color: var(--darker-content-background);
+    color: var(--text-dark);
+    border: 1px solid var(--primary-dark);
     border-radius: 5px;
     resize: none;
     font-size: 0.9em;
+    transition: all 0.2s ease-in-out;
+}
+
+.comment-input::placeholder {
+    color: var(--text-dark);
 }
 
 .comment-submit {
     align-self: flex-start;
     padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-dark);
     border-radius: 5px;
     font-size: 0.9em;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
     font-weight: bold;
 }
 
@@ -337,7 +368,7 @@ main {
 .comment {
     margin-bottom: 15px;
     padding: 10px;
-    background: #f9f9f9;
+    background: var(--darker-content-background);
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -355,7 +386,7 @@ main {
 
 .no-comments {
     font-size: 0.9em;
-    color: #777;
+    color: var(--text-dark);
     text-align: center;
 }
 
@@ -365,15 +396,14 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    font-family: Arial, sans-serif;
     font-size: 20px;
+    color: var(--highlight-color);
 }
 
 .profile-name {
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
     position: relative;
 }
 
@@ -413,11 +443,12 @@ main {
     padding: 5px 10px;
     margin-top: 10px;
     font-size: 1rem;
-    color: white;
-    background-color: #007bff;
+    color: var(--text-light);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .profile-about-me {
@@ -443,10 +474,11 @@ main {
     padding: 5px 10px;
     font-size: 1rem;
     cursor: pointer;
-    color: white;
-    background-color: #007bff;
+    color: var(--text-light);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
 .profile-characters {
@@ -489,15 +521,14 @@ main {
 }
 
 .character-sheet-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--content-background);
     border-radius: 10px;
     padding: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
     margin: auto;
-    font-family: 'Arial', sans-serif;
-    color: #333;
+    color: var(--text-dark);
     overflow: hidden;
     text-align: center;
 }
@@ -511,7 +542,8 @@ main {
     box-sizing: border-box;
     font-family: inherit;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    background-color: var(--darker-content-background);
+    border: 1px solid var(--background-color);
     border-radius: 5px;
 }
 
@@ -552,7 +584,7 @@ main {
 .character-info-title {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #2d3436;
+    color: var(--text-dark);
     text-align: center;
 }
 
@@ -560,7 +592,7 @@ main {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
 }
 
 input,
@@ -568,9 +600,9 @@ select {
     width: 100%;
     padding: 8px;
     font-size: 1em;
-    border: 1px solid #ccc;
+    border: 1px solid var(--primary-dark);
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: var(--darker-content-background);
     margin-bottom: 10px;
     box-sizing: border-box;
     text-align: center;
@@ -579,25 +611,26 @@ select {
 input:focus,
 select:focus {
     outline: none;
-    border-color: #ffcc00;
-    background-color: #fff;
+    border-color: var(--highlight-color);
+    background-color: var(--darker-content-background);
 }
 
 /* Character Image Placeholder Selection Section */
 #toggle-class-image-btn {
     padding: 12px 20px;
     font-size: 1.2em;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--text-light);
     border: none;
     border-radius: 5px;
     width: 100%;
     margin-bottom: 15px;
+    transition: all 0.2s ease-in-out;
 }
 
 .class-image-section {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--darker-content-background);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -653,7 +686,7 @@ input[type="radio"] {
     font-weight: bold;
     display: inline-block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
     width: 45%;
 }
 
@@ -669,7 +702,7 @@ input[type="radio"] {
     font-weight: bold;
     display: inline-block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
     width: 45%;
 }
 
@@ -685,7 +718,7 @@ input[type="radio"] {
     font-weight: bold;
     display: inline-block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
     width: 45%;
 }
 
@@ -712,22 +745,22 @@ input[type="radio"] {
     padding: 8px;
     box-sizing: border-box;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--background-color);
     border-radius: 4px;
 }
 
 .ability {
-    background-color: #f7f7f7;
+    background-color: var(--darker-content-background);
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--background-color);
 }
 
 .abilities label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
     font-size: 1em;
 }
 
@@ -743,7 +776,7 @@ input[type="radio"] {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--text-dark);
     font-size: 1em;
 }
 
@@ -755,30 +788,33 @@ input[type="radio"] {
     padding: 8px;
     box-sizing: border-box;
     font-size: 14px;
-    border: 1px solid #ccc;
+    background-color: var(--darker-content-background);
+    border: 1px solid var(--highlight-color);
     border-radius: 4px;
 }
 
 button.save-character {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--text-light);
     font-size: 1.2em;
     border: none;
     border-radius: 5px;
     margin-top: 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Character Sheet Second Page Styling */
 #toggle-spell-list-btn {
     padding: 12px 20px;
     font-size: 1.2em;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--text-light);
     border: none;
     border-radius: 5px;
     width: 100%;
     margin-bottom: 15px;
+    transition: all 0.2s ease-in-out;
 }
 
 .spell-slots-section {
@@ -827,7 +863,7 @@ button.save-character {
     max-width: 60px;
     padding: 0.25rem;
     text-align: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--background-color);
     border-radius: 4px;
 }
 
@@ -844,8 +880,8 @@ button.save-character {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: white;
+    background-color: var(--background-color);
+    color: var(--text-light);
     padding: 10px 20px;
     z-index: 1000;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
@@ -862,15 +898,17 @@ button.save-character {
 
 #feedback-button,
 #to-top-button {
-    background-color: #ffcc00;
+    background-color: var(--highlight-color);
     border: none;
-    color: black;
+    color: var(--primary-color);
     padding: 8px 12px;
     font-weight: bold;
     font-size: 0.9em;
+    border: 1px solid var(--accent-color);
     border-radius: 5px;
     text-decoration: none;
     margin-right: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Feedback page style */
@@ -931,7 +969,7 @@ button.save-character {
 
 .form-input:focus,
 .form-textarea:focus {
-    border-color: #ffcc00;
+    border-color: var(--highlight-color);
     outline: none;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
@@ -940,8 +978,8 @@ button.save-character {
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
+    color: var(--text-light);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -971,7 +1009,8 @@ button.save-character {
     }
 
     .nav-title:hover {
-        color: #FF8F00;
+        background-color: var(--highlight-color);
+        color: var(--primary-color);
     }
 
     .nav-button {
@@ -980,8 +1019,10 @@ button.save-character {
         padding-left: 20px;
     }
 
-    .nav-button:hover {
-        color: #FF8F00;
+    /* Navigation Bar Styling */
+    .nav-right .nav-button:hover {
+        background-color: var(--highlight-color);
+        color: var(--primary-color);
     }
 
     /* Register Page Styling */
@@ -1006,7 +1047,8 @@ button.save-character {
     }
 
     .registration-button:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     /* Adjust Home Page Styling */
@@ -1078,7 +1120,8 @@ button.save-character {
     }
 
     .favorite-ttrpg-form button:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     .profile-about-me h3 {
@@ -1090,7 +1133,8 @@ button.save-character {
     }
 
     .profile-about-me button:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     .profile-characters h3 {
@@ -1138,7 +1182,8 @@ button.save-character {
     }
 
     #toggle-class-image-btn:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     .class-image-section {
@@ -1158,7 +1203,8 @@ button.save-character {
     }
 
     .save-character:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     /* Abilities Grid */
@@ -1170,7 +1216,7 @@ button.save-character {
 
     .ability {
         padding: 15px;
-        background-color: #f7f7f7;
+        background-color: var(--darker-content-background);
     }
 
     .ability label {
@@ -1219,7 +1265,8 @@ button.save-character {
 
     #feedback-button:hover,
     #to-top-button:hover {
-        background-color: #FFFF00;
+        background-color: var(--primary-color);
+        color: var(--highlight-color);
     }
 
     /* Feedback Page */
@@ -1248,7 +1295,6 @@ button.save-character {
 }
 
 @media screen and (min-width: 1024px) {
-
     /* Adjust Home Page Styling */
     .characters-container {
         max-width: 80%;
@@ -1292,7 +1338,8 @@ button.save-character {
 
     .actions .like-button:hover,
     .actions .comment-button:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     /* Comments Section */
@@ -1301,7 +1348,6 @@ button.save-character {
         max-width: 60%;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
     }
 
     .comment-title,
@@ -1315,7 +1361,7 @@ button.save-character {
 
     .comment-input:focus {
         outline: none;
-        border-color: #007bff;
+        border-color: var(--highlight-color);
     }
 
     .comment-submit {
@@ -1324,7 +1370,8 @@ button.save-character {
     }
 
     .comment-submit:hover {
-        background-color: #0056b3;
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 
     .comment {
@@ -1420,7 +1467,6 @@ button.save-character {
 
     .ability {
         padding: 20px;
-        background-color: #f7f7f7;
         text-align: center;
     }
 
@@ -1459,6 +1505,7 @@ button.save-character {
     }
 
     .form-submit-button:hover {
-        background-color: #0056b3; /* Darker shade for hover */
+        background-color: var(--primary-dark);
+        color: var(--accent-color);
     }
 }
