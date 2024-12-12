@@ -281,63 +281,67 @@
             <!-- Spell Slots -->
             <section class="spell-slots-section">
                 <h3>Spell Slots</h3>
-                <div class="spell-slots">
-                    <p>Level 1</p>{{ form.total_spell_slots_level_1 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_1_1 }}
-                    {{ form.spell_slots_used_level_1_2 }}
-                    {{ form.spell_slots_used_level_1_3 }}
-                    {{ form.spell_slots_used_level_1_4 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 2</p>{{ form.total_spell_slots_level_2 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_2_1 }}
-                    {{ form.spell_slots_used_level_2_2 }}
-                    {{ form.spell_slots_used_level_2_3 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 3</p>{{ form.total_spell_slots_level_3 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_3_1 }}
-                    {{ form.spell_slots_used_level_3_2 }}
-                    {{ form.spell_slots_used_level_3_3 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 4</p>{{ form.total_spell_slots_level_4 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_4_1 }}
-                    {{ form.spell_slots_used_level_4_2 }}
-                    {{ form.spell_slots_used_level_4_3 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 5</p>{{ form.total_spell_slots_level_5 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_5_1 }}
-                    {{ form.spell_slots_used_level_5_2 }}
-                    {{ form.spell_slots_used_level_5_3 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 6</p>{{ form.total_spell_slots_level_6 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_6_1 }}
-                    {{ form.spell_slots_used_level_6_2 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 7</p>{{ form.total_spell_slots_level_7 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_7_1 }}
-                    {{ form.spell_slots_used_level_7_2 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 8</p>{{ form.total_spell_slots_level_8 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_8_1 }}
-                </div>
-                <div class="spell-slots">
-                    <p>Level 9</p>{{ form.total_spell_slots_level_9 }}
-                    <p>Expended</p>
-                    {{ form.spell_slots_used_level_9_1 }}
+                <div class="spell-slots-grid">
+                    <!-- Column 1 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 1</p>
+                            {{ form.spell_slots_used_level_1_1 }}
+                            {{ form.spell_slots_used_level_1_2 }}
+                            {{ form.spell_slots_used_level_1_3 }}
+                            {{ form.spell_slots_used_level_1_4 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 2</p>
+                            {{ form.spell_slots_used_level_2_1 }}
+                            {{ form.spell_slots_used_level_2_2 }}
+                            {{ form.spell_slots_used_level_2_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 3</p>
+                            {{ form.spell_slots_used_level_3_1 }}
+                            {{ form.spell_slots_used_level_3_2 }}
+                            {{ form.spell_slots_used_level_3_3 }}
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 4</p>
+                            {{ form.spell_slots_used_level_4_1 }}
+                            {{ form.spell_slots_used_level_4_2 }}
+                            {{ form.spell_slots_used_level_4_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 5</p>
+                            {{ form.spell_slots_used_level_5_1 }}
+                            {{ form.spell_slots_used_level_5_2 }}
+                            {{ form.spell_slots_used_level_5_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 6</p>
+                            {{ form.spell_slots_used_level_6_1 }}
+                            {{ form.spell_slots_used_level_6_2 }}
+                        </div>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 7</p>
+                            {{ form.spell_slots_used_level_7_1 }}
+                            {{ form.spell_slots_used_level_7_2 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 8</p>
+                            {{ form.spell_slots_used_level_8_1 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 9</p>
+                            {{ form.spell_slots_used_level_9_1 }}
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -358,9 +362,9 @@
             <section class="appearance-section">
                 <h3>Appearance & Background</h3>
                 <label for="id_appearance">Appearance:</label>
-                {{ form.appearance }}
+                {{ form.appearance_area }}
                 <label for="id_backstory">Backstory & Personality:</label>
-                {{ form.backstory }}
+                {{ form.backstory_personality }}
                 <label for="id_alignment">Alignment:</label>
                 {{ form.alignment }}
                 <label for="id_languages">Languages:</label>

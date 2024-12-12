@@ -118,44 +118,35 @@ class Character(models.Model):
     spell_attack_bonus = models.IntegerField(default=0)
 
     # Spell Slots
-    spell_slots_total_level_1 = models.IntegerField(default=0)
     spell_slots_used_level_1_1 = models.BooleanField(default=False)
     spell_slots_used_level_1_2 = models.BooleanField(default=False)
     spell_slots_used_level_1_3 = models.BooleanField(default=False)
     spell_slots_used_level_1_4 = models.BooleanField(default=False)
 
-    spell_slots_total_level_2 = models.IntegerField(default=0)
     spell_slots_used_level_2_1 = models.BooleanField(default=False)
     spell_slots_used_level_2_2 = models.BooleanField(default=False)
     spell_slots_used_level_2_3 = models.BooleanField(default=False)
 
-    spell_slots_total_level_3 = models.IntegerField(default=0)
     spell_slots_used_level_3_1 = models.BooleanField(default=False)
     spell_slots_used_level_3_2 = models.BooleanField(default=False)
     spell_slots_used_level_3_3 = models.BooleanField(default=False)
 
-    spell_slots_total_level_4 = models.IntegerField(default=0)
     spell_slots_used_level_4_1 = models.BooleanField(default=False)
     spell_slots_used_level_4_2 = models.BooleanField(default=False)
     spell_slots_used_level_4_3 = models.BooleanField(default=False)
 
-    spell_slots_total_level_5 = models.IntegerField(default=0)
     spell_slots_used_level_5_1 = models.BooleanField(default=False)
     spell_slots_used_level_5_2 = models.BooleanField(default=False)
     spell_slots_used_level_5_3 = models.BooleanField(default=False)
 
-    spell_slots_total_level_6 = models.IntegerField(default=0)
     spell_slots_used_level_6_1 = models.BooleanField(default=False)
     spell_slots_used_level_6_2 = models.BooleanField(default=False)
 
-    spell_slots_total_level_7 = models.IntegerField(default=0)
     spell_slots_used_level_7_1 = models.BooleanField(default=False)
     spell_slots_used_level_7_2 = models.BooleanField(default=False)
 
-    spell_slots_total_level_8 = models.IntegerField(default=0)
     spell_slots_used_level_8_1 = models.BooleanField(default=False)
 
-    spell_slots_total_level_9 = models.IntegerField(default=0)
     spell_slots_used_level_9_1 = models.BooleanField(default=False)
 
     # Additional Fields
