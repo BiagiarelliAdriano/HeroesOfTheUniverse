@@ -595,6 +595,40 @@ select:focus {
     transition: opacity 0.3s ease-in-out;
 }
 
+#class-image-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.class-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.class-label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
 #class-image-preview {
     max-width: 150px;
     margin-top: 10px;

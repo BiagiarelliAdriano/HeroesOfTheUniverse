@@ -20,7 +20,58 @@
             <button type="button" id="toggle-class-image-btn">Select Character Image</button>
             <div class="class-image-section hidden">
                 <div id="class-image-selector">
-                    {{ form.class_image }}
+                    <div class="class-grid">
+                        <div class="class-grid-item">
+                            <label for="barbarian" class="class-label">Barbarian</label>
+                            <input type="radio" name="class" id="barbarian" value="barbarian">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="bard" class="class-label">Bard</label>
+                            <input type="radio" name="class" id="bard" value="bard">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="cleric" class="class-label">Cleric</label>
+                            <input type="radio" name="class" id="cleric" value="cleric">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="druid" class="class-label">Druid</label>
+                            <input type="radio" name="class" id="druid" value="druid">
+                        </div>
+
+                        <div class="class-grid-item">
+                            <label for="fighter" class="class-label">Fighter</label>
+                            <input type="radio" name="class" id="fighter" value="fighter">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="monk" class="class-label">Monk</label>
+                            <input type="radio" name="class" id="monk" value="monk">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="paladin" class="class-label">Paladin</label>
+                            <input type="radio" name="class" id="paladin" value="paladin">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="ranger" class="class-label">Ranger</label>
+                            <input type="radio" name="class" id="ranger" value="ranger">
+                        </div>
+
+                        <div class="class-grid-item">
+                            <label for="rogue" class="class-label">Rogue</label>
+                            <input type="radio" name="class" id="rogue" value="rogue">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="sorcerer" class="class-label">Sorcerer</label>
+                            <input type="radio" name="class" id="sorcerer" value="sorcerer">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="warlock" class="class-label">Warlock</label>
+                            <input type="radio" name="class" id="warlock" value="warlock">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="wizard" class="class-label">Wizard</label>
+                            <input type="radio" name="class" id="wizard" value="wizard">
+                        </div>
+                    </div>
                 </div>
                 <img id="class-image-preview" src="{% static 'images/barbarian.png' %}" alt="Class Image">
             </div>
