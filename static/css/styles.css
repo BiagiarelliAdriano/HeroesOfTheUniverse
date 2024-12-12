@@ -6,18 +6,30 @@
 }
 
 :root {
-    --primary-color: #8B0000; /* Deep Crimson */
-    --primary-dark: #660000;  /* Dark Crimson */
-    --secondary-color: #228B22; /* Emerald Green */
-    --secondary-dark: #006400;  /* Dark Green */
-    --background-color: #2C2C2C; /* Dark Charcoal Gray */
-    --highlight-color: #D4AF37; /* Antique Gold */
-    --accent-color: #CC5500; /* Burnt Orange */
-    --content-background: #F5F5DC; /* Parchment Beige */
-    --darker-content-background: #DCD7B7; /* Slightly Darker Parchment Beige */
-    --link-color: #0F52BA; /* Sapphire Blue */
-    --text-light: #E0E0E0; /* Light Gray for Text */
-    --text-dark: #2C2C2C; /* Dark Charcoal for Text */
+    --primary-color: #8B0000;
+    /* Deep Crimson */
+    --primary-dark: #660000;
+    /* Dark Crimson */
+    --secondary-color: #228B22;
+    /* Emerald Green */
+    --secondary-dark: #006400;
+    /* Dark Green */
+    --background-color: #2C2C2C;
+    /* Dark Charcoal Gray */
+    --highlight-color: #D4AF37;
+    /* Antique Gold */
+    --accent-color: #CC5500;
+    /* Burnt Orange */
+    --content-background: #F5F5DC;
+    /* Parchment Beige */
+    --darker-content-background: #DCD7B7;
+    /* Slightly Darker Parchment Beige */
+    --link-color: #0F52BA;
+    /* Sapphire Blue */
+    --text-light: #E0E0E0;
+    /* Light Gray for Text */
+    --text-dark: #2C2C2C;
+    /* Dark Charcoal for Text */
 }
 
 body {
@@ -29,7 +41,17 @@ body {
     font-family: 'Macondo', sans-serif;
     padding: 0;
     box-sizing: border-box;
+    background-image: 
+        linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
+        linear-gradient(-45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-size='30' fill='%23D4AF37' fill-opacity='0.2' font-family='Arial'%3E⚔️%3C/text%3E%3C/svg%3E");
+    background-size: 150px 150px, 150px 150px, 150px 150px;
+    background-repeat: repeat, repeat, repeat;
+    background-position: 0 0, 0 0, -31px 1px;
 }
+
+
+
 
 .landing-page {
     height: 100vh;
@@ -468,6 +490,7 @@ main {
     padding: 10px;
     font-size: 1rem;
     margin-bottom: 10px;
+    background-color: var(--content-background);
 }
 
 .profile-about-me button {
@@ -988,6 +1011,7 @@ button.save-character {
 }
 
 @media screen and (min-width: 768px) {
+
     /* Title Button Styling */
     #title-button {
         font-size: 3em;
@@ -1295,6 +1319,7 @@ button.save-character {
 }
 
 @media screen and (min-width: 1024px) {
+
     /* Adjust Home Page Styling */
     .characters-container {
         max-width: 80%;
