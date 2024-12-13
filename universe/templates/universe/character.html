@@ -2,6 +2,13 @@
 {% load static %}
 
 {% block content %}
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="character-sheet-container">
 
@@ -11,10 +18,13 @@
         <button type="button" class="pagination-btn" data-page="2">2</button>
     </div>
 
-    <!-- Page 1 Content -->
-    <div id="page-1" class="page-content active">
-        <form method="POST" id="character-form">
-            {% csrf_token %}
+    <form method="POST" id="character-form">
+        {% csrf_token %}
+
+        <!-- Page 1 Content -->
+        <div id="page-1" class="page-content active">
+
+
 
             <!-- Character Image -->
             <button type="button" id="toggle-class-image-btn">Select Character Image</button>
@@ -241,13 +251,30 @@
             <!-- Features-->
             <section class="features-section">
                 <h3>Weapons & Damage Cantrips</h3>
-                <div class="weapon-formset">
-                    {{ weapon_formset.management_form }}
-                    {% for weapon_form in weapon_formset %}
+                <div class="weapon-list">
                     <fieldset>
-                        {{ weapon_form.as_p }}
+                        <legend>Weapon 1</legend>
+                        <label for="weapon_name_1">Name:</label>
+                        {{ form.weapon_name_1 }}
+                        <label for="attack_bonus_save_dc_1">Save DC:</label>
+                        {{ form.attack_bonus_save_dc_1 }}
+                        <label for="damage_type_1">Damage:</label>
+                        {{ form.damage_type_1 }}
+                        <label for="weapon_notes_1">Notes:</label>
+                        {{ form.weapon_notes_1 }}
                     </fieldset>
-                    {% endfor %}
+
+                    <fieldset>
+                        <legend>Weapon 2</legend>
+                        <label for="weapon_name_2">Name:</label>
+                        {{ form.weapon_name_2 }}
+                        <label for="attack_bonus_save_dc_2">Save DC:</label>
+                        {{ form.attack_bonus_save_dc_2 }}
+                        <label for="damage_type_2">Damage:</label>
+                        {{ form.damage_type_2 }}
+                        <label for="weapon_notes_2">Notes:</label>
+                        {{ form.weapon_notes_2 }}
+                    </fieldset>
                 </div>
                 <label for="id_class_features">Class Features:</label>
                 {{ form.class_features_1 }}
@@ -256,15 +283,11 @@
                 {{ form.species_traits }}
                 <label for="id_feats">Feats:</label>
                 {{ form.feats }}
-    </div>
-    </section>
-    </form>
+            </section>
+        </div>
 
-    <!-- Page 2 Content -->
-    <div id="page-2" class="page-content">
-        <form method="POST" id="character-form-page-2">
-            {% csrf_token %}
-
+        <!-- Page 2 Content -->
+        <div id="page-2" class="page-content">
             <!-- Spellcasting Details -->
             <section class="spellcasting-section">
                 <h2>Spellcasting</h2>
@@ -348,14 +371,101 @@
             <!-- Spell List-->
             <button type="button" id="toggle-spell-list-btn">Spell List</button>
             <div class="spell-list-section hidden">
-                <div class="spell-formset">
-                    {{ spell_formset.management_form }}
-                    {% for spell_form in spell_formset %}
-                    <fieldset>
-                        {{ spell_form.as_p }}
-                    </fieldset>
-                    {% endfor %}
-                </div>
+                <fieldset>
+                    <legend>Spell 1</legend>
+                    <label for="spell_level_1">Level:</label>
+                    {{ form.spell_level_1 }}
+                    <label for="spell_name_1">Name:</label>
+                    {{ form.spell_name_1 }}
+                    <label for="spell_casting_time_1">Casting Time:</label>
+                    {{ form.spell_casting_time_1 }}
+                    <label for="spell_range_1">Range:</label>
+                    {{ form.spell_range_1 }}
+                    <label for="spell_concentration_1">Concetration?</label>
+                    {{ form.spell_concentration_1 }}
+                    <label for="spell_ritual_1">Ritual?</label>
+                    {{ form.spell_ritual_1 }}
+                    <label for="spell_material_required_1">Requires Material?</label>
+                    {{ form.spell_material_required_1 }}
+                    <label for="spell_notes_1">Notes:</label>
+                    {{ form.spell_notes_1 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 2</legend>
+                    <label for="spell_level_2">Level:</label>
+                    {{ form.spell_level_2 }}
+                    <label for="spell_name_2">Name:</label>
+                    {{ form.spell_name_2 }}
+                    <label for="spell_casting_time_2">Casting Time:</label>
+                    {{ form.spell_casting_time_2 }}
+                    <label for="spell_range_2">Range:</label>
+                    {{ form.spell_range_2 }}
+                    <label for="spell_concentration_2">Concetration?</label>
+                    {{ form.spell_concentration_2 }}
+                    <label for="spell_ritual_2">Ritual?</label>
+                    {{ form.spell_ritual_2 }}
+                    <label for="spell_material_required_2">Requires Material?</label>
+                    {{ form.spell_material_required_2 }}
+                    <label for="spell_notes_2">Notes:</label>
+                    {{ form.spell_notes_2 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 3</legend>
+                    <label for="spell_level_3">Level:</label>
+                    {{ form.spell_level_3 }}
+                    <label for="spell_name_3">Name:</label>
+                    {{ form.spell_name_3 }}
+                    <label for="spell_casting_time_3">Casting Time:</label>
+                    {{ form.spell_casting_time_3 }}
+                    <label for="spell_range_3">Range:</label>
+                    {{ form.spell_range_3 }}
+                    <label for="spell_concentration_3">Concetration?</label>
+                    {{ form.spell_concentration_3 }}
+                    <label for="spell_ritual_3">Ritual?</label>
+                    {{ form.spell_ritual_3 }}
+                    <label for="spell_material_required_3">Requires Material?</label>
+                    {{ form.spell_material_required_3 }}
+                    <label for="spell_notes_3">Notes:</label>
+                    {{ form.spell_notes_3 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 4</legend>
+                    <label for="spell_level_4">Level:</label>
+                    {{ form.spell_level_4 }}
+                    <label for="spell_name_4">Name:</label>
+                    {{ form.spell_name_4 }}
+                    <label for="spell_casting_time_4">Casting Time:</label>
+                    {{ form.spell_casting_time_4 }}
+                    <label for="spell_range_4">Range:</label>
+                    {{ form.spell_range_4 }}
+                    <label for="spell_concentration_4">Concetration?</label>
+                    {{ form.spell_concentration_4 }}
+                    <label for="spell_ritual_4">Ritual?</label>
+                    {{ form.spell_ritual_4 }}
+                    <label for="spell_material_required_4">Requires Material?</label>
+                    {{ form.spell_material_required_4 }}
+                    <label for="spell_notes_4">Notes:</label>
+                    {{ form.spell_notes_4 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 5</legend>
+                    <label for="spell_level_5">Level:</label>
+                    {{ form.spell_level_5 }}
+                    <label for="spell_name_5">Name:</label>
+                    {{ form.spell_name_5 }}
+                    <label for="spell_casting_time_5">Casting Time:</label>
+                    {{ form.spell_casting_time_5 }}
+                    <label for="spell_range_5">Range:</label>
+                    {{ form.spell_range_5 }}
+                    <label for="spell_concentration_5">Concetration?</label>
+                    {{ form.spell_concentration_5 }}
+                    <label for="spell_ritual_5">Ritual?</label>
+                    {{ form.spell_ritual_5 }}
+                    <label for="spell_material_required_5">Requires Material?</label>
+                    {{ form.spell_material_required_5 }}
+                    <label for="spell_notes_5">Notes:</label>
+                    {{ form.spell_notes_5 }}
+                </fieldset>
             </div>
 
             <!-- Appearance & Additional Info -->
@@ -395,10 +505,10 @@
                 <label for="id_pp">PP:</label>
                 {{ form.pp }}
             </section>
-        </form>
-    </div>
+        </div>
+        <button type="submit" class="save-character">Save Character</button>
+    </form>
 
-    <button type="submit" class="save-character">Save Character</button>
 </div>
 
 {% endblock %}

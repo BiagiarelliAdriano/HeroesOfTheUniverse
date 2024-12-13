@@ -41,17 +41,14 @@ body {
     font-family: 'Macondo', sans-serif;
     padding: 0;
     box-sizing: border-box;
-    background-image: 
-        linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
-        linear-gradient(-45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
+    background-image:
+        linear-gradient(45deg, transparent 25%, rgba(0, 0, 0, 0.1) 25%),
+        linear-gradient(-45deg, transparent 25%, rgba(0, 0, 0, 0.1) 25%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-size='30' fill='%23D4AF37' fill-opacity='0.2' font-family='Arial'%3E⚔️%3C/text%3E%3C/svg%3E");
     background-size: 150px 150px, 150px 150px, 150px 150px;
     background-repeat: repeat, repeat, repeat;
     background-position: 0 0, 0 0, -31px 1px;
 }
-
-
-
 
 .landing-page {
     height: 100vh;

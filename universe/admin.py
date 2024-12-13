@@ -3,7 +3,7 @@ from django.contrib.admin import TabularInline
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from .models.character_models import Character
-from .models import Profile, Weapon, Spell
+from .models import Profile
 from homepage.models import Comment, FeedbackRequest
 
 # Register your models here.
@@ -27,20 +27,11 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Profile, ProfileAdmin)
 
-class WeaponInLine(admin.TabularInline):
-    model = Weapon
-    extra = 3
-
-class SpellInLine(admin.TabularInline):
-    model = Spell
-    extra = 9
-
 # Characters
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ('name', 'user', 'level', 'character_class')
     search_fields = ('name', 'user__username', 'character_class')
     list_filter = ('level', 'character_class')
-    inlines = [WeaponInLine, SpellInLine]
 
 admin.site.register(Character, CharacterAdmin)
 

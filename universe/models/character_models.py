@@ -9,8 +9,8 @@ class Character(models.Model):
     species = models.CharField(max_length=100, blank=True, null=True)
     character_class = models.CharField(max_length=100, blank=True, null=True)
     subclass = models.CharField(max_length=100, blank=True, null=True)
-    level = models.PositiveIntegerField(default=1)
-    xp = models.PositiveIntegerField(default=1)  # Experience Points
+    level = models.PositiveIntegerField(default=1, blank=True, null=True)
+    xp = models.PositiveIntegerField(default=1, blank=True, null=True)  # Experience Points
 
     # Class Image
     CLASS_IMAGE_CHOICES = [
@@ -37,38 +37,38 @@ class Character(models.Model):
     )
 
     # Combat Stats
-    armor_class = models.PositiveIntegerField(default=10)
-    shield = models.BooleanField(default=False)
-    current_hit_points = models.PositiveIntegerField(default=0)
-    temp_hit_points = models.PositiveIntegerField(default=0) # Temporary Hit Points
-    max_hit_points = models.PositiveIntegerField(default=0) # Maximum Hit Points
-    spent_hit_dice = models.PositiveIntegerField(default=0)
-    max_hit_dice = models.PositiveIntegerField(default=0) # Maximum Hit Dice
+    armor_class = models.PositiveIntegerField(default=10, blank=True, null=True)
+    shield = models.BooleanField(default=False, blank=True, null=True)
+    current_hit_points = models.PositiveIntegerField(default=0, blank=True, null=True)
+    temp_hit_points = models.PositiveIntegerField(default=0, blank=True, null=True) # Temporary Hit Points
+    max_hit_points = models.PositiveIntegerField(default=0, blank=True, null=True) # Maximum Hit Points
+    spent_hit_dice = models.PositiveIntegerField(default=0, blank=True, null=True)
+    max_hit_dice = models.PositiveIntegerField(default=0, blank=True, null=True) # Maximum Hit Dice
 
     # Death Saves
-    death_save_success = models.PositiveIntegerField(default=0)
-    death_save_failures = models.PositiveIntegerField(default=0)
+    death_save_success = models.PositiveIntegerField(default=0, blank=True, null=True)
+    death_save_failures = models.PositiveIntegerField(default=0, blank=True, null=True)
 
     # Other Combat Stats
-    initiative = models.IntegerField(default=0)
-    speed = models.PositiveIntegerField(default=30)
+    initiative = models.IntegerField(default=0, blank=True, null=True)
+    speed = models.PositiveIntegerField(default=30, blank=True, null=True)
     size = models.CharField(max_length=100, blank=True, null=True)
-    passive_perception = models.PositiveIntegerField(default=10)
-    proficiency_bonus = models.IntegerField(default=2)
+    passive_perception = models.PositiveIntegerField(default=10, blank=True, null=True)
+    proficiency_bonus = models.IntegerField(default=2, blank=True, null=True)
 
     # Ability Scores And Modifiers
-    strength_score = models.PositiveIntegerField(default=10)
-    strength_modifier = models.IntegerField(default=0)
-    dexterity_score = models.PositiveIntegerField(default=10)
-    dexterity_modifier = models.IntegerField(default=0)
-    constitution_score = models.PositiveIntegerField(default=10)
-    constitution_modifier = models.IntegerField(default=0)
-    intelligence_score = models.PositiveIntegerField(default=10)
-    intelligence_modifier = models.IntegerField(default=0)
-    wisdom_score = models.PositiveIntegerField(default=10)
-    wisdom_modifier = models.IntegerField(default=0)
-    charisma_score = models.PositiveIntegerField(default=10)
-    charisma_modifier = models.IntegerField(default=0)
+    strength_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    strength_modifier = models.IntegerField(default=0, blank=True, null=True)
+    dexterity_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    dexterity_modifier = models.IntegerField(default=0, blank=True, null=True)
+    constitution_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    constitution_modifier = models.IntegerField(default=0, blank=True, null=True)
+    intelligence_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    intelligence_modifier = models.IntegerField(default=0, blank=True, null=True)
+    wisdom_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    wisdom_modifier = models.IntegerField(default=0, blank=True, null=True)
+    charisma_score = models.PositiveIntegerField(default=10, blank=True, null=True)
+    charisma_modifier = models.IntegerField(default=0, blank=True, null=True)
 
     # Saving Throws
     strength_saving_throw = models.BooleanField(default=False)
@@ -111,6 +111,17 @@ class Character(models.Model):
     species_traits = models.TextField(blank=True, null=True)
     feats = models.TextField(blank=True, null=True)
 
+    # Weapon fields
+    weapon_name_1 = models.CharField(max_length=100, blank=True, null=True)
+    attack_bonus_save_dc_1 = models.IntegerField(default=0, blank=True, null=True)
+    damage_type_1 = models.CharField(max_length=100, blank=True, null=True)
+    weapon_notes_1 = models.TextField(max_length=500, blank=True, null=True)
+
+    weapon_name_2 = models.CharField(max_length=100, blank=True, null=True)
+    attack_bonus_save_dc_2 = models.IntegerField(default=0, blank=True, null=True)
+    damage_type_2 = models.CharField(max_length=100, blank=True, null=True)
+    weapon_notes_2 = models.TextField(max_length=500, blank=True, null=True)
+
     # 2nd Page Content - Spellcasting
     spellcasting_ability = models.CharField(max_length=100, blank=True, null=True)
     spellcasting_modifier = models.IntegerField(default=0)
@@ -148,6 +159,52 @@ class Character(models.Model):
     spell_slots_used_level_8_1 = models.BooleanField(default=False)
 
     spell_slots_used_level_9_1 = models.BooleanField(default=False)
+
+    # Spell List
+    spell_level_1 = models.PositiveIntegerField(blank=True, null=True)
+    spell_name_1 = models.CharField(max_length=200, blank=True, null=True)
+    spell_casting_time_1 = models.CharField(max_length=100, blank=True, null=True)
+    spell_range_1 = models.CharField(max_length=100, blank=True, null=True)
+    spell_concentration_1 = models.BooleanField(default=False)
+    spell_ritual_1 = models.BooleanField(default=False)
+    spell_material_required_1 = models.BooleanField(default=False)
+    spell_notes_1 = models.TextField(blank=True, null=True)
+
+    spell_level_2 = models.PositiveIntegerField(blank=True, null=True)
+    spell_name_2 = models.CharField(max_length=200, blank=True, null=True)
+    spell_casting_time_2 = models.CharField(max_length=100, blank=True, null=True)
+    spell_range_2 = models.CharField(max_length=100, blank=True, null=True)
+    spell_concentration_2 = models.BooleanField(default=False)
+    spell_ritual_2 = models.BooleanField(default=False)
+    spell_material_required_2 = models.BooleanField(default=False)
+    spell_notes_2 = models.TextField(blank=True, null=True)
+
+    spell_level_3 = models.PositiveIntegerField(blank=True, null=True)
+    spell_name_3 = models.CharField(max_length=200, blank=True, null=True)
+    spell_casting_time_3 = models.CharField(max_length=100, blank=True, null=True)
+    spell_range_3 = models.CharField(max_length=100, blank=True, null=True)
+    spell_concentration_3 = models.BooleanField(default=False)
+    spell_ritual_3 = models.BooleanField(default=False)
+    spell_material_required_3 = models.BooleanField(default=False)
+    spell_notes_3 = models.TextField(blank=True, null=True)
+
+    spell_level_4 = models.PositiveIntegerField(blank=True, null=True)
+    spell_name_4 = models.CharField(max_length=200, blank=True, null=True)
+    spell_casting_time_4 = models.CharField(max_length=100, blank=True, null=True)
+    spell_range_4 = models.CharField(max_length=100, blank=True, null=True)
+    spell_concentration_4 = models.BooleanField(default=False)
+    spell_ritual_4 = models.BooleanField(default=False)
+    spell_material_required_4 = models.BooleanField(default=False)
+    spell_notes_4 = models.TextField(blank=True, null=True)
+
+    spell_level_5 = models.PositiveIntegerField(blank=True, null=True)
+    spell_name_5 = models.CharField(max_length=200, blank=True, null=True)
+    spell_casting_time_5 = models.CharField(max_length=100, blank=True, null=True)
+    spell_range_5 = models.CharField(max_length=100, blank=True, null=True)
+    spell_concentration_5 = models.BooleanField(default=False)
+    spell_ritual_5 = models.BooleanField(default=False)
+    spell_material_required_5 = models.BooleanField(default=False)
+    spell_notes_5 = models.TextField(blank=True, null=True)
 
     # Additional Fields
     appearance_area = models.TextField(blank=True, null=True)
