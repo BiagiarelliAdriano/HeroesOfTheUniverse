@@ -1,13 +1,516 @@
-{% extends 'universe/character.html' %}
+{% extends 'universe/base.html' %}
+{% load static %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <div class="character-sheet-container">
-        {{ form.as_p }}
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="character-sheet-container">
+
+    <!-- Pagination Buttons -->
+    <div class="pagination-buttons">
+        <button type="button" class="pagination-btn" data-page="1">1</button>
+        <button type="button" class="pagination-btn" data-page="2">2</button>
     </div>
-    {% if user.username == character.user.username %}
-    <button type="submit">Save Changes</button>
-    {% endif %}
-</form>
+
+    <form method="POST" id="character-form">
+        {% csrf_token %}
+
+        <!-- Page 1 Content -->
+        <div id="page-1" class="page-content active">
+
+
+
+            <!-- Character Image -->
+            <button type="button" id="toggle-class-image-btn">Select Character Image</button>
+            <div class="class-image-section hidden">
+                <div id="class-image-selector">
+                    <div class="class-grid">
+                        <div class="class-grid-item">
+                            <label for="barbarian" class="class-label">Barbarian</label>
+                            <input type="radio" name="class" id="barbarian" value="barbarian">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="bard" class="class-label">Bard</label>
+                            <input type="radio" name="class" id="bard" value="bard">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="cleric" class="class-label">Cleric</label>
+                            <input type="radio" name="class" id="cleric" value="cleric">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="druid" class="class-label">Druid</label>
+                            <input type="radio" name="class" id="druid" value="druid">
+                        </div>
+
+                        <div class="class-grid-item">
+                            <label for="fighter" class="class-label">Fighter</label>
+                            <input type="radio" name="class" id="fighter" value="fighter">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="monk" class="class-label">Monk</label>
+                            <input type="radio" name="class" id="monk" value="monk">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="paladin" class="class-label">Paladin</label>
+                            <input type="radio" name="class" id="paladin" value="paladin">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="ranger" class="class-label">Ranger</label>
+                            <input type="radio" name="class" id="ranger" value="ranger">
+                        </div>
+
+                        <div class="class-grid-item">
+                            <label for="rogue" class="class-label">Rogue</label>
+                            <input type="radio" name="class" id="rogue" value="rogue">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="sorcerer" class="class-label">Sorcerer</label>
+                            <input type="radio" name="class" id="sorcerer" value="sorcerer">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="warlock" class="class-label">Warlock</label>
+                            <input type="radio" name="class" id="warlock" value="warlock">
+                        </div>
+                        <div class="class-grid-item">
+                            <label for="wizard" class="class-label">Wizard</label>
+                            <input type="radio" name="class" id="wizard" value="wizard">
+                        </div>
+                    </div>
+                </div>
+                <img id="class-image-preview" src="{% static 'images/barbarian.png' %}" alt="Class Image">
+            </div>
+
+            <!-- Header Section -->
+            <section class="character-header">
+                <div class="character-header-info">
+                    <div class="columns">
+                        <label for="id_name">Name:</label>
+                        {{ form.name }}
+                        <label for="id_background">Background:</label>
+                        {{ form.background }}
+                        <label for="id_species">Species:</label>
+                        {{ form.species }}
+                    </div>
+                    <div class="columns">
+                        <label for="id_character_class">Class:</label>
+                        {{ form.character_class }}
+                        <label for="id_subclass">Subclass:</label>
+                        {{ form.subclass }}
+                    </div>
+                    <div class="columns">
+                        <label for="id_level">Level:</label>
+                        {{ form.level }}
+                        <label for="id_xp">XP:</label>
+                        {{ form.xp }}
+                    </div>
+                    <div class="columns">
+                        <label for="id_armor_class">Armor Class:</label>
+                        {{ form.armor_class }}
+                        <label for="id_shield">Shield:</label>
+                        {{ form.shield }}
+                    </div>
+                    <div class="columns">
+                        <h2 class="character-info-title">Hit Points</h2>
+                        <label for="id_current_hit_points">Current HP:</label>
+                        {{ form.current_hit_points }}
+                    </div>
+                    <div class="columns">
+                        <label for="id_max_hit_points">Max HP:</label>
+                        {{ form.max_hit_points }}
+                        <label for="id_temp_hit_points">Temp HP:</label>
+                        {{ form.temp_hit_points }}
+                    </div>
+                    <div class="columns">
+                        <label for="id_spent_hit_dice">Spent Hit Dice:</label>
+                        {{ form.spent_hit_dice }}
+                        <label for="id_max_hit_dice">Max Hit Dice:</label>
+                        {{ form.max_hit_dice }}
+                    </div>
+                    <div class="columns">
+                        <h2 class="character-info-title">Death Saves</h2>
+                        <div class="death-saves">
+                            <label for="id_death_save_success">Successes:</label>
+                            {{ form.death_save_success }}
+                            <label for="id_death_save_failures">Failures:</label>
+                            {{ form.death_save_failures }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Abilities -->
+            <section class="abilities-section">
+                <div class="abilities">
+                    <div class="columns-abilities">
+                        <h2 class="character-info-title">Ability Scores</h2>
+                        <div class="proficiency-bonus-container">
+                            <label class="proficiency-bonus-label" for="id_proficiency_bonus">Proficiency Bonus:</label>
+                            {{ form.proficiency_bonus }}
+                        </div>
+                        <div class="ability">
+                            <label>Strength</label>
+                            {{ form.strength_score }}
+                            {{ form.strength_modifier }}
+                            <label>Saving Throw</label>{{ form.strength_saving_throw }}
+                            <label>Athletic</label>{{ form.athletic_skill }}
+                        </div>
+                        <div class="ability">
+                            <label>Dexterity</label>
+                            {{ form.dexterity_score }}
+                            {{ form.dexterity_modifier }}
+                            <label>Saving Throw</label>{{ form.dexterity_saving_throw }}
+                            <label>Acrobatics</label>{{ form.acrobatics_skill }}
+                            <label>Sleight Of Hand</label>{{ form.sleight_of_hand_skill }}
+                            <label>Stealth</label>{{ form.stealth_skill }}
+                        </div>
+                        <div class="ability">
+                            <label>Constitution</label>
+                            {{ form.constitution_score }}
+                            {{ form.constitution_modifier }}
+                            <label>Saving Throw</label>{{ form.constitution_saving_throw }}
+                        </div>
+                    </div>
+                    <div class="columns-abilities">
+                        <div class="ability">
+                            <label>Intelligence</label>
+                            {{ form.intelligence_score }}
+                            {{ form.intelligence_modifier }}
+                            <label>Saving Throw</label>{{ form.intelligence_saving_throw }}
+                            <label>Arcana</label>{{ form.arcana_skill }}
+                            <label>History</label>{{ form.history_skill }}
+                            <label>Investigation</label>{{ form.investigation_skill }}
+                            <label>Nature</label>{{ form.nature_skill }}
+                            <label>Religion</label>{{ form.religion_skill }}
+                        </div>
+                        <div class="ability">
+                            <label>Wisdom</label>
+                            {{ form.wisdom_score }}
+                            {{ form.wisdom_modifier }}
+                            <label>Saving Throw</label>{{ form.wisdom_saving_throw }}
+                            <label>Animal Handling</label>{{ form.animal_handling_skill }}
+                            <label>Insight</label>{{ form.insight_skill }}
+                            <label>Medicine</label>{{ form.medicine_skill }}
+                            <label>Perception</label>{{ form.perception_skill }}
+                            <label>Survival</label>{{ form.survival_skill }}
+                        </div>
+                        <div class="ability">
+                            <label>Charisma</label>
+                            {{ form.charisma_score }}
+                            {{ form.charisma_modifier }}
+                            <label>Saving Throw</label>{{ form.charisma_saving_throw }}
+                            <label>Deception</label>{{ form.deception_skill }}
+                            <label>Intimidation</label>{{ form.intimidation_skill }}
+                            <label>Performance</label>{{ form.performance_skill }}
+                            <label>Persuasion</label>{{ form.persuasion_skill }}
+                        </div>
+                    </div>
+                    <label for="id_heroic_inspiration">Heroic Inspiration:</label>
+                    {{ form.heroic_inspiration }}
+                    <div class="columns-abilities">
+                        <h2 class="character-info-title">Features</h2>
+                        <div class="features">
+                            <label for="id_initiative">Initiative:</label>
+                            {{ form.initiative }}
+                            <label for="id_speed">Speed:</label>
+                            {{ form.speed }}
+                            <label for="id_size">Size:</label>
+                            {{ form.size }}
+                            <label for="id_passive_perception">Passive Perception:</label>
+                            {{ form.passive_perception }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proficiencies -->
+            <section class="proficiencies-section">
+                <div class="proficiencies-container">
+                    <h2 class="character-info-title">Equipment Training & Proficiencies</h2>
+                    <div class="armor-training">
+                        <h3 class="character-info-title">Armor Training</h3>
+                        <label for="id_light_armor_training" class="armor-traning-label">
+                            Light</label>{{ form.light_armor_training }}
+                        <label for="id_medium_armor_training" class="armor-traning-label">
+                            Medium</label>{{ form.medium_armor_training }}
+                        <label for="id_heavy_armor_training" class="armor-traning-label">
+                            Heavy</label>{{ form.heavy_armor_training }}
+                        <label for="id_shield_armor_training" class="armor-traning-label">
+                            Shield</label>{{ form.shield_armor_training }}
+                    </div>
+                    <label for="id_weapons_proficiencies" class="proficiencies-label">Weapons Proficiencies:</label>
+                    {{ form.weapons_proficiencies }}
+                    <label for="id_tools_proficiencies" class="proficiencies-label">Tools Proficiencies:</label>
+                    {{ form.tools_proficiencies }}
+                </div>
+            </section>
+
+            <!-- Features-->
+            <section class="features-section">
+                <h3>Weapons & Damage Cantrips</h3>
+                <div class="weapon-list">
+                    <fieldset>
+                        <legend>Weapon 1</legend>
+                        <label for="id_weapon_name_1">Name:</label>
+                        {{ form.weapon_name_1 }}
+                        <label for="id_attack_bonus_save_dc_1">Save DC:</label>
+                        {{ form.attack_bonus_save_dc_1 }}
+                        <label for="id_damage_type_1">Damage:</label>
+                        {{ form.damage_type_1 }}
+                        <label for="id_weapon_notes_1">Notes:</label>
+                        {{ form.weapon_notes_1 }}
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Weapon 2</legend>
+                        <label for="id_weapon_name_2">Name:</label>
+                        {{ form.weapon_name_2 }}
+                        <label for="id_attack_bonus_save_dc_2">Save DC:</label>
+                        {{ form.attack_bonus_save_dc_2 }}
+                        <label for="id_damage_type_2">Damage:</label>
+                        {{ form.damage_type_2 }}
+                        <label for="id_weapon_notes_2">Notes:</label>
+                        {{ form.weapon_notes_2 }}
+                    </fieldset>
+                </div>
+                <label for="id_class_features_1">Class Features:</label>
+                {{ form.class_features_1 }}
+                {{ form.class_features_2 }}
+                <label for="id_species_traits">Species Traits:</label>
+                {{ form.species_traits }}
+                <label for="id_feats">Feats:</label>
+                {{ form.feats }}
+            </section>
+        </div>
+
+        <!-- Page 2 Content -->
+        <div id="page-2" class="page-content">
+            <!-- Spellcasting Details -->
+            <section class="spellcasting-section">
+                <h2>Spellcasting</h2>
+                <label for="id_spellcasting_ability">Spellcasting Ability:</label>
+                {{ form.spellcasting_ability }}
+                <label for="id_spellcasting_modifier">Spellcasting Modifier:</label>
+                {{ form.spellcasting_modifier }}
+                <label for="id_spell_save_dc">Spell Save DC:</label>
+                {{ form.spell_save_dc }}
+                <label for="id_spell_attack_bonus">Spell Attack Bonus:</label>
+                {{ form.spell_attack_bonus }}
+            </section>
+
+            <!-- Spell Slots -->
+            <section class="spell-slots-section">
+                <h3>Spell Slots</h3>
+                <div class="spell-slots-grid">
+                    <!-- Column 1 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 1</p>
+                            {{ form.spell_slots_used_level_1_1 }}
+                            {{ form.spell_slots_used_level_1_2 }}
+                            {{ form.spell_slots_used_level_1_3 }}
+                            {{ form.spell_slots_used_level_1_4 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 2</p>
+                            {{ form.spell_slots_used_level_2_1 }}
+                            {{ form.spell_slots_used_level_2_2 }}
+                            {{ form.spell_slots_used_level_2_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 3</p>
+                            {{ form.spell_slots_used_level_3_1 }}
+                            {{ form.spell_slots_used_level_3_2 }}
+                            {{ form.spell_slots_used_level_3_3 }}
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 4</p>
+                            {{ form.spell_slots_used_level_4_1 }}
+                            {{ form.spell_slots_used_level_4_2 }}
+                            {{ form.spell_slots_used_level_4_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 5</p>
+                            {{ form.spell_slots_used_level_5_1 }}
+                            {{ form.spell_slots_used_level_5_2 }}
+                            {{ form.spell_slots_used_level_5_3 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 6</p>
+                            {{ form.spell_slots_used_level_6_1 }}
+                            {{ form.spell_slots_used_level_6_2 }}
+                        </div>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="spell-slot-column">
+                        <div class="spell-slot-row">
+                            <p>Level 7</p>
+                            {{ form.spell_slots_used_level_7_1 }}
+                            {{ form.spell_slots_used_level_7_2 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 8</p>
+                            {{ form.spell_slots_used_level_8_1 }}
+                        </div>
+                        <div class="spell-slot-row">
+                            <p>Level 9</p>
+                            {{ form.spell_slots_used_level_9_1 }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spell List-->
+            <button type="button" id="toggle-spell-list-btn">Spell List</button>
+            <div class="spell-list-section hidden">
+                <fieldset>
+                    <legend>Spell 1</legend>
+                    <label for="id_spell_level_1">Level:</label>
+                    {{ form.spell_level_1 }}
+                    <label for="id_spell_name_1">Name:</label>
+                    {{ form.spell_name_1 }}
+                    <label for="id_spell_casting_time_1">Casting Time:</label>
+                    {{ form.spell_casting_time_1 }}
+                    <label for="id_spell_range_1">Range:</label>
+                    {{ form.spell_range_1 }}
+                    <label for="id_spell_concentration_1">Concetration?</label>
+                    {{ form.spell_concentration_1 }}
+                    <label for="id_spell_ritual_1">Ritual?</label>
+                    {{ form.spell_ritual_1 }}
+                    <label for="id_spell_material_required_1">Requires Material?</label>
+                    {{ form.spell_material_required_1 }}
+                    <label for="id_spell_notes_1">Notes:</label>
+                    {{ form.spell_notes_1 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 2</legend>
+                    <label for="id_spell_level_2">Level:</label>
+                    {{ form.spell_level_2 }}
+                    <label for="id_spell_name_2">Name:</label>
+                    {{ form.spell_name_2 }}
+                    <label for="id_spell_casting_time_2">Casting Time:</label>
+                    {{ form.spell_casting_time_2 }}
+                    <label for="id_spell_range_2">Range:</label>
+                    {{ form.spell_range_2 }}
+                    <label for="id_spell_concentration_2">Concetration?</label>
+                    {{ form.spell_concentration_2 }}
+                    <label for="id_spell_ritual_2">Ritual?</label>
+                    {{ form.spell_ritual_2 }}
+                    <label for="id_spell_material_required_2">Requires Material?</label>
+                    {{ form.spell_material_required_2 }}
+                    <label for="id_spell_notes_2">Notes:</label>
+                    {{ form.spell_notes_2 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 3</legend>
+                    <label for="id_spell_level_3">Level:</label>
+                    {{ form.spell_level_3 }}
+                    <label for="id_spell_name_3">Name:</label>
+                    {{ form.spell_name_3 }}
+                    <label for="id_spell_casting_time_3">Casting Time:</label>
+                    {{ form.spell_casting_time_3 }}
+                    <label for="id_spell_range_3">Range:</label>
+                    {{ form.spell_range_3 }}
+                    <label for="id_spell_concentration_3">Concetration?</label>
+                    {{ form.spell_concentration_3 }}
+                    <label for="id_spell_ritual_3">Ritual?</label>
+                    {{ form.spell_ritual_3 }}
+                    <label for="id_spell_material_required_3">Requires Material?</label>
+                    {{ form.spell_material_required_3 }}
+                    <label for="id_spell_notes_3">Notes:</label>
+                    {{ form.spell_notes_3 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 4</legend>
+                    <label for="id_spell_level_4">Level:</label>
+                    {{ form.spell_level_4 }}
+                    <label for="id_spell_name_4">Name:</label>
+                    {{ form.spell_name_4 }}
+                    <label for="id_spell_casting_time_4">Casting Time:</label>
+                    {{ form.spell_casting_time_4 }}
+                    <label for="id_spell_range_4">Range:</label>
+                    {{ form.spell_range_4 }}
+                    <label for="id_spell_concentration_4">Concetration?</label>
+                    {{ form.spell_concentration_4 }}
+                    <label for="id_spell_ritual_4">Ritual?</label>
+                    {{ form.spell_ritual_4 }}
+                    <label for="id_spell_material_required_4">Requires Material?</label>
+                    {{ form.spell_material_required_4 }}
+                    <label for="id_spell_notes_4">Notes:</label>
+                    {{ form.spell_notes_4 }}
+                </fieldset>
+                <fieldset>
+                    <legend>Spell 5</legend>
+                    <label for="id_spell_level_5">Level:</label>
+                    {{ form.spell_level_5 }}
+                    <label for="id_spell_name_5">Name:</label>
+                    {{ form.spell_name_5 }}
+                    <label for="id_spell_casting_time_5">Casting Time:</label>
+                    {{ form.spell_casting_time_5 }}
+                    <label for="id_spell_range_5">Range:</label>
+                    {{ form.spell_range_5 }}
+                    <label for="id_spell_concentration_5">Concetration?</label>
+                    {{ form.spell_concentration_5 }}
+                    <label for="id_spell_ritual_5">Ritual?</label>
+                    {{ form.spell_ritual_5 }}
+                    <label for="id_spell_material_required_5">Requires Material?</label>
+                    {{ form.spell_material_required_5 }}
+                    <label for="id_spell_notes_5">Notes:</label>
+                    {{ form.spell_notes_5 }}
+                </fieldset>
+            </div>
+
+            <!-- Appearance & Additional Info -->
+            <section class="appearance-section">
+                <h3>Appearance & Background</h3>
+                <label for="id_appearance_area">Appearance:</label>
+                {{ form.appearance_area }}
+                <label for="id_backstory_personality">Backstory & Personality:</label>
+                {{ form.backstory_personality }}
+                <label for="id_alignment">Alignment:</label>
+                {{ form.alignment }}
+                <label for="id_languages">Languages:</label>
+                {{ form.languages }}
+                <label for="id_equipment">Equipment:</label>
+                {{ form.equipment }}
+            </section>
+
+            <!-- Magic Attunement -->
+            <section class="magic-attunement-section">
+                <h3>Magic Attunements</h3>
+                {{ form.magic_attunement_1 }} <p>Name:</p> {{ form.magic_attunement_1_name }}
+                {{ form.magic_attunement_2 }} <p>Name:</p> {{ form.magic_attunement_2_name }}
+                {{ form.magic_attunement_3 }} <p>Name:</p> {{ form.magic_attunement_3_name }}
+            </section>
+
+            <!-- Coins -->
+            <section class="coins-section">
+                <h3>Coins</h3>
+                <label for="id_cp">CP:</label>
+                {{ form.cp }}
+                <label for="id_sp">SP:</label>
+                {{ form.sp }}
+                <label for="id_ep">EP:</label>
+                {{ form.ep }}
+                <label for="id_gp">GP:</label>
+                {{ form.gp }}
+                <label for="id_pp">PP:</label>
+                {{ form.pp }}
+            </section>
+        </div>
+        <button type="submit" class="save-character">Save Character</button>
+    </form>
+
+</div>
+
 {% endblock %}
