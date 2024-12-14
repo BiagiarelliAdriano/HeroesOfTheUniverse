@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Macondo&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/016d2569a0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
 </head>
 
 <body class="{% if request.path == '/character/' %}character-page{% endif %}">
@@ -19,7 +23,8 @@
                 <a href="{% url 'main_home:home' %}" class="nav-title">Heroes Of The Universe</a>
             </div>
             <div class="nav-right">
-                <a href="{% url 'universe:profile' username=user.username|default:'guest' %}" class="nav-button">Profile</a>
+                <a href="{% url 'universe:profile' username=user.username|default:'guest' %}"
+                    class="nav-button">Profile</a>
                 <a href="{% url 'universe:make_character' %}" class="nav-button">Make A Character</a>
 
                 {% if request.user.is_authenticated %}
