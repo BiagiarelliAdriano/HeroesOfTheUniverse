@@ -1005,6 +1005,7 @@ button.save-character {
     padding: 20px;
     margin: 0 auto;
     max-width: 90%;
+    color: var(--highlight-color);
 }
 
 .feedback-title {
