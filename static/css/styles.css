@@ -228,6 +228,10 @@ main {
     margin-bottom: 20px;
 }
 
+textarea {
+    resize: vertical;
+}
+
 /* Home Page Styling */
 .characters-container {
     display: flex;
