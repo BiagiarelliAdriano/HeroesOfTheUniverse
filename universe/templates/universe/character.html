@@ -135,12 +135,13 @@
                     <div class="columns">
                         <h2 class="character-info-title">Death Saves</h2>
                         <div class="death-saves">
-                            <label for="id_death_save_successes">Successes:</label>
+                            <label for="id_death_save_success">Successes:</label>
                             {{ form.death_save_success }}
                             <label for="id_death_save_failures">Failures:</label>
                             {{ form.death_save_failures }}
                         </div>
                     </div>
+                </div>
             </section>
 
             <!-- Abilities -->
@@ -224,6 +225,7 @@
                             {{ form.passive_perception }}
                         </div>
                     </div>
+                </div>
             </section>
 
             <!-- Proficiencies -->
@@ -232,13 +234,13 @@
                     <h2 class="character-info-title">Equipment Training & Proficiencies</h2>
                     <div class="armor-training">
                         <h3 class="character-info-title">Armor Training</h3>
-                        <label for="light_armor_training" class="armor-traning-label">
+                        <label for="id_light_armor_training" class="armor-traning-label">
                             Light</label>{{ form.light_armor_training }}
-                        <label for="medium_armor_training" class="armor-traning-label">
+                        <label for="id_medium_armor_training" class="armor-traning-label">
                             Medium</label>{{ form.medium_armor_training }}
-                        <label for="heavy_armor_training" class="armor-traning-label">
+                        <label for="id_heavy_armor_training" class="armor-traning-label">
                             Heavy</label>{{ form.heavy_armor_training }}
-                        <label for="shield_armor_training" class="armor-traning-label">
+                        <label for="id_shield_armor_training" class="armor-traning-label">
                             Shield</label>{{ form.shield_armor_training }}
                     </div>
                     <label for="id_weapons_proficiencies" class="proficiencies-label">Weapons Proficiencies:</label>
@@ -254,29 +256,29 @@
                 <div class="weapon-list">
                     <fieldset>
                         <legend>Weapon 1</legend>
-                        <label for="weapon_name_1">Name:</label>
+                        <label for="id_weapon_name_1">Name:</label>
                         {{ form.weapon_name_1 }}
-                        <label for="attack_bonus_save_dc_1">Save DC:</label>
+                        <label for="id_attack_bonus_save_dc_1">Save DC:</label>
                         {{ form.attack_bonus_save_dc_1 }}
-                        <label for="damage_type_1">Damage:</label>
+                        <label for="id_damage_type_1">Damage:</label>
                         {{ form.damage_type_1 }}
-                        <label for="weapon_notes_1">Notes:</label>
+                        <label for="id_weapon_notes_1">Notes:</label>
                         {{ form.weapon_notes_1 }}
                     </fieldset>
 
                     <fieldset>
                         <legend>Weapon 2</legend>
-                        <label for="weapon_name_2">Name:</label>
+                        <label for="id_weapon_name_2">Name:</label>
                         {{ form.weapon_name_2 }}
-                        <label for="attack_bonus_save_dc_2">Save DC:</label>
+                        <label for="id_attack_bonus_save_dc_2">Save DC:</label>
                         {{ form.attack_bonus_save_dc_2 }}
-                        <label for="damage_type_2">Damage:</label>
+                        <label for="id_damage_type_2">Damage:</label>
                         {{ form.damage_type_2 }}
-                        <label for="weapon_notes_2">Notes:</label>
+                        <label for="id_weapon_notes_2">Notes:</label>
                         {{ form.weapon_notes_2 }}
                     </fieldset>
                 </div>
-                <label for="id_class_features">Class Features:</label>
+                <label for="id_class_features_1">Class Features:</label>
                 {{ form.class_features_1 }}
                 {{ form.class_features_2 }}
                 <label for="id_species_traits">Species Traits:</label>
@@ -373,97 +375,97 @@
             <div class="spell-list-section hidden">
                 <fieldset>
                     <legend>Spell 1</legend>
-                    <label for="spell_level_1">Level:</label>
+                    <label for="id_spell_level_1">Level:</label>
                     {{ form.spell_level_1 }}
-                    <label for="spell_name_1">Name:</label>
+                    <label for="id_spell_name_1">Name:</label>
                     {{ form.spell_name_1 }}
-                    <label for="spell_casting_time_1">Casting Time:</label>
+                    <label for="id_spell_casting_time_1">Casting Time:</label>
                     {{ form.spell_casting_time_1 }}
-                    <label for="spell_range_1">Range:</label>
+                    <label for="id_spell_range_1">Range:</label>
                     {{ form.spell_range_1 }}
-                    <label for="spell_concentration_1">Concetration?</label>
+                    <label for="id_spell_concentration_1">Concetration?</label>
                     {{ form.spell_concentration_1 }}
-                    <label for="spell_ritual_1">Ritual?</label>
+                    <label for="id_spell_ritual_1">Ritual?</label>
                     {{ form.spell_ritual_1 }}
-                    <label for="spell_material_required_1">Requires Material?</label>
+                    <label for="id_spell_material_required_1">Requires Material?</label>
                     {{ form.spell_material_required_1 }}
-                    <label for="spell_notes_1">Notes:</label>
+                    <label for="id_spell_notes_1">Notes:</label>
                     {{ form.spell_notes_1 }}
                 </fieldset>
                 <fieldset>
                     <legend>Spell 2</legend>
-                    <label for="spell_level_2">Level:</label>
+                    <label for="id_spell_level_2">Level:</label>
                     {{ form.spell_level_2 }}
-                    <label for="spell_name_2">Name:</label>
+                    <label for="id_spell_name_2">Name:</label>
                     {{ form.spell_name_2 }}
-                    <label for="spell_casting_time_2">Casting Time:</label>
+                    <label for="id_spell_casting_time_2">Casting Time:</label>
                     {{ form.spell_casting_time_2 }}
-                    <label for="spell_range_2">Range:</label>
+                    <label for="id_spell_range_2">Range:</label>
                     {{ form.spell_range_2 }}
-                    <label for="spell_concentration_2">Concetration?</label>
+                    <label for="id_spell_concentration_2">Concetration?</label>
                     {{ form.spell_concentration_2 }}
-                    <label for="spell_ritual_2">Ritual?</label>
+                    <label for="id_spell_ritual_2">Ritual?</label>
                     {{ form.spell_ritual_2 }}
-                    <label for="spell_material_required_2">Requires Material?</label>
+                    <label for="id_spell_material_required_2">Requires Material?</label>
                     {{ form.spell_material_required_2 }}
-                    <label for="spell_notes_2">Notes:</label>
+                    <label for="id_spell_notes_2">Notes:</label>
                     {{ form.spell_notes_2 }}
                 </fieldset>
                 <fieldset>
                     <legend>Spell 3</legend>
-                    <label for="spell_level_3">Level:</label>
+                    <label for="id_spell_level_3">Level:</label>
                     {{ form.spell_level_3 }}
-                    <label for="spell_name_3">Name:</label>
+                    <label for="id_spell_name_3">Name:</label>
                     {{ form.spell_name_3 }}
-                    <label for="spell_casting_time_3">Casting Time:</label>
+                    <label for="id_spell_casting_time_3">Casting Time:</label>
                     {{ form.spell_casting_time_3 }}
-                    <label for="spell_range_3">Range:</label>
+                    <label for="id_spell_range_3">Range:</label>
                     {{ form.spell_range_3 }}
-                    <label for="spell_concentration_3">Concetration?</label>
+                    <label for="id_spell_concentration_3">Concetration?</label>
                     {{ form.spell_concentration_3 }}
-                    <label for="spell_ritual_3">Ritual?</label>
+                    <label for="id_spell_ritual_3">Ritual?</label>
                     {{ form.spell_ritual_3 }}
-                    <label for="spell_material_required_3">Requires Material?</label>
+                    <label for="id_spell_material_required_3">Requires Material?</label>
                     {{ form.spell_material_required_3 }}
-                    <label for="spell_notes_3">Notes:</label>
+                    <label for="id_spell_notes_3">Notes:</label>
                     {{ form.spell_notes_3 }}
                 </fieldset>
                 <fieldset>
                     <legend>Spell 4</legend>
-                    <label for="spell_level_4">Level:</label>
+                    <label for="id_spell_level_4">Level:</label>
                     {{ form.spell_level_4 }}
-                    <label for="spell_name_4">Name:</label>
+                    <label for="id_spell_name_4">Name:</label>
                     {{ form.spell_name_4 }}
-                    <label for="spell_casting_time_4">Casting Time:</label>
+                    <label for="id_spell_casting_time_4">Casting Time:</label>
                     {{ form.spell_casting_time_4 }}
-                    <label for="spell_range_4">Range:</label>
+                    <label for="id_spell_range_4">Range:</label>
                     {{ form.spell_range_4 }}
-                    <label for="spell_concentration_4">Concetration?</label>
+                    <label for="id_spell_concentration_4">Concetration?</label>
                     {{ form.spell_concentration_4 }}
-                    <label for="spell_ritual_4">Ritual?</label>
+                    <label for="id_spell_ritual_4">Ritual?</label>
                     {{ form.spell_ritual_4 }}
-                    <label for="spell_material_required_4">Requires Material?</label>
+                    <label for="id_spell_material_required_4">Requires Material?</label>
                     {{ form.spell_material_required_4 }}
-                    <label for="spell_notes_4">Notes:</label>
+                    <label for="id_spell_notes_4">Notes:</label>
                     {{ form.spell_notes_4 }}
                 </fieldset>
                 <fieldset>
                     <legend>Spell 5</legend>
-                    <label for="spell_level_5">Level:</label>
+                    <label for="id_spell_level_5">Level:</label>
                     {{ form.spell_level_5 }}
-                    <label for="spell_name_5">Name:</label>
+                    <label for="id_spell_name_5">Name:</label>
                     {{ form.spell_name_5 }}
-                    <label for="spell_casting_time_5">Casting Time:</label>
+                    <label for="id_spell_casting_time_5">Casting Time:</label>
                     {{ form.spell_casting_time_5 }}
-                    <label for="spell_range_5">Range:</label>
+                    <label for="id_spell_range_5">Range:</label>
                     {{ form.spell_range_5 }}
-                    <label for="spell_concentration_5">Concetration?</label>
+                    <label for="id_spell_concentration_5">Concetration?</label>
                     {{ form.spell_concentration_5 }}
-                    <label for="spell_ritual_5">Ritual?</label>
+                    <label for="id_spell_ritual_5">Ritual?</label>
                     {{ form.spell_ritual_5 }}
-                    <label for="spell_material_required_5">Requires Material?</label>
+                    <label for="id_spell_material_required_5">Requires Material?</label>
                     {{ form.spell_material_required_5 }}
-                    <label for="spell_notes_5">Notes:</label>
+                    <label for="id_spell_notes_5">Notes:</label>
                     {{ form.spell_notes_5 }}
                 </fieldset>
             </div>
@@ -471,9 +473,9 @@
             <!-- Appearance & Additional Info -->
             <section class="appearance-section">
                 <h3>Appearance & Background</h3>
-                <label for="id_appearance">Appearance:</label>
+                <label for="id_appearance_area">Appearance:</label>
                 {{ form.appearance_area }}
-                <label for="id_backstory">Backstory & Personality:</label>
+                <label for="id_backstory_personality">Backstory & Personality:</label>
                 {{ form.backstory_personality }}
                 <label for="id_alignment">Alignment:</label>
                 {{ form.alignment }}
