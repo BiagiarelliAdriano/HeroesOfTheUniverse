@@ -287,7 +287,6 @@ textarea {
     padding: 10px 0;
 }
 
-.actions .like-button,
 .actions .comment-button {
     background-color: var(--accent-color);
     color: var(--text-light);
@@ -299,7 +298,6 @@ textarea {
     transition: all 0.2s ease-in-out;
 }
 
-.actions .like-button i,
 .actions .comment-button i {
     margin-right: 5px;
 }
@@ -335,6 +333,11 @@ textarea {
     font-size: 1.2em;
     margin-bottom: 10px;
     color: var(--text-dark);
+}
+
+.comment-subtitle {
+    color: #7c7c7c;
+    padding: 0 0 10px;
 }
 
 .comment-login-prompt {
@@ -1448,7 +1451,6 @@ button.save-character {
         padding: 8px 12px;
     }
 
-    .actions .like-button:hover,
     .actions .comment-button:hover {
         background-color: var(--primary-dark);
         color: var(--accent-color);

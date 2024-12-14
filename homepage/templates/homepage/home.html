@@ -40,6 +40,7 @@
         <div class="comment-section hidden" data-character-id="{{ character.id }}">
             {% if user.is_authenticated %}
             <h4 class="comment-title">Leave a comment:</h4>
+            <h5 class="comment-subtitle">Make it a good one! You won't be able to edit or delete it later.</h5>
             <form method="POST" class="comment-form">
                 {% csrf_token %}
                 <input type="hidden" name="character_id" value="{{ character.id }}">
