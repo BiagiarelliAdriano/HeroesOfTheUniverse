@@ -237,10 +237,8 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70vh;
     margin: 0;
     padding-bottom: 70px;
-    gap: 20px;
 }
 
 /* Character Box */
@@ -282,7 +280,7 @@ textarea {
 /* Actions */
 .actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     padding: 10px 0;
 }
@@ -1422,8 +1420,8 @@ button.save-character {
 
     .character-container {
         display: flex;
-        flex-direction: row;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         gap: 20px;
         width: 100%;
         max-width: 80%;
