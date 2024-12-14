@@ -4,6 +4,13 @@
 {% block title %}Profile - Heroes Of The Universe{% endblock %}
 
 {% block content %}
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
 <div class="profile-container">
     <!-- User's Name -->
     <h1 class="profile-name">{{ user_profile.user.username }}</h1>
@@ -48,14 +55,31 @@
         <div class="character-list">
             {% for character in user_profile.user.character_set.all %}
             <div class="character-card">
+                <div class="delete-character">
+                    <button class="delete-character-btn" data-character-id="{{ character.id }}">
+                        X
+                    </button>
+                </div>
                 <h4>{{ character.name }}</h4>
-                <a href="{% url 'universe:character_detail' character.id %}">
+                <a href="{% url 'universe:character_detail' character.id %}" target="_blank">
                     <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
                 </a>
             </div>
             {% empty %}
             <p>No characters created yet.</p>
             {% endfor %}
+        </div>
+        <!-- Modal for Deletion Confirmation -->
+        <div id="delete-modal-{{ character.id }}" class="modal hidden delete-modal">
+            <div class="deletion-modal">
+                <h3>Delete Character</h3>
+                <p>You are about to delete this character. Are you sure?</p>
+                <form id="delete-character-form-{{ character.id }}" class="delete-character-form" method="POST" action="">
+                    {% csrf_token %}
+                    <button type="submit" class="confirm-delete-character-btn">DELETE</button>
+                    <button type="button" class="close-modal" data-character-id="{{ character.id }}">Return</button>
+                </form>
+            </div>
         </div>
      </div>
 </div>

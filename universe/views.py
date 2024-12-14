@@ -4,7 +4,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django import forms
-from .models import Profile
+from .models import Profile, Character
 
 # Create your views here.
 def landing_page(request):
@@ -106,3 +106,22 @@ def profile_view(request, username):
         "is_owner": is_owner,
     }
     return render(request, "universe/profile.html", context)
+
+def delete_character(request, character_id):
+    print(f"Attempting to delete character with ID: {character_id}")
+    if not request.user.is_authenticated:
+        return redirect('universe:register_or_login')
+    print('You are registered!')
+
+    character = get_object_or_404(Character, id=character_id)
+    print('Got the character.')
+
+    if character.user != request.user:
+        messages.error(request, "You are not authorized to delete this character.")
+        return redirect('universe:profile', username=request.user.username)
+    print('Successfully checked for hackers.')
+
+    character.delete()
+    messages.success(request, f"Character '{character.name}' was successfully sent to the Nine Hells!")
+
+    return redirect('universe:profile', username=request.user.username)
