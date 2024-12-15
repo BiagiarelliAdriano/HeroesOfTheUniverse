@@ -498,3 +498,14 @@ Click on Reveal Config Vars and add the following config variables:
 **Final Deployment**
 - Set debug to False locally.
 - Commit and push the changes to GitHub.
+
+## Credits
+- GitHub for their platform functionalities.
+- Django for the framework.
+- Heroku for the free hosting of the website.
+- Font Awesome for the free access to icons.
+- Coolors for providing a free platform to generate your own palette.
+- Wallpaperaccess for providing the landing background page.
+- ImgBB for uploading images for the README file.
+
+*All names in the page are either random or from my actual own character that I've played in the past or currently playing, other names were chosen by my family, or by my previous mentor, any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
