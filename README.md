@@ -125,3 +125,12 @@ The Navigation bar has the following buttons:
 - Make A Character (which leads to the character form to create a new character)
 - Register / Log In (which leads to the registration or log in page)
 - Log Out (which logs out the user from their current account and renders the main home)
+
+**Footer**
+![Footer](https://i.ibb.co/mcnWtY9/footer.png)
+
+The Footer is consistent throughout the entire website and always has the same functionalities.
+Footer has the following functionalities:
+- To Top button: the user can click on this button when they find themselves at the bottom of a certain page after scrolling to be smoothly brought back to the top of the current page without needing to reload the page.
+- Feedback button: opens in a new tab the Feedback application.
+- Credits: simple text that works as fictious copyright claimer.
