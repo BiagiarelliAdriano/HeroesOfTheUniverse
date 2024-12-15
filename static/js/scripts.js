@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showLoginFormButton.addEventListener("click", function () {
             buttonsContainer.style.display = "none";
             loginForm.style.display = "block";
-        })
+        });
     }
 
     // Dynamically Change Class Image
