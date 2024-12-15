@@ -76,3 +76,23 @@ Most of the functionalities described in these User Stories were actually implem
 	- [Flaticon](https://www.flaticon.com/): was used to get the favicon for the website tab icon.
 	- [OwlbearRodeo](https://www.owlbear.rodeo/): used for character classes images.
 	- [Google Fonts](https://fonts.google.com/): was used for the chosen font throughout the page.
+
+## Features
+Heroes Of The Universe application has the following pages:
+- landing page
+- home page
+- registration / login page
+- feedback page
+- profile page
+- make a character page
+- character details page
+
+A user visitor that enters the website without being logged in a user profile will have access to the following pages:
+- landing page
+- home page
+- registration / login page
+- feedback page
+
+A user registered and logged in a user profile will have access to all of the website pages.
+- The first page a visitor will view is the landing page.
+![Landing Page](https://i.ibb.co/5rwtzkM/landingpage.png)
