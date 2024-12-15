@@ -463,3 +463,6 @@ I knew at the very beginning that I had to implement automated testing. As I was
 ![JavaScript Validation](https://i.ibb.co/DkPXsXR/javascriptvalidation.png)
 
 The one known "unused" variable is actually used inside the html code for the landing page to view the hidden buttons of "Home" and "Register / Log In", viewed when clicking the title "Heroes Of The Universe". No further errors or warnings messages were found when passing through the official [JSHint](https://jshint.com/) validator.
+
+### Python Validation:
+No errors were found when the code was passed through the [PEP8 validation tool](https://pep8ci.herokuapp.com/#). According to the reports, the code is PEP8-compliant. This checking was done manually by copying python code and pasting it into the validator.
