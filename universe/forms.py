@@ -1,6 +1,18 @@
 from django import forms
 from .models import Character
 
+"""
+Form for the 'universe' app, specifically for character creation and editing.
+
+This file contains the CharacterForm, which is a ModelForm for the
+Character model. It handles the input and validation for various fields
+associated with character attributes, abilities, skills, equipment, spells,
+and other RPG-related details.
+
+The form includes a custom field for class image selection,
+with choices defined in the Character model.
+"""
+
 
 class CharacterForm(forms.ModelForm):
     class Meta:

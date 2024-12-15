@@ -5,6 +5,23 @@ from .models import Character
 
 
 def create_or_edit_character(request, character_id=None):
+    """
+    Handles the creation or editing of a character.
+    If a character_id is provided, the function allows editing of the
+    corresponding character, otherwise, it creates a new character.
+
+    If the request is not authenticated, the user is redirected to the
+    login page. After successful submission, the user is redirected to the
+    character detail page.
+
+    Args:
+        request: The HTTP request object.
+        character_id: Optional ID of the character to edit (default is None).
+
+    Returns:
+        A rendered character creation/edit page or a redirect to the character
+        detail page after saving.
+    """
     if not request.user.is_authenticated:
         return redirect('universe:register_or_login')
 
@@ -31,6 +48,19 @@ def create_or_edit_character(request, character_id=None):
 
 
 def character_detail(request, pk):
+    """
+    Displays the details of a specific character. If the logged-in user is the
+    owner of the character, they are allowed to edit it. Otherwise,
+    the character is displayed in a read-only mode.
+
+    Args:
+        request: The HTTP request object.
+        pk: The primary key (ID) of the character to view.
+
+    Returns:
+        A rendered character detail page, which either allows editing or
+        shows a read-only view.
+    """
     character = get_object_or_404(Character, pk=pk)
 
     # Check if the logged-in user is the character owner
@@ -39,9 +69,12 @@ def character_detail(request, pk):
         for field in form.fields.values():
             field.widget.attrs['readonly'] = True
         if request.method == "POST":
-            messages.error(request, "You cannot edit this character because you do not own it.")
+            messages.error(
+                request,
+                "You cannot edit this character because you do not own it.")
     else:
-        form = CharacterForm(request.POST or None, instance=character)  # Editable form
+        # Editable form
+        form = CharacterForm(request.POST or None, instance=character)
 
         if request.method == "POST":
             if form.is_valid():

@@ -6,31 +6,57 @@ from django.contrib import messages
 from django import forms
 from .models import Profile, Character
 
-# Create your views here.
+
 def landing_page(request):
-    if request.user.is_authenticated: # If user is logged in
-        return redirect('main_home:home') # Redirect to the Home page
-    
-    return render(request, 'universe/landing.html') # Render the landing page template
+    """
+    Renders the landing page template. If the user is authenticated,
+    they are redirected to the main home page instead.
+    """
+    if request.user.is_authenticated:
+        return redirect('main_home:home')
+
+    return render(request, 'universe/landing.html')
+
 
 def home_page(request):
-    return render(request, 'homepage/home.html') # Render the Home page template
+    """
+    Renders the home page template.
+    """
+    return render(request, 'homepage/home.html')
+
 
 def register_page(request):
-    return render(request, 'universe/register.html') # Render the Register/Log In page template
+    """
+    Renders the register/login page template.
+    """
+    return render(request, 'universe/register.html')
+
 
 def profile_page(request):
+    """
+    Renders the profile page template for the authenticated user.
+
+    If the user is not authenticated, they are redirected to the registration page.
+    """
     if not request.user.is_authenticated:
         return redirect('universe:register_or_login')
 
-    return render(request, 'universe/profile.html') # Render the Profile page template
+    return render(request, 'universe/profile.html')
+
 
 def logout_view_page(request):
+    """
+    Logs the user out and redirects to the home page.
+    """
     logout(request)
-    return redirect('main_home:home') # Render the logout function and returns to home template
+    return redirect('main_home:home')
 
-# Custom Registration Form
+
 class RegisterForm(forms.ModelForm):
+    """
+    Custom registration form for user registration,
+    including a password and favorite TTRPG field.
+    """
     password = forms.CharField(widget=forms.PasswordInput)
     favorite_ttrpg = forms.CharField(max_length=100, required=False)
 
@@ -38,33 +64,34 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ['username', 'password']
 
+
 def register_or_login(request):
+    """
+    Handles user registration and login. If no 'login' key is in the POST data,
+    the function registers the user; otherwise, it attempts to log the user in.
+    """
     if request.method == 'POST':
-        # Registration logic (if no 'login' key is present in POST)
         if 'login' not in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
             favorite_ttrpg = request.POST.get('favorite_ttrpg')
 
-            # Check if the username already exists
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Username already exists.")
                 return render(request, 'universe/register.html')
 
-            # Create the user
             try:
-                user = User.objects.create_user(username=username, password=password)
+                user = User.objects.create_user(username=username,
+                                                password=password)
                 user.profile.favorite_ttrpg = favorite_ttrpg
                 user.profile.save()
             except Exception as e:
                 messages.error(request, f"Error creating user: {str(e)}")
                 return render(request, 'universe/register.html')
 
-            # Log the user in
             login(request, user)
             return redirect('main_home:home')
 
-        # Login logic (if 'login' key is present in POST)
         else:
             username = request.POST.get('username')
             password = request.POST.get('password')
@@ -79,22 +106,25 @@ def register_or_login(request):
 
     return render(request, 'universe/register.html')
 
-# Profile Page Functionality
+
 def profile_view(request, username):
-    # Redirect unauthenticated users to the registration page
+    """
+    Displays and allows editing of a user's profile.
+    Only the user who owns the profile can edit it.
+    """
     if not request.user.is_authenticated and username == 'guest':
         return redirect('universe:register_or_login')
 
-    # Fetch the profile based on the username
     user_profile = get_object_or_404(Profile, user__username=username)
     is_owner = request.user == user_profile.user
 
     if request.method == "POST" and is_owner:
-        # Update profile logic if the user is the owner
         if "username" in request.POST:
             new_username = request.POST.get("username").strip()
             if not new_username or len(new_username) > 50:
-                messages.error(request, "Username cannot be empty or longer than 50 characters.")
+                messages.error(
+                        request,
+                        "Username cannot be empty or longer than 50 letters.")
             elif User.objects.filter(username=new_username).exists():
                 messages.error(request, "This username is already taken.")
             else:
@@ -104,7 +134,9 @@ def profile_view(request, username):
         if "favorite_ttrpg" in request.POST:
             favorite_ttrpg = request.POST.get("favorite_ttrpg")
             if len(favorite_ttrpg) > 50:
-                messages.error(request, "Favorite TTRPG cannot be longer than 50 characters.")
+                messages.error(
+                    request,
+                    "Favorite TTRPG cannot be longer than 50 letters.")
             else:
                 user_profile.favorite_ttrpg = favorite_ttrpg
 
@@ -121,17 +153,25 @@ def profile_view(request, username):
     }
     return render(request, "universe/profile.html", context)
 
+
 def delete_character(request, character_id):
+    """
+    Deletes a character. The user can only delete characters they own.
+    """
     if not request.user.is_authenticated:
         return redirect('universe:register_or_login')
 
     character = get_object_or_404(Character, id=character_id)
 
     if character.user != request.user:
-        messages.error(request, "You are not authorized to delete this character.")
+        messages.error(
+            request, "You are not authorized to delete this character.")
         return redirect('universe:profile', username=request.user.username)
 
     character.delete()
-    messages.success(request, f"Character '{character.name}' was successfully sent to the Nine Hells!")
+    messages.success(
+        request,
+        f"Character '{character.name}' "
+        "was successfully sent to the Nine Hells!")
 
     return redirect('universe:profile', username=request.user.username)

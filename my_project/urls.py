@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', universe_views.landing_page, name='landing'),
     path('home/', include('homepage.urls', namespace='main_home')),
-    path('universe/', include('universe.urls')), # Include the universe app's URLs
+     # Include the universe app's URLs
+    path('universe/', include('universe.urls')),
 ]
