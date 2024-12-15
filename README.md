@@ -134,3 +134,39 @@ Footer has the following functionalities:
 - To Top button: the user can click on this button when they find themselves at the bottom of a certain page after scrolling to be smoothly brought back to the top of the current page without needing to reload the page.
 - Feedback button: opens in a new tab the Feedback application.
 - Credits: simple text that works as fictious copyright claimer.
+
+**Home page**
+![Home Page view](https://i.ibb.co/ZVNJ0p5/homepage.png)
+The Home Page welcomes users with an interesting background that inspires players of tabletop roleplaying games with the triangular pattern and the sword icon. This was done with the following CSS code:
+
+    body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4B3C31;
+    font-family: 'Macondo', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(45deg, transparent 25%, rgba(0, 0, 0, 0.1) 25%),
+					  linear-gradient(-45deg, transparent 25%, rgba(0, 0, 0, 0.1) 25%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='50' font-size='30' fill='%23D4AF37' fill-opacity='0.2' font-family='Arial'%3E⚔️%3C/text%3E%3C/svg%3E");
+    background-size: 150px  150px, 150px  150px, 150px  150px;
+    background-repeat: repeat, repeat, repeat;
+    background-position: 0  0, 0  0, -31px  1px;
+    }
+The Home Page also directly starts showing the user the latest character created by the community. Scrolling will display all the different characters.
+![Character template](https://i.ibb.co/C6cpGG0/charactertemplate.png)
+All characters are displayed with the following template that offers the user various possibility of interactions.
+- The user can safely click on the user name at the top of the character template, and opening in a new tab will be the profile page of that specific user.
+- The user can safely click on the class image displayed in the center of the character template, and opening in a new tab will be the character sheet of that specific character to view.
+- Under the character class image is that character's name.
+- The user can click on the Add Comment button to open the Comment Section of that specific character.
+![Character template with comment section open](https://i.ibb.co/R4MwCgj/charactertemplatecommentsectionopen.png)
+- Once the user has clicked on the Add Comment button, the Comment section for that character will be displayed and the user can view the comments published for that character, with specifics informations about each comment. Commenter name, comment content and time of comment posting.
+- A warming message tells the user that if they want to leave a comment, they will need to log in first.
+- Clicking on the Add Comment button again will close the specific Comment section if it was open.
+![Character template with comment section open while user is logged in](https://i.ibb.co/jyXNyY5/charactertemplatecommentsectionopenloggedin.png)
+- If the user is logged in a registered account, the Comment form will be displayed.
+- A visible warning lets users know that the functionality to be able to edit or delete comments is not yet available to users, so they'll need to think thoroughly before leaving a comment.
+- The comment editing and deleting functionality was planned but was not able to be implemented due to lack of time.
