@@ -335,3 +335,17 @@ There are known fields that still "editable" in the character detail page when v
 ![Character details page after trying to submit changes for characters not owned](https://i.ibb.co/C7QGQvp/makeacharacterdetailpageerrormessagedonotown.png)
 
 After a user tries to submit fields changed in the character detail page for characters that they do not own, the page will reload and the error message will be displayed, warning users that they cannot freely edit characters that they do not own.
+
+**Feedback Page**
+
+![Feedback page](https://i.ibb.co/Z2Vp164/feedbackpage.png)
+
+Pressing on the Feedback button any time from the footer will open the Feedback page in a new tab. This offers the functionality to the users to submit any kind of message for the creator of the website to view. Messages can be of any kind, positive feedback, negative feedback, story time, adventure shares, or suggestions for functionalities not yet implemented on the page.
+
+![Feedback page empty fields error](https://i.ibb.co/vDCZHWt/feedbackpageemptyfieldserror.png)
+
+An error will promptly warn the user that they forgot to fill out a specific part of the feedback form. This works for all fields, as all fields are required to submit the form successfully.
+
+![Feedback form successful submission](https://i.ibb.co/4tkhHDQ/feedbackpagecorrectsubmit.png)
+
+After the user fills out the entire form and presses on the Submit button, the page will reload and a kind message will thank the user for their feedback.
