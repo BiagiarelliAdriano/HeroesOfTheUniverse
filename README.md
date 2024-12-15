@@ -466,3 +466,35 @@ The one known "unused" variable is actually used inside the html code for the la
 
 ### Python Validation:
 No errors were found when the code was passed through the [PEP8 validation tool](https://pep8ci.herokuapp.com/#). According to the reports, the code is PEP8-compliant. This checking was done manually by copying python code and pasting it into the validator.
+
+## Deployment
+- The app was deployed to [Heroku](https://www.heroku.com/).
+- The app can be reached by the [link](https://heroes-of-the-universe-d056e159be1f.herokuapp.com/).
+## Heroku Deployment
+- Set up a local workspace on your computer for Heroku:
+	- Create a list of requirements that the project needs to run:
+		- type this in the terminal: pip3 freeze > requirements.txt
+	- Commit and push the changes to GitHub
+- Go to www.heroku.com
+- Log in or create a Heroku account.
+- Create a new app with any unique name.
+- Create a Procfile in your local workplace.
+- This file will contain the following:
+- `web: gunicorn my_project.wsgi`
+	- Commit and push the changes to GitHub.
+- Go to the settings app in Heroku and go to Config Vars.
+
+Click on Reveal Config Vars and add the following config variables:
+- DATABASE_URL
+- SECRET_KEY
+	- Copy the value of DATABASE_URL and put it into the .env file and generate a secret key.
+- Migrate changes.
+- Set debug to False in settings.py.
+- Commit and push the changes to GitHub.
+- Connect your repository to Heroku.
+- Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment".
+- The deployment process will start.
+- Click "View build logs" to see the progress of the deployment.
+**Final Deployment**
+- Set debug to False locally.
+- Commit and push the changes to GitHub.
