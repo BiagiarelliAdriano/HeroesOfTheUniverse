@@ -50,13 +50,14 @@
     </div>
 
     <!-- My Characters Section -->
-     <div class="profile-characters">
+    <div class="profile-characters">
         <h3>My Characters</h3>
         <div class="character-list">
             {% for character in user_profile.user.character_set.all %}
             <div class="character-card">
                 <div class="delete-character">
-                    <button class="delete-character-btn" data-character-id="{{ character.id }}">
+                    <button class="delete-character-btn" data-character-id="{{ character.id }}"
+                        aria-label="Ask for confirmation to delete character">
                         X
                     </button>
                 </div>
@@ -74,13 +75,16 @@
             <div class="deletion-modal">
                 <h3>Delete Character</h3>
                 <p>You are about to delete this character. Are you sure?</p>
-                <form id="delete-character-form-{{ character.id }}" class="delete-character-form" method="POST" action="">
+                <form id="delete-character-form-{{ character.id }}" class="delete-character-form" method="POST"
+                    action="">
                     {% csrf_token %}
-                    <button type="submit" class="confirm-delete-character-btn">DELETE</button>
-                    <button type="button" class="close-modal" data-character-id="{{ character.id }}">Cancel</button>
+                    <button type="submit" class="confirm-delete-character-btn"
+                        aria-label="Confirm character deletion">DELETE</button>
+                    <button type="button" class="close-modal" data-character-id="{{ character.id }}"
+                        aria-label="Cancel character deletion and return to profile">Cancel</button>
                 </form>
             </div>
         </div>
-     </div>
+    </div>
 </div>
 {% endblock %}

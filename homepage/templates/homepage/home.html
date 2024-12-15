@@ -18,12 +18,14 @@
         <!-- Character Box -->
         <div class="character-box">
             <div class="user-name">
-                <a href="{% url 'universe:profile' character.user.username %}" target="_blank">
+                <a href="{% url 'universe:profile' character.user.username %}" target="_blank"
+                    aria-label="Go to the profile of the user that created this character">
                     <p>{{ character.user.username }}</p>
                 </a>
             </div>
             <div class="character-image">
-                <a href="{% url 'universe:character_detail' character.id %}" target="_blank">
+                <a href="{% url 'universe:character_detail' character.id %}" target="_blank"
+                    aria-label="Go to this character sheet">
                     <img src="{% static 'images/' %}{{ character.class_image }}.png" alt="{{ character.name }} image">
                 </a>
             </div>
@@ -32,7 +34,8 @@
             </div>
             <div class="actions">
                 <!-- Add Comment Button -->
-                <button class="comment-button"><i class="fa-regular fa-comment-dots"></i>Add Comment...</button>
+                <button class="comment-button" aria-label="Open comment section"><i
+                        class="fa-regular fa-comment-dots"></i>Add Comment...</button>
             </div>
         </div>
 
@@ -45,11 +48,11 @@
                 {% csrf_token %}
                 <input type="hidden" name="character_id" value="{{ character.id }}">
                 <textarea name="body" rows="4" placeholder="Write your comment..." class="comment-input"></textarea>
-                <button type="submit" class="comment-submit">Comment</button>
+                <button type="submit" class="comment-submit" aria-label="Submit your comment">Comment</button>
             </form>
             {% else %}
-            <p class="comment-login-prompt">Please <a href="{% url 'universe:register_or_login' %}"
-                    class="login-link">log in</a> to leave a
+            <p class="comment-login-prompt">Please <a href="{% url 'universe:register_or_login' %}" class="login-link"
+                    aria-label="Go to register a new account or log in to an existing one">log in</a> to leave a
                 comment.</p>
             {% endif %}
             <h3 class="comments-title">Comments:</h3>

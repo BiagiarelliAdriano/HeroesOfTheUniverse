@@ -14,8 +14,8 @@
 
     <!-- Pagination Buttons -->
     <div class="pagination-buttons">
-        <button type="button" class="pagination-btn" data-page="1">1</button>
-        <button type="button" class="pagination-btn" data-page="2">2</button>
+        <button type="button" class="pagination-btn" data-page="1" aria-label="Go to the first page of the character sheet, if you are not already there">1</button>
+        <button type="button" class="pagination-btn" data-page="2" aria-label="Go to the second page of the character sheet, if you are not already there">2</button>
     </div>
 
     <form method="POST" id="character-form">
@@ -23,9 +23,6 @@
 
         <!-- Page 1 Content -->
         <div id="page-1" class="page-content active">
-
-
-
             <!-- Character Image -->
             <button type="button" id="toggle-class-image-btn">Select Character Image</button>
             <div class="class-image-section hidden">
@@ -371,7 +368,7 @@
             </section>
 
             <!-- Spell List-->
-            <button type="button" id="toggle-spell-list-btn">Spell List</button>
+            <button type="button" id="toggle-spell-list-btn" aria-label="Open your character spell list">Spell List</button>
             <div class="spell-list-section hidden">
                 <fieldset>
                     <legend>Spell 1</legend>
