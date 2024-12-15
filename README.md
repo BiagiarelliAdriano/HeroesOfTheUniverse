@@ -240,3 +240,84 @@ By clicking on a username on the main home page, any user can open the profile p
 ![Profile page after trying to delete a character not owned by the current user](https://i.ibb.co/dm6rbmT/profilepagedeletecharacternotowned.png)
 
 Users are still able to click on the X buttons of characters in profile pages not of their own. This will display the deletion modal. After trying to press the DELETE button, the user will be safely redirected to their own profile page for security and an error message will be displayed, warning the user that they are not able to delete characters that they do not own.
+
+**Make A Character page**
+
+![Make A Character page](https://i.ibb.co/Bc7MjFY/makeacharacterpage.png)
+
+The Make A Character page, or character creation page, displays every single piece of information a character from Dungeons & Dragons 2024 rules may need to play. Every single input is editable to the user, representing each information.
+The first page presents the following features:
+- Character Class Image
+- Character Name
+- Character Background
+- Character Species
+- Character Class
+- Character Subclass
+- Character Level
+- Character Experience Points (XP)
+- Character Armor Class
+- Character Shield Choice
+- Character Current Hit Points (HP)
+- Character Maximum HP
+- Character Temporary HP
+- Character Spent Hit Dice
+- Character Max Hit Dice
+- Character Death Saves Successes
+- Character Death Saves Failures
+- Character Ability Scores
+- Character Saving Throws
+- Character Abilities Proficiencies
+- Character Initiative
+- Character Speed
+- Character Size
+- Character Passive Perception
+- Character Armor Training
+- Character Weapons Proficiencies
+- Character Tools Proficiencies
+- Character Weapons & Damage Cantrips
+- Character Class Features
+- Character Species Traits
+- Character Feats
+
+![Make A Character pagination buttons](https://i.ibb.co/F6jBByr/makeacharacterpageselection.png)
+
+The Make A Character page presents two different pages. These pagination buttons can be safely pressed to change the page viewed by the user. The page will not be reloaded upon pressing either of these buttons, but instead the form will dynamically change presenting the content of the first page or the second page.
+
+![Make A Character class image selection](https://i.ibb.co/TqvLjcy/makeacharacterclassimage.png)
+
+Pressing on the Select Character Image button will display the radio form for the character class image that is meant to be a placehoder for the character's image. Each icon represents faithfully a class can be chosen by the Dungeons & Dragons rules. Clicking on any of the radio buttons will dynamically change the icon shown on the right to reflect the user's choice in real time.
+
+![Make A Character second page](https://i.ibb.co/x5Xdddt/makeacharactersecondpage.png)
+
+The second page of the Make A Character page presents the following features:
+- Character Spellcasting Ability
+- Character Spellcasting Modifier
+- Character Spell Save Difficulty Class (DC)
+- Character Spell Attack Bonus
+- Character Available Spell Slots
+- Character Spell List
+- Character Appearance
+- Character Backstory & Personality
+- Character Alignment
+- Character Known Languages
+- Character Equipment
+- Character Magic Attunements
+- Character Coins
+
+![Make A Character Spell List](https://i.ibb.co/zG2sfp9/makeacharacterspelllist.png)
+
+The user can safely press the Spell List button to display underneath five templates representing each a different available spell for the user to fill out.
+No more spells are available after the five.
+
+![Make A Character only required field](https://i.ibb.co/zXYvB3L/makeacharacterrequiredfield.png)
+
+The only input field that is actually required by the user to fill out to successfully create a new character, is the name. An error shows up successfully if the user tries to submit without the name.
+
+![Make A Character Bad value error](https://i.ibb.co/QHWCdfw/makeacharacterbadvalue.png)
+
+Users will be warned if they are trying to submit a character with bad values.
+
+![Make A Character successful character creation](https://i.ibb.co/TRPmyW4/makeacharactersuccessfulcreationmessage.png)
+
+After trying to save a character with correct values and filling out at least the name of the character, the page will reload, the character will be created and a success message will be displayed to let the user know of their success.
+Now users can freely choose to either go to home page to view their new character enty there, access their profile page to view the character details of the newly created character, or stay in the Make A Character page to continue editing for the character.
