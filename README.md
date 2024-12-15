@@ -355,3 +355,22 @@ After the user fills out the entire form and presses on the Submit button, the p
 ![Favicon](https://i.ibb.co/Dp0Zzn7/favicon.png)
 
 The favicon is a small image that is displayed in the browser's address bar. It is used to identify the website among others and help the user to find it when they are searching for it.
+
+## Design
+The design of the application is based on the Material Design principles. The central theme of the application is the simplicity of use. Thus, all the components are designed to be easy to use. The minimalistic approach was used to create something meaningful without moving out of focus. As this application is a multifunctional one and consists of many components, the decision to implement empty spaces was made as it helps to create a more pleasant user experience.
+### Color Scheme
+The color scheme of the application is the following:
+
+![Color scheme](https://i.ibb.co/n3gct8M/colorpalette.png)
+
+It was chosen due to its variation in colors and to represent colors that remember a feeling of adventure based on Dungeons & Dragons.
+- The Dark red was chosen as a primary color.
+- The Blood red was chosen as a darker version of the primary color.
+- The Forest green was chosen as a secondary color.
+- The Office green was chosen as a darker version of the secondary color.
+- The Jet color was chosen for the footer background color.
+- The Gold (metallic) was chosen as a highlighting color for texts.
+- The Tawny color was chosen as an accent color for buttons.
+- The Beige color was chosen as a main content background color
+- The Pearl color was chosen as a darker version of the main content background color, to highlight import fields.
+- The Sapphire color was chosen for some links color and the Cancel out of character deletion button.
