@@ -91,9 +91,22 @@ def profile_view(request, username):
 
     if request.method == "POST" and is_owner:
         # Update profile logic if the user is the owner
+        if "username" in request.POST:
+            new_username = request.POST.get("username").strip()
+            if not new_username or len(new_username) > 50:
+                messages.error(request, "Username cannot be empty or longer than 50 characters.")
+            elif User.objects.filter(username=new_username).exists():
+                messages.error(request, "This username is already taken.")
+            else:
+                request.user.username = new_username
+                request.user.save()
+
         if "favorite_ttrpg" in request.POST:
             favorite_ttrpg = request.POST.get("favorite_ttrpg")
-            user_profile.favorite_ttrpg = favorite_ttrpg
+            if len(favorite_ttrpg) > 50:
+                messages.error(request, "Favorite TTRPG cannot be longer than 50 characters.")
+            else:
+                user_profile.favorite_ttrpg = favorite_ttrpg
 
         if "about_me" in request.POST:
             about_me = request.POST.get("about_me")

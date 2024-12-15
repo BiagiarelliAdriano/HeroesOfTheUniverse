@@ -425,7 +425,7 @@ textarea {
 }
 
 .profile-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
     position: relative;
@@ -445,6 +445,32 @@ textarea {
 
 .profile-name::after {
     right: -15px;
+}
+
+.username-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.username-form input {
+    padding: 5px;
+    font-size: 3rem;
+}
+
+.username-form label {
+    font-size: 3rem;
+}
+
+.username-form button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--text-light);
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .profile-favorite-ttrpg {
