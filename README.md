@@ -321,3 +321,17 @@ Users will be warned if they are trying to submit a character with bad values.
 
 After trying to save a character with correct values and filling out at least the name of the character, the page will reload, the character will be created and a success message will be displayed to let the user know of their success.
 Now users can freely choose to either go to home page to view their new character enty there, access their profile page to view the character details of the newly created character, or stay in the Make A Character page to continue editing for the character.
+
+**Character Detail View**
+
+![Character detail page view that they do not own](https://i.ibb.co/s6JHwc3/characterdetailpageuserdonotowncharacter.png)
+
+Users that successfully open the character detail page of characters that they do not own will view the character sheet as normal, but they will not be able to edit any field.
+
+![Character detail still editable fields](https://i.ibb.co/KFGzGcy/characterdetailstilleditable.png)
+
+There are known fields that still "editable" in the character detail page when viewed by a user that does not own the currently viewed character.
+
+![Character details page after trying to submit changes for characters not owned](https://i.ibb.co/C7QGQvp/makeacharacterdetailpageerrormessagedonotown.png)
+
+After a user tries to submit fields changed in the character detail page for characters that they do not own, the page will reload and the error message will be displayed, warning users that they cannot freely edit characters that they do not own.
