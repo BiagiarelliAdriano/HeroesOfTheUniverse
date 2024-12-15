@@ -96,3 +96,8 @@ A user visitor that enters the website without being logged in a user profile wi
 A user registered and logged in a user profile will have access to all of the website pages.
 - The first page a visitor will view is the landing page.
 ![Landing Page](https://i.ibb.co/5rwtzkM/landingpage.png)
+
+After clicking on the title "Heroes Of The Universe", the user will have access to two new buttons: the "Home" button and the "Register / Log In" button.
+![Landing page after clicking the title button](https://i.ibb.co/pZbsQ9Q/landingpageafterclickingtitle.png)
+
+After clicking on either one of the two buttons, the user will have access to the main page.
