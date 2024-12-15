@@ -62,27 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const charactersContainer = document.querySelector('.characters-container');
-    const isAuthenticated = charactersContainer ? charactersContainer.dataset.authenticated === 'true' : false;
-    const likeButtons = document.querySelectorAll('.like-button');
-
-    likeButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Check if the user is authenticated before allowing the like action
-            if (!isAuthenticated) {
-                alert("You must be logged in to like a character.");
-                return; // Prevent the action if not authenticated
-            }
-
-            // Toggle button text and icon between Like and Liked
-            if (this.textContent.trim() === "Like") {
-                this.innerHTML = '<i class="fa-solid fa-thumbs-up"></i> Liked'; // Change to Liked
-            } else {
-                this.innerHTML = '<i class="fa-regular fa-thumbs-up"></i> Like'; // Change back to Like
-            }
-        });
-    });
-
     // Comment section toggle functionality
     const commentButton = document.querySelectorAll('.comment-button');
 
@@ -108,4 +87,23 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(pageId).classList.add("active");
         });
     });
+
+    // Show deletion modal functionality
+    const deleteButtons = document.querySelectorAll('.delete-character-btn');
+    const modal = document.querySelector('.delete-modal');
+    const deleteForm = document.querySelector('.delete-character-form');
+    const cancelButton = document.querySelector('.close-modal');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const characterId = this.getAttribute('data-character-id');
+            deleteForm.action = `/universe/character/delete/${characterId}/`; // Update form action
+            modal.classList.remove('hidden'); // Show the modal
+        });
+    });
+
+    cancelButton.addEventListener('click', function () {
+        modal.classList.add('hidden'); // Hide the modal
+    });
+
 });
