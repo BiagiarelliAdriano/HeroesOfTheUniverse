@@ -40,3 +40,39 @@ I started out by creating a Google Document as a draft for my user stories. Some
 | [#18](https://github.com/BiagiarelliAdriano/HeroesOfTheUniverse/issues/18) | As a **site user** I can **compile a form** so that **I can provide feedback to the site admin**. | -   Leaving any input field blank will provide an error message. | Could-Have |
 | [#19](https://github.com/BiagiarelliAdriano/HeroesOfTheUniverse/issues/19) | As a **site admin** I can **store feedback forms in the database** so that **I can review them**. |  | Should-Have |
 | [#20](https://github.com/BiagiarelliAdriano/HeroesOfTheUniverse/issues/20) | As a **site admin** I can **mark feedback forms as "read"** so that **I can see how many I still need to process**. |  | Should-Have |
+
+Most of the functionalities described in these User Stories were actually implemented and are present in the final project. The User Stories marked as Won't Have are the functionalities that were not implemented due to a lack of time.
+
+## Technologies used
+
+ - ### Languages:
+	 - [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): the primary language used to develop the server-side of the website.
+	 - [JS](https://www.javascript.com/): the primary language used to develop interactive components of the website.
+	 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): the markup language used to create the website.
+	 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): the styling language used to style the website.
+- ### Framework:
+	- [Django](https://www.djangoproject.com/): python framework used to create all the logic.
+- ### Database:
+	- [SQLite](https://www.sqlite.org/): was used as a development database.
+- ### Other tools:
+	- [Git](https://git-scm.com/): the version control system used to manage the code.
+	- [Pip3](https://pypi.org/project/pip/): the package manager used to install the dependencies.
+	- [Gunicorn](https://gunicorn.org/): the webserver used to run the website.
+	- [Spycopg2](https://peps.python.org/pep-0249/): the database driver used to connect to the database.
+	- [Django-crispy-forms](https://django-cryptography.readthedocs.io/en/latest/): was used to control the rendering behavior of Django forms.
+	- [Heroku](https://www.heroku.com/): the cloud platform used to host the website.
+	- [GitHub](https://github.com/): used to host the website's source code.
+	- [CodeInstituteIDE](https://codeinstitute-ide.net/workspaces): the IDE used to develop the website.
+	- [Chrome DevTools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
+	- [Font Awesome](https://fontawesome.com/): was used to create the icons used in the website.
+	- [StackEdit](https://stackedit.io/): was used to write markdown code for the README file.
+	- [Coolors](https://coolors.co/): was used to make a color palette for the website.
+	- [Wallpaperaccess](https://wallpaperaccess.com/): was used to search the landing background image.
+	- [W3C Validator](https://validator.w3.org/): was used to validate HTML5 code for the website.
+	- [W3C CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
+	- [JShint](https://jshint.com/): was used to validate JS code for the website.
+	- [Heroku PEP8](https://pep8ci.herokuapp.com/#): was used to validate Python code for the website.
+	- [MockFlow](https://mockflow.com/): was used for wireframes design templates and project structure.
+	- [Flaticon](https://www.flaticon.com/): was used to get the favicon for the website tab icon.
+	- [OwlbearRodeo](https://www.owlbear.rodeo/): used for character classes images.
+	- [Google Fonts](https://fonts.google.com/): was used for the chosen font throughout the page.
