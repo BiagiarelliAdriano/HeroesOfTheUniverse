@@ -374,3 +374,8 @@ It was chosen due to its variation in colors and to represent colors that rememb
 - The Beige color was chosen as a main content background color
 - The Pearl color was chosen as a darker version of the main content background color, to highlight import fields.
 - The Sapphire color was chosen for some links color and the Cancel out of character deletion button.
+
+### Typography
+The main font used in the application is Macondo. The use of this font is consistent with the color scheme. Needless to say, the Lato font was chosen due to its readability and its feel of ancient scriptures to resemble the feeling of adventure and mystery of Dungeons & Dragons, which increases user experience.
+
+![Font used throughout the project](https://i.ibb.co/9sRM5RX/font.png)
