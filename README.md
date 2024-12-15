@@ -101,3 +101,27 @@ After clicking on the title "Heroes Of The Universe", the user will have access 
 ![Landing page after clicking the title button](https://i.ibb.co/pZbsQ9Q/landingpageafterclickingtitle.png)
 
 After clicking on either one of the two buttons, the user will have access to the main page.
+
+- Each page has a navbar and a footer
+
+**Navbar**
+![Navbar](https://i.ibb.co/WKtdG98/navbar.png)
+Navbar has the following links:
+- home page
+- profile page
+- make a character page
+- register / log in page
+
+The title on the top left of the Navigation bar can also function as a link to return to the home page.
+The simplistic design of the navbar is based on the decision to make the use of the webapp easy and understandable for any user.
+When the user is logged in, the navbar looks as follows.
+![Navbar as logged in user](https://i.ibb.co/8gCqyQK/navbarloggedin.png)
+
+The only noticeable difference is the change of the Register / Log In button into the Log Out button, which users can safely press to log out of their user account and return to the home page.
+The Navigation bar has the following buttons:
+- Heroes Of The Universe (which leads to the main home)
+- Home (which is the easier way to return to the main home)
+- Profile (which leads to the user profile page)
+- Make A Character (which leads to the character form to create a new character)
+- Register / Log In (which leads to the registration or log in page)
+- Log Out (which logs out the user from their current account and renders the main home)
