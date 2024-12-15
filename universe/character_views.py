@@ -23,9 +23,6 @@ def create_or_edit_character(request, character_id=None):
             messages.success(request,
                              'Character successfully created! Good job!')
             return redirect('universe:character_detail', pk=character.id)
-        else:
-            print(form.errors)
-            messages.error(request, "There were errors with your form submission.")
 
     return render(request, 'universe/character.html', {
         'form': form,
@@ -35,11 +32,20 @@ def create_or_edit_character(request, character_id=None):
 
 def character_detail(request, pk):
     character = get_object_or_404(Character, pk=pk)
-    form = CharacterForm(instance=character)
 
     if request.user.username != character.user.username:
         for field in form.fields.values():
             field.widget.attrs['readonly'] = True
+
+    if request.method == "POST":
+        form = CharacterForm(request.POST, instance=character)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             'Character successfully edited!')
+            return redirect('universe:character_detail', pk=character.pk)
+    else:
+        form = CharacterForm(instance=character)
 
     return render(
         request,
