@@ -405,3 +405,61 @@ Wireframe MockFlow was used to create the Wireframes for this project.
 - Wireframe for the Make A Character second page
 
 ![Wireframe for Make A Character second page](https://i.ibb.co/ctXTg5D/wireframemakeacharacterpage2.png)
+
+## Testing
+## Manual Testing
+Testing was done throughout site development, for each feature.
+Usability was tested following the User Stories and their Acceptance Criteria. I do stand on the fact that all features work as intended.
+## Bugs
+### Known bugs
+There is a CSS bug when the user opens the Comment Section on a character template in the Home Page, where the Character Template will embiggen.
+There is also a bug when a user tries to submit changes to their own username from the Profile username section, where the changes won't be fully applied until the user opens a new page and then goes back to the Profile page. Then changes will be correctly applied.
+### Solved Bugs
+There were plenty of bugs during the development process since this project was a learning platform for me and allowed me to improve my skills and knowledge significantly.
+However, I tried to solve the majority of them. I have had bugs for the character creation form not rendering properly, csrf tokens verification failed, unusual incorrect character creation form styling, various errors found in the DevTools consoole about favicons and scripts, static files error during deployment once.
+Fortunately, I was able to solve every single one of the most problematic bugs, and right now, outside of the known bugs, the project does not have any critical bug.
+## Automated Testing
+### Django unit testing
+I knew at the very beginning that I had to implement automated testing. As I was highly concentrated on developing all functionality first, so I left testing to the end. But unfortunately, due to several problems during development, I was able to complete the website functionalities to late and near the prefixed deadline to be able to have enough time for all the automated testing. In the future, I plan to implement testing and code simultaneously in order to increase my productivity.
+## Validation
+### HTML Validation:
+- landing.html
+
+![Landing page validation](https://i.ibb.co/7Qg0w7m/landingpagevalidation.png)
+
+- base.html
+
+![Base HTML validation](https://i.ibb.co/hCkRjfc/basehtmlvalidation.png)
+
+- home.html
+
+![Home Page Validation](https://i.ibb.co/qpqSbyd/homepagevalidation.png)
+
+- profile.html
+
+![Profile Page Validation](https://i.ibb.co/JtRk11g/profilepagevalidation.png)
+
+- register.html
+
+![Register Page Validation](https://i.ibb.co/6PCb7K3/registrationpagevalidation.png)
+
+- character.html
+
+![Make A Character Page Validation](https://i.ibb.co/gFgh21P/charactercreationandeditvalidation.png)
+
+- feedback.html
+
+![Feedback Page Validation](https://i.ibb.co/8xq27m7/formhtmlvalidation.png)
+
+- character_detail.html is the same code as the character.html but handled differently with django views.
+- No errors or warnings were found when passing through the [official W3C validation](https://validator.w3.org/). This checking was done manually by copying the view page source code (Ctrl+U) and pasting it into the validator.
+### CSS Validation:
+
+![CSS Code Validation](https://i.ibb.co/WkvCgq6/cssvalidation.png)
+
+- No errors or warnings were found when passing through the [official W3C (Jigsaw)](https://jigsaw.w3.org/css-validator/) validation.
+### JS Validation:
+
+![JavaScript Validation](https://i.ibb.co/DkPXsXR/javascriptvalidation.png)
+
+The one known "unused" variable is actually used inside the html code for the landing page to view the hidden buttons of "Home" and "Register / Log In", viewed when clicking the title "Heroes Of The Universe". No further errors or warnings messages were found when passing through the official [JSHint](https://jshint.com/) validator.
