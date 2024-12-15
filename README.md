@@ -170,3 +170,27 @@ All characters are displayed with the following template that offers the user va
 - If the user is logged in a registered account, the Comment form will be displayed.
 - A visible warning lets users know that the functionality to be able to edit or delete comments is not yet available to users, so they'll need to think thoroughly before leaving a comment.
 - The comment editing and deleting functionality was planned but was not able to be implemented due to lack of time.
+
+**Registration / Log In page**
+![Registration Page](https://i.ibb.co/hVVQq1L/registrationpage.png)
+The registration presents simple and easily understandable web design, with a small description of the use of the page and two buttons:
+-	The Register button, which opens the registration form.
+-	The Log In button which opens the log in form.
+
+![Registration Form](https://i.ibb.co/10hVMvZ/registrationform.png)
+
+After clicking on the Register button, the Registration form will dynamically replace the Register button and Log In button, allowing the user to submit their own registration data. After a successful submit of data, the user will be automatically registered, logged in and be redirected to the home page to continue navigation.
+
+![Login form](https://i.ibb.co/c26Y8rZ/loginform.png)
+
+After clicking on the Log In button, the Log In form will dynamically replace the Register button and Log In button, allowing the user to submit their own log in informations data. After a successful submit of data, the user will be automatically logged in and be redirected to the home page to continue navigation.
+
+![Empty field warning](https://i.ibb.co/jRBnXmP/registrationemptyfieldwarning.png)
+
+If the user mistakingly leaves any form field empty, the page will warn the user of that and asks the user to fully fill out the form.
+![Same name error](https://i.ibb.co/LRdSs1W/samenameerror.png)
+
+If a user tries to register an account with the same name of an already registered account, the user will be redirected to the main registration page with an error message to either try register an account with a different name, or try to log in that account, if they own an account with that name.
+
+![Log In error](https://i.ibb.co/vYDKcgQ/loginerror.png)
+If a user tries to log in with a username that does not match any of the already registered accounts or with an invalid password, they will be redirected to the main registration page with an error message to either try again or try to register a different account with new data.
