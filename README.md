@@ -379,3 +379,29 @@ It was chosen due to its variation in colors and to represent colors that rememb
 The main font used in the application is Macondo. The use of this font is consistent with the color scheme. Needless to say, the Lato font was chosen due to its readability and its feel of ancient scriptures to resemble the feeling of adventure and mystery of Dungeons & Dragons, which increases user experience.
 
 ![Font used throughout the project](https://i.ibb.co/9sRM5RX/font.png)
+
+### Wireframes
+Wireframe MockFlow was used to create the Wireframes for this project.
+- Wireframe for the Landing Page
+
+![Landing Page wireframe](https://i.ibb.co/BcyfFhz/wireframelandingpage.png)
+
+- Wireframe for the Landing Page viewed on Mobile.
+
+![Wireframe for Landing Page Viewed on Mobile](https://i.ibb.co/MZ3dcnh/wireframelandingpagemobile.png)
+
+- Wireframe for the Home page
+
+![Wireframe for Home page](https://i.ibb.co/M9pPz4N/wireframehomepage.png)
+
+- Wireframe for the Profile page
+
+![Wireframe for Profile page](https://i.ibb.co/bN3QXpW/wireframeprofilepage.png)
+
+- Wireframe for the Make A Character first page
+
+![Wireframe for Make A Character first page](https://i.ibb.co/k8zytdx/wireframemakeacharacter.png)
+
+- Wireframe for the Make A Character second page
+
+![Wireframe for Make A Character second page](https://i.ibb.co/ctXTg5D/wireframemakeacharacterpage2.png)
