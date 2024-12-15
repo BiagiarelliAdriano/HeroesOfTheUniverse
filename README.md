@@ -349,3 +349,9 @@ An error will promptly warn the user that they forgot to fill out a specific par
 ![Feedback form successful submission](https://i.ibb.co/4tkhHDQ/feedbackpagecorrectsubmit.png)
 
 After the user fills out the entire form and presses on the Submit button, the page will reload and a kind message will thank the user for their feedback.
+
+**Favicon**
+
+![Favicon](https://i.ibb.co/Dp0Zzn7/favicon.png)
+
+The favicon is a small image that is displayed in the browser's address bar. It is used to identify the website among others and help the user to find it when they are searching for it.
