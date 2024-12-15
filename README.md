@@ -194,3 +194,49 @@ If a user tries to register an account with the same name of an already register
 
 ![Log In error](https://i.ibb.co/vYDKcgQ/loginerror.png)
 If a user tries to log in with a username that does not match any of the already registered accounts or with an invalid password, they will be redirected to the main registration page with an error message to either try again or try to register a different account with new data.
+
+**Profile Page**
+![Profile page](https://i.ibb.co/42LH4N3/profilepage.png)
+
+This is the view of the profile page if the user owns the current profile page. This offers the possibility to edit the various elements data of the user.
+- The user username:
+- 
+![Profile username](https://i.ibb.co/ZBYqk81/profileusername.png)
+
+Here the user can freely edit their Username by clicking on the input, change it, then safely clicking the Save button.
+
+![Profile successfully edited](https://i.ibb.co/7RjZXNj/profilepageupdated.png)
+
+After successfully saving any edit the user has made in their profile page, the page reloads with the new informations and tells the user that their edits were successful.
+
+![User's Favorite Tabletop Roleplaying game](https://i.ibb.co/gycTyqB/profilefavoritettrpg.png)
+
+In the Favorite TTRPG section of the profile page, the user can freely edit their favorite Tabletop Roleplaying Game of choice.
+
+![Profile about me section](https://i.ibb.co/7pGxBg7/profilepageaboutme.png)
+
+The About Me section in the profile page represents the possibility of the user to briefly write a description of themselves and their experience with Tabletop Roleplaying Games, maybe with some fun anecdotes about their past adventures.
+
+![User's characters displayed in the profile page](https://i.ibb.co/wsVcxwc/profilepagecharacters.png)
+
+The My Characters section in the profile page presents the user a list of all the characters that were created by them. Here the users can take two actions:
+- The user can click on the X button on the top left of each different character template to view the deletion confirmation modal.
+- The user can safely click on the class image of a specific character to open in a new tab the character detail sheet of that character for editing.
+- 
+![Character deletion modal](https://i.ibb.co/Q6fCs3K/profilepagecharacterdeletionmodal.png)
+
+After pressing any of the X buttons, the user is shown the character deletion modal. This explains to the user that they are about to delete one of their characters. Here, they can either choose to click on the Cancel button to safely return to their profile page without deleting their character. Or, they choose to click on the DELETE button and delete the chosen character for ever.
+
+![Deletion message](https://i.ibb.co/1dq57qz/profilepagecharacterdeletemessage.png)
+
+After clicking on the second DELETE button, the character will be permanently delete from the database and the profile page will reload. The confirmation message "Character '{{ character.name }}' was successfully sent to the Nine Hells!" tells the user that the deletion process was successful.
+
+There is no known functionality for the user to delete their own account. Future updates could change this.
+
+![Profile page of user not owned](https://i.ibb.co/Dz1vTKy/profilepagenotowned.png)
+
+By clicking on a username on the main home page, any user can open the profile page of any user. This is the view of the profile page of an account not owned by the current user. The various data are displayed correctly and not editable. The user can still click on the various character class images to open those characters sheets to view them.
+
+![Profile page after trying to delete a character not owned by the current user](https://i.ibb.co/dm6rbmT/profilepagedeletecharacternotowned.png)
+
+Users are still able to click on the X buttons of characters in profile pages not of their own. This will display the deletion modal. After trying to press the DELETE button, the user will be safely redirected to their own profile page for security and an error message will be displayed, warning the user that they are not able to delete characters that they do not own.
