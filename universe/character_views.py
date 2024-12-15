@@ -33,19 +33,21 @@ def create_or_edit_character(request, character_id=None):
 def character_detail(request, pk):
     character = get_object_or_404(Character, pk=pk)
 
+    # Check if the logged-in user is the character owner
     if request.user.username != character.user.username:
+        form = CharacterForm(instance=character)  # Read-only view
         for field in form.fields.values():
             field.widget.attrs['readonly'] = True
-
-    if request.method == "POST":
-        form = CharacterForm(request.POST, instance=character)
-        if form.is_valid():
-            form.save()
-            messages.success(request,
-                             'Character successfully edited!')
-            return redirect('universe:character_detail', pk=character.pk)
+        if request.method == "POST":
+            messages.error(request, "You cannot edit this character because you do not own it.")
     else:
-        form = CharacterForm(instance=character)
+        form = CharacterForm(request.POST or None, instance=character)  # Editable form
+
+        if request.method == "POST":
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Character successfully edited!')
+                return redirect('universe:character_detail', pk=character.pk)
 
     return render(
         request,
