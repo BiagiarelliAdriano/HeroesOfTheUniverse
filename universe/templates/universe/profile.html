@@ -13,22 +13,23 @@
 {% endif %}
 <div class="profile-container">
     <!-- User's Name -->
-    <h1 class="profile-name">
+    <div class="profile-name">
         {% if user == user_profile.user %}
         <!-- Editable Username -->
-         <form method="POST" class="username-form">
+        <form method="POST" class="username-form">
             {% csrf_token %}
             <label for="username">Username:</label>
-            <input type="text" name="username" id="username" value="{{ user_profile.user.username }}" placeholder="Enter your username">
+            <input type="text" name="username" id="username" value="{{ user_profile.user.username }}"
+                placeholder="Enter your username">
             <button type="submit">Save</button>
-         </form>
-         {% else %}
-         <span>{{ user_profile.user.username }}</span>
-         {% endif %}
-    </h1>
+        </form>
+        {% else %}
+        <span>{{ user_profile.user.username }}</span>
+        {% endif %}
+    </div>
 
     <!-- Favorite TTRPG -->
-    <h2 class="profile-favorite-ttrpg">
+    <div class="profile-favorite-ttrpg">
         {% if user == user_profile.user %}
         <!-- Editable Favorite TTRPG -->
         <form method="POST" class="favorite-ttrpg-form">
@@ -42,7 +43,7 @@
         <!-- Display Favorite TTRPG -->
         <span>{{ user_profile.favorite_ttrpg }}</span>
         {% endif %}
-    </h2>
+    </div>
 
     <!-- About Me Section -->
     <div class="profile-about-me">
@@ -87,8 +88,7 @@
             <div class="deletion-modal">
                 <h3>Delete Character</h3>
                 <p>You are about to delete this character. Are you sure?</p>
-                <form id="delete-character-form-{{ character.id }}" class="delete-character-form" method="POST"
-                    action="">
+                <form id="delete-character-form-{{ character.id }}" class="delete-character-form" method="POST">
                     {% csrf_token %}
                     <button type="submit" class="confirm-delete-character-btn"
                         aria-label="Confirm character deletion">DELETE</button>
