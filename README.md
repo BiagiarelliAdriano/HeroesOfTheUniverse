@@ -509,3 +509,8 @@ Click on Reveal Config Vars and add the following config variables:
 - ImgBB for uploading images for the README file.
 
 *All names in the page are either random or from my actual own character that I've played in the past or currently playing, other names were chosen by my family, or by my previous mentor, any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
+
+## Acknowledgments
+- My previous mentor Spencer Barriball for helping me through the starting process of the project, believe in the project and just being very welcoming of my own ideas and passions.
+- My current mentor Julia Konovalova for the last meeting for this project, highlighting all the important UX design and user accessibility problems and helping me through the process of my project.
+- The entirety of my family for helping me emotionally through the development of the project and still believing in me even through my own mistakes, always believing in my own passions and ideas during very stressful times.
